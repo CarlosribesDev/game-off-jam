@@ -15,7 +15,6 @@ func _on_range_area_body_entered(body: Node2D) -> void:
 	enemy.die.connect(_on_enemy_die)
 	
 	_targets_in_range.append(enemy)
-	print(body.name + "enter")
 	if _current_target == null:
 		_current_target = enemy
 

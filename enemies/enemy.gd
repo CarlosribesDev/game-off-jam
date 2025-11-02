@@ -17,8 +17,8 @@ func get_damage(damage: float) -> void:
 	health -= damage
 	#health_bar.set_current_health(health)
 	if health <= 0:
-		
 		_die()
+		
 func set_path_follow(path_follow: PathFollow2D) -> void:
 	_path_follow = path_follow
 
