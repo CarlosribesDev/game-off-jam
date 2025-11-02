@@ -1,7 +1,7 @@
 class_name Projectil extends Area2D
 
 @export var damage = 5
-@export var speed = 200
+@export var speed = 400
 
 var _direction: Vector2
 

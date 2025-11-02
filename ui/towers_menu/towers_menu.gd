@@ -7,4 +7,4 @@ func _ready():
 	
 
 func _on_red_tower_button_pressed() -> void:
-	pass # Replace with function body.
+	var tower = RED_TOWER.instantiate()
