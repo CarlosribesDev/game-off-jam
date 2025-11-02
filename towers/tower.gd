@@ -26,6 +26,10 @@ func _on_enemy_die(enemy: Enemy) -> void:
 	_remove_target_and_get_next(enemy)
 
 func _remove_target_and_get_next(enemy: Enemy) -> void:
+	# disconnect signal
+	if enemy.die.is_connected(_on_enemy_die):
+		enemy.die.disconnect(_on_enemy_die)
+	# remove enemy
 	_targets_in_range.erase(enemy)
 	#exit when enemy is not the target
 	if enemy != _current_target:
