@@ -3,8 +3,8 @@ class_name Enemy extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-@export var speed: float = 60.0
-@export var max_healt: float = 100
+@export var speed: float = 80.0
+@export var max_healt: float = 10
 @export var gold_value: int = 1
 
 signal die(ememy: Enemy)
@@ -47,6 +47,7 @@ func _die() -> void:
 	#var blood = blood_resource.instantiate()
 	#get_tree().root.add_child(blood)
 	#blood.global_position = global_position
+	_path_follow.queue_free()
 	queue_free()
 
 func _on_target_reached() -> void:

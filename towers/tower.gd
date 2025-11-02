@@ -1,0 +1,54 @@
+class_name Tower extends Node2D
+
+@onready var projectile_spawn_pos: Marker2D = $ProjectileSpawnPos
+
+const PROJECTIL = preload("uid://dipmywfwdmrlo")
+
+var _targets_in_range: Array[Enemy] = [] 
+var _current_target: Enemy
+
+func _ready():
+	pass
+	
+func _on_range_area_body_entered(body: Node2D) -> void:
+	var enemy = body as Enemy
+	enemy.die.connect(_on_enemy_die)
+	
+	_targets_in_range.append(enemy)
+	print(body.name + "enter")
+	if _current_target == null:
+		_current_target = enemy
+
+func _on_range_area_body_exited(body: Node2D) -> void:
+	var enemy = body as Enemy
+	_remove_target_and_get_next(enemy)
+
+func _on_enemy_die(enemy: Enemy) -> void:
+	_remove_target_and_get_next(enemy)
+
+func _remove_target_and_get_next(enemy: Enemy) -> void:
+	_targets_in_range.erase(enemy)
+	#exit when enemy is not the target
+	if enemy != _current_target:
+		return
+	if _targets_in_range.is_empty():
+		_current_target = null
+	else:
+		#logic to select next target
+		_current_target = _targets_in_range[0]
+
+
+func _on_attack_timer_timeout() -> void:
+	if _current_target == null:
+		return
+	
+	# add proyectile
+	var projectile_instance = PROJECTIL.instantiate()
+	get_tree().root.add_child(projectile_instance)
+	
+	# position
+	projectile_instance.global_position = projectile_spawn_pos.global_position
+	
+	# direction
+	var direction = (_current_target.global_position - global_position).normalized()
+	projectile_instance.set_direction(direction)

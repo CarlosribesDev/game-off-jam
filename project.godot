@@ -18,3 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 EnemyGenerator="*res://enemies/enemy_generator.gd"
+
+[layer_names]
+
+2d_physics/layer_1="Enemy"
+2d_physics/layer_2="Projectil"

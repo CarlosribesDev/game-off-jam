@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dipmywfwdmrlo"]
+
+[ext_resource type="Texture2D" uid="uid://13fehbk0gnvg" path="res://assets/sprites/tilesheet/towerDefense_tilesheet.png" id="1_ml708"]
+[ext_resource type="Script" uid="uid://c0nmv5vffj8gu" path="res://projectiles/projectil.gd" id="1_u3ci8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3ci8"]
+size = Vector2(33, 21)
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_u3ci8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+texture = ExtResource("1_ml708")
+region_enabled = true
+region_rect = Rect2(1240, 786, 17, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_u3ci8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
