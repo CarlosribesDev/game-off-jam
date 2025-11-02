@@ -1,10 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://diax8n45uy1cu"]
+[gd_scene load_steps=9 format=3 uid="uid://diax8n45uy1cu"]
 
 [ext_resource type="Script" uid="uid://cafqn48q104fs" path="res://enemies/enemy.gd" id="1_7frlh"]
 [ext_resource type="Texture2D" uid="uid://bojbsxlx3maff" path="res://assets/sprites/enemies/enemy1.png" id="1_fw1ev"]
+[ext_resource type="Texture2D" path="res://assets/sprites/proyectiles/Explosion01.png" id="3_3t1x0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/proyectiles/Explosion02.png" id="4_epsnb"]
+[ext_resource type="Texture2D" path="res://assets/sprites/proyectiles/Explosion03.png" id="5_4w5fm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/proyectiles/Explosion04.png" id="6_uba7a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7frlh"]
 radius = 46.010868
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28xqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3t1x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_epsnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4w5fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uba7a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_mask = 2
@@ -19,3 +43,9 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_fw1ev")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_28xqf")
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Explosion"]
