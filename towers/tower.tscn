@@ -10,14 +10,17 @@ radius = 218.00229
 script = ExtResource("1_uyl23")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -37)
 texture = ExtResource("1_wmotl")
 region_enabled = true
 region_rect = Rect2(128, 0, 64, 128)
 
 [node name="ProjectileSpawnPos" type="Marker2D" parent="."]
-position = Vector2(0, -30)
+position = Vector2(0, -37)
 
 [node name="RangeArea" type="Area2D" parent="."]
+position = Vector2(0, -37)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea"]
