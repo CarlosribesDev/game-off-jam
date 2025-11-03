@@ -4,7 +4,7 @@ class_name Enemy extends CharacterBody2D
 @onready var explosion: AnimatedSprite2D = $Explosion
 
 @export var speed: float = 80.0
-@export var max_healt: float = 100
+@export var max_healt: float = 20
 @export var gold_value: int = 1
 
 signal die(ememy: Enemy)
