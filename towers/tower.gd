@@ -10,23 +10,22 @@ var _enabled: bool = false
 
 @onready var projectile_spawn_pos: Marker2D = $ProjectileSpawnPos
 @onready var red_projectil: RedProjectil = $RedProjectil
-
-#TODO disbale area before build
-
-func enable() -> void:
-	_enabled = true
-	red_projectil.set_is_casting(true)
-	red_projectil.appear()
+@onready var range_area: Area2D = $RangeArea
 
 func _ready():
-	red_projectil.dissapear()
-
-func _physics_process(delta: float) -> void:
+	range_area.monitoring = false
+	
+func _process(_delta: float) -> void:
 	if not _current_target:
-		red_projectil.dissapear()
+		red_projectil.stop()
 		return
-	red_projectil.appear()
-	red_projectil.target_position = _current_target.global_position
+	red_projectil.set_target(_current_target)
+
+# Enables the tower after its construction/placement.
+# It is initially disabled to prevent actions while the player is placing it.
+func enable() -> void:
+	_enabled = true
+	range_area.monitoring = true
 
 func _on_range_area_body_entered(body: Node2D) -> void:
 	if not _enabled:
@@ -55,25 +54,14 @@ func _remove_target_and_get_next(enemy: Enemy) -> void:
 	if enemy != _current_target:
 		return
 	if _targets_in_range.is_empty():
-		red_projectil.dissapear()
+		red_projectil.stop()
 		_current_target = null
 	else:
 		#logic to select next target
 		_current_target = _targets_in_range[0]
 
-
 func _on_attack_timer_timeout() -> void:
 	if _current_target == null or not _enabled:
 		return
 	
-	# add proyectile
-	
-	var projectile_instance = PROJECTIL.instantiate()
-	get_tree().root.add_child(projectile_instance)
-	
-	# position
-	projectile_instance.global_position = projectile_spawn_pos.global_position
-	
-	# direction
-	var direction = (_current_target.global_position - global_position).normalized()
-	projectile_instance.set_direction(direction)
+	red_projectil.hit_target()
