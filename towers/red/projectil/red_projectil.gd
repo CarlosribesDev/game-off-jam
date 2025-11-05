@@ -14,6 +14,10 @@ var is_casting: bool = false
 
 @onready var line_2d: Line2D = $Line2D
 @onready var line_width: float = line_2d.width
+@onready var red_attack_start: AudioStreamPlayer2D = $RedAttack_start
+@onready var red_attack_loop: AudioStreamPlayer2D = $RedAttack_loop
+@onready var red_attack_finish: AudioStreamPlayer2D = $RedAttack_finish
+
 
 func _ready():
 	set_color(color)
@@ -69,6 +73,7 @@ func _set_is_casting(new_value: bool) -> void:
 		
 	is_casting = new_value
 	
+
 	if is_casting == false:
 		_dissapear()
 	else:
@@ -77,6 +82,8 @@ func _set_is_casting(new_value: bool) -> void:
 
 #animation to make the laser disappear
 func _dissapear() -> void:
+	red_attack_loop.stop()
+	red_attack_finish.play()
 	if not line_2d:
 		return
 	if tween and tween.is_running():
@@ -89,13 +96,16 @@ func _dissapear() -> void:
 
 #animation to make the laser appear
 func _appear() -> void:
+	red_attack_start.play()
 	if not line_2d:
 		return
 	line_2d.visible = true
 	if tween and tween.is_running():
 		tween.kill()
-		
+	
 	tween = create_tween()
 	tween.tween_property(line_2d, "width", line_width, growth_time * 2.0).from(0.0)
+	await red_attack_start.finished
+	red_attack_loop.play()
 	
 	
