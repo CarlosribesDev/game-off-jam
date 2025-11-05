@@ -15,6 +15,7 @@ var is_casting: bool = false
 
 @onready var line_2d: Line2D = $Line2D
 @onready var line_width: float = line_2d.width
+@onready var red_attack: AudioStreamPlayer2D = $RedAttack
 
 func _ready():
 	set_color(color)
@@ -75,6 +76,7 @@ func _set_is_casting(new_value: bool) -> void:
 	else:
 		current_laser_length = 0.0
 		_appear()
+	red_attack.play()
 
 #animation to make the laser disappear
 func _dissapear() -> void:
