@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://4fkas61wyppq"]
+[gd_scene load_steps=3 format=3 uid="uid://4fkas61wyppq"]
 
-[ext_resource type="Script" uid="uid://bkevbkfyf2a3m" path="res://towers/tower.gd" id="1_uyl23"]
 [ext_resource type="Texture2D" uid="uid://bif7l67deifn7" path="res://assets/sprites/towers/Towers.png" id="1_wmotl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmotl"]
 radius = 218.00229
 
 [node name="Tower" type="Node2D"]
-script = ExtResource("1_uyl23")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
@@ -15,9 +13,6 @@ position = Vector2(0, -37)
 texture = ExtResource("1_wmotl")
 region_enabled = true
 region_rect = Rect2(128, 0, 64, 128)
-
-[node name="ProjectileSpawnPos" type="Marker2D" parent="."]
-position = Vector2(0, -37)
 
 [node name="RangeArea" type="Area2D" parent="."]
 position = Vector2(0, -37)

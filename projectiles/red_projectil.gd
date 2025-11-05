@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	# --- STEP 1: rotate the laser beam towards the target ---
 	look_at(_target.global_position)
 
-	# --- PASO 2: The laser's length is modified depending on the enemy's position; 
+	# --- STEP 2: The laser's length is modified depending on the enemy's position; 
 	# --- the speed at which the laser changes length depends on cast_speed. ---
 	var distance_to_target = global_position.distance_to(_target.global_position)
 	
@@ -38,10 +38,12 @@ func _physics_process(delta: float) -> void:
 	
 	line_2d.points[1] = Vector2(current_laser_length, 0.0)
 
+#stop the laser
 func stop() -> void:
 	_target = null
 	_set_is_casting(false)
 
+#set the target to follow
 func set_target(target: Enemy) -> void:
 	if target == _target:
 		return	
@@ -50,7 +52,8 @@ func set_target(target: Enemy) -> void:
 	
 	if not is_casting:
 		_set_is_casting(true)
-		
+
+#damages the current target	
 func hit_target() -> void:
 	if not _target:
 		return
@@ -73,6 +76,7 @@ func _set_is_casting(new_value: bool) -> void:
 		current_laser_length = 0.0
 		_appear()
 
+#animation to make the laser disappear
 func _dissapear() -> void:
 	if not line_2d:
 		return
@@ -80,12 +84,11 @@ func _dissapear() -> void:
 		tween.kill()
 		
 	tween = create_tween()
-	# Animación de ancho a cero
 	tween.tween_property(line_2d, "width", 0.0, growth_time * 2.0).from_current()
-	# Opcional: Ocultar el nodo y reiniciar la longitud después de la animación
 	tween.tween_callback(line_2d.hide)
 	tween.tween_callback(func(): current_laser_length = 0.0)
-	
+
+#animation to make the laser appear
 func _appear() -> void:
 	if not line_2d:
 		return
@@ -94,7 +97,6 @@ func _appear() -> void:
 		tween.kill()
 		
 	tween = create_tween()
-	# Animación de ancho de cero a ancho original
 	tween.tween_property(line_2d, "width", line_width, growth_time * 2.0).from(0.0)
 	
 	
