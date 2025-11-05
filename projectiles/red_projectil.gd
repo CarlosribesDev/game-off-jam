@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 func stop() -> void:
 	_target = null
 	_set_is_casting(false)
+	red_attack.stop()
 
 #set the target to follow
 func set_target(target: Enemy) -> void:
