@@ -7,7 +7,7 @@ const GREEN_PROJECTILE = preload("uid://ck6mf6m73ergh")
 func _ready():
 	pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func _fire() -> void:

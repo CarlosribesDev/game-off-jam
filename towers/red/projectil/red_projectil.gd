@@ -18,6 +18,11 @@ var is_casting: bool = false
 @onready var red_attack_loop: AudioStreamPlayer2D = $RedAttack_loop
 @onready var red_attack_finish: AudioStreamPlayer2D = $RedAttack_finish
 
+# VARIABLES PARA DIBUJAR LA ONDA
+var amplitude := 10			# Altura máxima (+/-)
+var speed := -16 				# Velocidad de la oscilación
+var phase_offset := PI / 3	# Desfase entre puntos
+
 
 func _ready():
 	set_color(color)
@@ -25,10 +30,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if not is_casting or not _target:
 		return
-		
 	# --- STEP 1: rotate the laser beam towards the target ---
 	look_at(_target.global_position)
-
 	# --- STEP 2: The laser's length is modified depending on the enemy's position; 
 	# --- the speed at which the laser changes length depends on cast_speed. ---
 	var distance_to_target = global_position.distance_to(_target.global_position)
@@ -38,8 +41,15 @@ func _physics_process(delta: float) -> void:
 		distance_to_target,
 		cast_speed * delta
 	)
+	var imax = int (line_2d.get_point_count() - 1)
+	var time := Time.get_ticks_msec() / 1000.0
+	for i in range(line_2d.get_point_count()):
+		var pos = line_2d.get_point_position(i)
+		pos.x = i * current_laser_length /imax
+		pos.y = sin(time * speed + i * phase_offset) * amplitude * sin(PI * i / imax)
+		line_2d.set_point_position(i, pos)
 	
-	line_2d.points[1] = Vector2(current_laser_length, 0.0)
+	#line_2d.points[1] = Vector2(current_laser_length, 0.0)
 
 #stop the laser
 func stop() -> void:
