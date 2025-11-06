@@ -1,14 +1,13 @@
 class_name TowerPlacer extends Node2D
 
-@onready var towers_menu: TowersMenu = $"../GameUI/TowersMenu"
-@onready var level_tile_map: LevelTileMap = $"../LevelTileMap"
-
-
+var level_tile_map: LevelTileMap
+# parent for all towers
+var towers: Node2D
 var _is_placing = false
 var _current_tower_instance: Tower = null
-
-# state
 var _is_valid_placement = false
+
+@export var towers_menu: TowersMenu
 
 func _ready():
 	towers_menu.tower_selected.connect(_on_tower_selected)
@@ -30,6 +29,11 @@ func _input(event: InputEvent) -> void:
 		if _is_valid_placement:
 			_place_tower()
 
+# should be called each time a level is created
+func update_nodes_from_current_level(current_level: Level) -> void:
+	level_tile_map = current_level.get_node("LevelTileMap")
+	towers = current_level.get_node("Towers")
+
 func _place_tower() -> void:
 	var tile_pos = level_tile_map.get_mouse_tile_pos()
 	level_tile_map.set_tile_occupied(tile_pos)
@@ -43,7 +47,7 @@ func _on_tower_selected(tower_scene: PackedScene) -> void:
 		return
 	
 	_current_tower_instance = tower_scene.instantiate()
-	add_child(_current_tower_instance)
+	towers.add_child(_current_tower_instance)
 	_is_placing = true
 	
 	
