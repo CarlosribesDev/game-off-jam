@@ -24,10 +24,18 @@ func _process(_delta: float) -> void:
 		_current_tower_instance.global_position = get_global_mouse_position()
 
 func _input(event: InputEvent) -> void:
-	if _is_placing and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-
-		if _is_valid_placement:
+	if not _is_placing:
+		return
+	# place tower
+	if (event is InputEventMouseButton and 
+		event.button_index == MOUSE_BUTTON_LEFT and 
+		event.pressed and _is_valid_placement):
 			_place_tower()
+	# calcel
+	elif event.is_action("exit"):
+		_current_tower_instance.queue_free()
+		_current_tower_instance = null
+		_is_placing = false
 
 # should be called each time a level is created
 func update_nodes_from_current_level(current_level: Level) -> void:
