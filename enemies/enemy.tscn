@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://drq2ylbhn8b3w" path="res://assets/sprites/proyectiles/Explosion04.png" id="6_uba7a"]
 [ext_resource type="PackedScene" uid="uid://bko3pruxq8viw" path="res://enemies/health_bar.tscn" id="7_epsnb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7frlh"]
-radius = 46.010868
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epsnb"]
+size = Vector2(45, 66)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_28xqf"]
 animations = [{
@@ -39,7 +39,8 @@ collision_mask = 2
 script = ExtResource("1_7frlh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7frlh")
+position = Vector2(-2.5, 1)
+shape = SubResource("RectangleShape2D_epsnb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -0.9999981)
