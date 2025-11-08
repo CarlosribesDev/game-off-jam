@@ -7,6 +7,8 @@ class_name BlueProjectil
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var blue_attack: AudioStreamPlayer2D = $BlueAttack
+
 
 var elapsed := 0.0
 var shape: CircleShape2D
@@ -15,6 +17,7 @@ func _ready() -> void:
 	shape = collision_shape.shape
 	shape.radius = 0.0
 	sprite_2d.scale = Vector2.ZERO
+	blue_attack.play()
 
 func _process(delta: float) -> void:
 	elapsed += delta

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck6mf6m73ergh"]
+[gd_scene load_steps=13 format=3 uid="uid://ck6mf6m73ergh"]
 
 [ext_resource type="Script" uid="uid://q583klmvpknv" path="res://towers/green/projectil/green_projectile.gd" id="1_8lep0"]
 [ext_resource type="Texture2D" uid="uid://c4ogu05o4r7c5" path="res://assets/sprites/proyectiles/01.png" id="1_qvvkj"]
+[ext_resource type="AudioStream" uid="uid://crw2n0h5snfge" path="res://assets/sounds/sfx/Green_Attack.wav" id="3_eg2fn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qvvkj"]
 atlas = ExtResource("1_qvvkj")
@@ -86,6 +87,9 @@ animation = &"anim"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 0.5)
 shape = SubResource("RectangleShape2D_qvvkj")
+
+[node name="GreenAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_eg2fn")
 
 [node name="Duration" type="Timer" parent="."]
 wait_time = 20.0

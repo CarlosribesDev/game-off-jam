@@ -3,6 +3,8 @@ class_name Game extends Node2D
 @export var levels: Array[PackedScene]
 @export var current_level_number: int = 1
 
+var _current_level: Level
+
 #current level parent
 @onready var level: Node2D = $Level
 @onready var tower_placer: TowerPlacer = $TowerPlacer
