@@ -5,6 +5,8 @@ signal reached_target(enemy: Enemy)
 
 enum  EnemyType { NORMAL, FAST }
 
+const GOLD_DROPPED = preload("uid://cxs4ar5enx4mn")
+
 @export var speed: float = 80.0
 @export var max_healt: float = 20
 @export var gold_value: int = 1
@@ -16,6 +18,7 @@ var _path_follow: PathFollow2D
 @onready var explosion: AnimatedSprite2D = $Explosion
 @onready var health_bar: HealthBar = $HealthBar
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var gold_dropped_pos: Marker2D = $GoldDroppedPos
 
 func get_damage(damage: float) -> void:
 	_set_health(health - damage)
@@ -52,12 +55,16 @@ func _process(delta):
 
 func _die() -> void:
 	die.emit(self)
-	#var blood = blood_resource.instantiate()
-	#get_tree().root.add_child(blood)
-	#blood.global_position = global_position
+	_show_gold_dropped()
 	Score.add_gold(gold_value)
 	_path_follow.queue_free()
 	queue_free()
+
+func _show_gold_dropped() -> void:
+	var gold_droped: GoldDropped = GOLD_DROPPED.instantiate()
+	get_tree().root.add_child(gold_droped)
+	gold_droped.set_gold(gold_value)
+	gold_droped.global_position = gold_dropped_pos.global_position
 
 func _on_target_reached() -> void:
 	reached_target.emit(self)

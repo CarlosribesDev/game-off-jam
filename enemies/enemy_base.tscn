@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://diax8n45uy1cu"]
+[gd_scene load_steps=11 format=3 uid="uid://diax8n45uy1cu"]
 
 [ext_resource type="Script" uid="uid://cafqn48q104fs" path="res://enemies/enemy.gd" id="1_fenyl"]
 [ext_resource type="Texture2D" uid="uid://bojbsxlx3maff" path="res://assets/sprites/enemies/enemy1.png" id="2_g0tqa"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cghq387lneluj" path="res://assets/sprites/proyectiles/Explosion03.png" id="5_3lj8x"]
 [ext_resource type="Texture2D" uid="uid://drq2ylbhn8b3w" path="res://assets/sprites/proyectiles/Explosion04.png" id="6_nu4s6"]
 [ext_resource type="PackedScene" uid="uid://bko3pruxq8viw" path="res://enemies/health_bar/health_bar.tscn" id="7_puprq"]
+[ext_resource type="PackedScene" uid="uid://cxs4ar5enx4mn" path="res://enemies/gold_dropped/gold_dropped.tscn" id="8_g0tqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epsnb"]
 size = Vector2(45, 66)
@@ -62,3 +63,13 @@ offset_left = -20.0
 offset_top = -49.0
 offset_right = -20.0
 offset_bottom = -49.0
+
+[node name="GoldDroped" parent="." instance=ExtResource("8_g0tqa")]
+visible = false
+offset_left = -9.0
+offset_top = -40.0
+offset_right = -9.0
+offset_bottom = -40.0
+
+[node name="GoldDroppedPos" type="Marker2D" parent="."]
+position = Vector2(-9, -40)
