@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwyyp2r266blt"]
 
-[ext_resource type="PackedScene" uid="uid://4fkas61wyppq" path="res://towers/tower_base.tscn" id="1_orgjy"]
+[ext_resource type="PackedScene" path="res://towers/tower.tscn" id="1_orgjy"]
 [ext_resource type="Script" uid="uid://bpvj36tgrsr8g" path="res://towers/blue/blue_tower.gd" id="2_iq8f3"]
 
 [node name="BlueTower" instance=ExtResource("1_orgjy")]
 script = ExtResource("2_iq8f3")
-range = null
-attack_speed = null
 
 [node name="Sprite2D" parent="." index="0"]
 frame = 1
