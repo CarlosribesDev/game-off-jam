@@ -9,7 +9,7 @@ var _current_seconds = 0
 func _ready():
 	pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var next_wave_seconds_left = enemy_generator.get_next_wave_seconds_left()
 	if _current_seconds != next_wave_seconds_left:
 		_update_time(next_wave_seconds_left)

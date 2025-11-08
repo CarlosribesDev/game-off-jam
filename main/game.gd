@@ -19,5 +19,5 @@ func _load_level(level_number: int) -> void:
 	level_container.add_child(_current_level)
 	tower_placer.update_nodes_from_current_level(_current_level)
 	enemy_generator.load_level_nodes(_current_level)
-	enemy_generator.init()
+	enemy_generator.init_wave()
 	
