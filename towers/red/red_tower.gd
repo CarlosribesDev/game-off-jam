@@ -5,7 +5,7 @@ class_name RedTower extends Tower
 
 func _ready():
 	super._ready()
-	
+
 func _process(_delta: float) -> void:
 	if not _current_target:
 		red_projectil.stop()

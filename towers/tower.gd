@@ -4,7 +4,9 @@ class_name Tower extends Node2D
 
 @export var build_price: Price.TowerBuild = Price.TowerBuild.RED
 @export var damage: float = 5
-@export var radius: float = 200
+@export var tower_range: float = 200
+#time bettween attacks
+@export var attack_speed: float = 1.0
 
 var _targets_in_range: Array[Enemy] = [] 
 var _current_target: Enemy
@@ -14,10 +16,12 @@ var _enabled: bool = false
 @onready var range_preview: RangePreview = $RangePreview
 @onready var range_collision: CollisionShape2D = $RangeArea/RangeCollision
 @onready var mouse_detector: Control = $MouseDetector
+@onready var attack_timer: Timer = $AttackTimer
 
 func _ready():
 	placement_mode()
-	_set_radius()
+	_set_range()
+	attack_timer.wait_time = attack_speed
 
 # sets the tower's state while it is being placed
 func placement_mode() -> void:
@@ -72,9 +76,9 @@ func _on_attack_timer_timeout() -> void:
 	
 	_fire()
 
-func _set_radius() -> void:
-	range_preview.radius = radius
-	(range_collision.shape as CircleShape2D).radius = radius
+func _set_range() -> void:
+	range_preview.radius = tower_range
+	(range_collision.shape as CircleShape2D).radius = tower_range
 
 func _on_mouse_entered():
 	range_preview.visible = true

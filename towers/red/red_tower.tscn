@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d36t7geqp1sh"]
+[gd_scene load_steps=7 format=3 uid="uid://d36t7geqp1sh"]
 
-[ext_resource type="PackedScene" uid="uid://4fkas61wyppq" path="res://towers/tower.tscn" id="1_d57o0"]
+[ext_resource type="PackedScene" uid="uid://4fkas61wyppq" path="res://towers/tower_base.tscn" id="1_d57o0"]
 [ext_resource type="Texture2D" uid="uid://c60pslrwqqrwg" path="res://assets/sprites/towers/pochitorres.png" id="2_hb78a"]
 [ext_resource type="Script" uid="uid://buj7pdefu7r4s" path="res://towers/red/red_tower.gd" id="2_hvay6"]
+[ext_resource type="Resource" uid="uid://bndxfmba1ltf8" path="res://towers/stats/red_tower_stats.tres" id="3_08l3r"]
 [ext_resource type="PackedScene" uid="uid://befy4fve56utf" path="res://towers/red/projectil/red_projectil.tscn" id="3_cxl1f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxl1f"]
@@ -10,10 +11,14 @@ atlas = ExtResource("2_hb78a")
 
 [node name="RedTower" instance=ExtResource("1_d57o0")]
 script = ExtResource("2_hvay6")
+stats = ExtResource("3_08l3r")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = SubResource("AtlasTexture_cxl1f")
 region_rect = Rect2(-1, 0, 65, 97)
+
+[node name="RangeArea" parent="." index="1"]
+monitoring = false
 
 [node name="AttackTimer" parent="." index="2"]
 wait_time = 1.0

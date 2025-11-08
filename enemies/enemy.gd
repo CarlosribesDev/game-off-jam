@@ -38,7 +38,6 @@ func _ready() -> void:
 	_set_health(max_healt)
 	
 func _process(delta):
-	
 	if _path_follow == null:
 		return
 	#increse progress
@@ -52,7 +51,6 @@ func _process(delta):
 	var path_pos_2d = _path_follow.position
 	position = path_pos_2d
 	
-
 func _die() -> void:
 	die.emit(self)
 	_show_gold_dropped()
