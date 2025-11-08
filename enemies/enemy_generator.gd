@@ -2,10 +2,30 @@
 extends Node
 
 signal enemy_die(enemy: Enemy)
+signal next_wave_time(seconds: int)
+
 const ENEMY = preload("uid://diax8n45uy1cu")
 var enemy_timer: Timer
 var _level: Level
+var waves_data: EnemyWavesData
+var enemy_paths: EnemyPaths
+var time_between_waves: int
 var count = 0
+
+#TIMERS
+var next_wave_timer: Timer
+
+@onready var enemy_spawn: Timer = $EnemySpawn
+
+func set_level(level: Level) -> void:
+	_level = level
+	waves_data = level.get_waves_data()
+	enemy_paths = level.get_enemy_paths()
+	
+
+func init() -> void:
+	time_between_waves
+	
 
 func generate_enemies(level: Level) -> void:
 	_level = level

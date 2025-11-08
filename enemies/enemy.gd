@@ -3,6 +3,8 @@ class_name Enemy extends CharacterBody2D
 signal die(ememy: Enemy)
 signal reached_target(enemy: Enemy)
 
+enum  EnemyType { NORMAL, FAST }
+
 @export var speed: float = 80.0
 @export var max_healt: float = 20
 @export var gold_value: int = 1

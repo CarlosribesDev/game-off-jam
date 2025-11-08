@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xk0wj86s8ddb"]
+
+[ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_1hf55"]
+
+[node name="EnemyFast" instance=ExtResource("1_1hf55")]
+speed = 120.0
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(1, 1, 0.05490196, 1)
