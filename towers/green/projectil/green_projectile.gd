@@ -6,6 +6,7 @@ class_name GreenProjectile extends Area2D
 var _direction: Vector2
 
 @onready var waves: Node2D = $Waves
+@onready var green_attack: AudioStreamPlayer2D = $GreenAttack
 
 func set_direction(dir: Vector2) -> void:
 	_direction = dir
@@ -14,6 +15,7 @@ func set_direction(dir: Vector2) -> void:
 func _ready():
 	for animated_sprite: AnimatedSprite2D in waves.get_children():
 		animated_sprite.play("anim")
+	green_attack.play()
 	
 func _process(delta: float) -> void:
 	global_position += _direction * speed * delta
