@@ -1,6 +1,6 @@
 class_name GreenProjectile extends Area2D
 
-@export var damage = 5
+@export var damage = 15
 @export var speed = 400
 
 var _direction: Vector2
