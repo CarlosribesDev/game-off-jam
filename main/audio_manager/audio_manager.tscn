@@ -8,3 +8,8 @@ script = ExtResource("1_8qypr")
 
 [node name="coins" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_53i8p")
+
+[node name="Tempo" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Tempo" to="." method="_on_tempo_timeout"]

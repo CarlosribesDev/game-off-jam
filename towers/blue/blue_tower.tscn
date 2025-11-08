@@ -12,8 +12,5 @@ frame = 1
 [node name="RangeArea" parent="." index="1"]
 monitoring = false
 
-[node name="AttackTimer" parent="." index="2"]
-wait_time = 4.0
-
 [node name="ProjectilSpawnPoint" type="Marker2D" parent="." index="3"]
 position = Vector2(0, 8)

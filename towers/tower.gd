@@ -14,10 +14,14 @@ var _enabled: bool = false
 @onready var range_preview: RangePreview = $RangePreview
 @onready var range_collision: CollisionShape2D = $RangeArea/RangeCollision
 @onready var mouse_detector: Control = $MouseDetector
+@onready var attack_timer: Timer = $AttackTimer
+
 
 func _ready():
 	placement_mode()
 	_set_radius()
+	await AudioManager.tempo
+	attack_timer.start()
 
 # sets the tower's state while it is being placed
 func placement_mode() -> void:

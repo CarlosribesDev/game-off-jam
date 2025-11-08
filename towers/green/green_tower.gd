@@ -6,7 +6,7 @@ const GREEN_PROJECTILE = preload("uid://ck6mf6m73ergh")
 @onready var projectil_spawn_position: Marker2D = $ProjectilSpawnPosition
 
 func _ready():
-	pass
+	super._ready()
 	
 func _process(_delta: float) -> void:
 	pass
