@@ -2,6 +2,7 @@
 @tool
 class_name Tower extends Node2D
 
+
 @export var build_price: Price.TowerBuild = Price.TowerBuild.RED
 @export var damage: float = 5
 @export var radius: float = 200

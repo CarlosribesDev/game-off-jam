@@ -66,6 +66,7 @@ size = Vector2(171, 55)
 
 [node name="GreenProjectile" type="Area2D"]
 script = ExtResource("1_8lep0")
+damage = 2
 
 [node name="Waves" type="Node2D" parent="."]
 

@@ -2,8 +2,6 @@ class_name TowersMenu extends Control
 
 const RED_TOWER = preload("uid://d36t7geqp1sh")
 const BLUE_TOWER = preload("uid://cwyyp2r266blt")
-
-
 const GREEN_TOWER = preload("uid://oj5ilwusjvuo")
 
 signal tower_selected(tower_scene: PackedScene)
