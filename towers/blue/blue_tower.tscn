@@ -7,7 +7,7 @@
 script = ExtResource("2_iq8f3")
 
 [node name="Sprite2D" parent="." index="0"]
-frame = 1
+frame = 2
 
 [node name="RangeArea" parent="." index="1"]
 monitoring = false

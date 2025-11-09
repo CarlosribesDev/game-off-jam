@@ -1,19 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfym6wmesrxxa"]
 
 [ext_resource type="Script" uid="uid://dw48sv6soymjx" path="res://ui/towers_menu/towers_menu.gd" id="1_d3tgk"]
-[ext_resource type="Texture2D" uid="uid://c60pslrwqqrwg" path="res://assets/sprites/towers/pochitorres.png" id="3_yrsgh"]
+[ext_resource type="Texture2D" uid="uid://b67gt8lnugpg3" path="res://assets/sprites/towers/torreticas.png" id="2_d3tgk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3tgk"]
-atlas = ExtResource("3_yrsgh")
+atlas = ExtResource("2_d3tgk")
 region = Rect2(0, 0, 128, 191)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrsgh"]
-atlas = ExtResource("3_yrsgh")
-region = Rect2(128, 0, 128, 192)
+atlas = ExtResource("2_d3tgk")
+region = Rect2(256, 0, 128, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0oaxy"]
-atlas = ExtResource("3_yrsgh")
-region = Rect2(256, 0, 128, 192)
+atlas = ExtResource("2_d3tgk")
+region = Rect2(128, 0, 128, 192)
 
 [node name="TowersMenu" type="Control"]
 layout_mode = 3

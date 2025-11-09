@@ -5,11 +5,12 @@
 
 [node name="GreenTower" instance=ExtResource("1_wyhsg")]
 script = ExtResource("2_wdqmo")
-range = null
-attack_speed = null
 
 [node name="Sprite2D" parent="." index="0"]
-frame = 2
+frame = 1
+
+[node name="RangeArea" parent="." index="1"]
+monitoring = false
 
 [node name="ProjectilSpawnPosition" type="Marker2D" parent="." index="3"]
 position = Vector2(0, -126)

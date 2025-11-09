@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4fkas61wyppq"]
 
-[ext_resource type="Texture2D" uid="uid://c60pslrwqqrwg" path="res://assets/sprites/towers/pochitorres.png" id="1_wmotl"]
-[ext_resource type="Script" path="res://towers/range_preview.gd" id="2_uyl23"]
+[ext_resource type="Texture2D" uid="uid://b67gt8lnugpg3" path="res://assets/sprites/towers/torreticas.png" id="1_crlvv"]
+[ext_resource type="Script" uid="uid://dj81l6m3k3ywg" path="res://towers/range_preview.gd" id="2_uyl23"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmotl"]
 radius = 200.0
@@ -11,7 +11,7 @@ radius = 200.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
 position = Vector2(0, -60)
-texture = ExtResource("1_wmotl")
+texture = ExtResource("1_crlvv")
 hframes = 3
 region_rect = Rect2(128, 0, 64, 128)
 
