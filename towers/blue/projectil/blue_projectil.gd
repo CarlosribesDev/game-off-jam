@@ -1,52 +1,61 @@
 extends Area2D
 class_name BlueProjectil
 
-@export var duration: float = 2
+@export var expand_speed: float = 300.0
+@export var y_scale: float = 0.5
+@export var thickness: float = 20.0
+@export var color: Color = Color(0.302, 0.173, 1.0, 1.0)
 
 var _damage: float
-var _area_range: float
+var _max_area_range: float
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var blue_attack: AudioStreamPlayer2D = $BlueAttack
 
-var elapsed := 0.0
+var radius: float = 0.0
 var shape: CircleShape2D
 
 func _ready() -> void:
-	shape = collision_shape.shape
+	shape = collision_shape.shape as CircleShape2D
 	shape.radius = 0.0
-	sprite_2d.scale = Vector2.ZERO
 	blue_attack.play()
 
 func _process(delta: float) -> void:
-	elapsed += delta
-	var t: float = clamp(elapsed / duration, 0.0, 1.0)
+	# update collision radius
+	radius += expand_speed * delta
+	shape.radius = radius
+	
+	# update visual circle
+	queue_redraw()
 
-	# radio actual en píxels (va de 0 a max_radius)
-	var current_radius: float = lerp(0.0, _area_range, t)
-	shape.radius = current_radius
-
-	# Escalar el sprite en función del tamaño real de la textura
-	if sprite_2d.texture:
-		var tex_size: Vector2 = sprite_2d.texture.get_size()
-		# suponemos textura cuadrada; si no, usamos el mayor para asegurar cobertura
-		var base_tex_radius: float = max(tex_size.x, tex_size.y) * 0.5
-		# evita dividir por 0
-		if base_tex_radius > 0.0:
-			var desired_scale: float = current_radius / base_tex_radius
-			sprite_2d.scale = Vector2.ONE * desired_scale
-
-	# Desvanecimiento vinculado a la fracción de radio (opcional)
-	sprite_2d.modulate.a = 1.0 - (current_radius / _area_range)
-
-	# si llegamos al final, destruir
-	if t >= 1.0:
+	# queue_free at max range
+	if radius >= _max_area_range:
 		queue_free()
 
 func set_stats(damage: float, area_range: float) -> void:
 	_damage = damage
-	_area_range = area_range
+	_max_area_range = area_range
+
+func _draw() -> void:
+	var radius_progress: float = clamp(radius / _max_area_range, 0.0, 1.0)
+	var fade_start_threshold := 0.8
+	var alpha_fade: float
+
+	if radius_progress < fade_start_threshold:
+		alpha_fade = 1.0
+	else:
+		var fade_progress = (radius_progress - fade_start_threshold) / (1.0 - fade_start_threshold)
+		alpha_fade = pow(1.0 - fade_progress, 2.0)
+
+	#Apply fade
+	var wave_color = Color(color.r, color.g, color.b, color.a * alpha_fade)
+
+	#set Y scale to 0.5 for isometric
+	var y_scale_transform := Transform2D().scaled(Vector2(1, y_scale))
+	draw_set_transform_matrix(y_scale_transform)
+
+	# draw the arc
+	draw_arc(Vector2.ZERO, radius, 0, TAU, 64, wave_color, thickness)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy:
