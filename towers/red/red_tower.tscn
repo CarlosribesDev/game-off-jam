@@ -25,3 +25,8 @@ rotation = 0.09046668
 
 [node name="RangePreview" parent="." index="4"]
 radius = 250.0
+
+[node name="AttackTickTimer" type="Timer" parent="." index="6"]
+wait_time = 0.2
+
+[connection signal="timeout" from="AttackTickTimer" to="." method="_on_attack_tick_timer_timeout"]

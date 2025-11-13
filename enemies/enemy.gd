@@ -13,6 +13,7 @@ const GOLD_DROPPED = preload("uid://cxs4ar5enx4mn")
 
 var health: float
 var _path_follow: PathFollow2D
+var hit_tween: Tween
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var explosion: AnimatedSprite2D = $Explosion
@@ -20,13 +21,20 @@ var _path_follow: PathFollow2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var gold_dropped_pos: Marker2D = $GoldDroppedPos
 
+
+
 func get_damage(damage: float) -> void:
 	_set_health(health - damage)
-	sprite_2d.modulate = Color.RED 
-	explosion.play("Explosion")
-	await get_tree().create_timer(0.2).timeout
-	sprite_2d.modulate = Color.WHITE
-	
+
+	if hit_tween and hit_tween.is_running():
+		hit_tween.kill()
+
+	hit_tween = create_tween()
+	hit_tween.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+	sprite_2d.modulate = Color.RED
+	hit_tween.tween_property(sprite_2d, "modulate", Color.WHITE, 0.2)
+
 	if health <= 0:
 		_die()
 		

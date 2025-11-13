@@ -16,6 +16,7 @@ var is_casting: bool = false
 @onready var red_attack_start: AudioStreamPlayer2D = $RedAttack_start
 @onready var red_attack_loop: AudioStreamPlayer2D = $RedAttack_loop
 @onready var red_attack_finish: AudioStreamPlayer2D = $RedAttack_finish
+@onready var fire_particles: CPUParticles2D = $FireParticles
 
 # VARIABLES PARA DIBUJAR LA ONDA
 var amplitude := 10			# Altura máxima (+/-)
@@ -25,6 +26,7 @@ var phase_offset := PI / 3	# Desfase entre puntos
 
 func _ready():
 	set_color(color)
+	fire_particles.emitting = false
 
 func _physics_process(delta: float) -> void:
 	if not is_casting or not _target:
@@ -34,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	# --- STEP 2: The laser's length is modified depending on the enemy's position; 
 	# --- the speed at which the laser changes length depends on cast_speed. ---
 	var distance_to_target = global_position.distance_to(_target.global_position)
+	#update fire partivles position
+	fire_particles.global_position = _target.global_position
 	
 	current_laser_length = move_toward(
 		current_laser_length,
@@ -62,6 +66,7 @@ func set_target(target: Enemy, damage: float) -> void:
 	
 	_target = target
 	_damage = damage
+	
 	if not is_casting:
 		_set_is_casting(true)
 
@@ -69,6 +74,7 @@ func set_target(target: Enemy, damage: float) -> void:
 func hit_target() -> void:
 	if not _target:
 		return
+	print("hit " + _target.name)
 	_target.get_damage(_damage)
 
 func set_color(new_color: Color) -> void:
@@ -98,6 +104,7 @@ func _dissapear() -> void:
 	if tween and tween.is_running():
 		tween.kill()
 		
+	fire_particles.emitting = false	
 	tween = create_tween()
 	tween.tween_property(line_2d, "width", 0.0, growth_time * 2.0).from_current()
 	tween.tween_callback(line_2d.hide)
@@ -111,7 +118,8 @@ func _appear() -> void:
 	line_2d.visible = true
 	if tween and tween.is_running():
 		tween.kill()
-	
+		
+	fire_particles.emitting = true	
 	tween = create_tween()
 	tween.tween_property(line_2d, "width", line_width, growth_time * 2.0).from(0.0)
 	await red_attack_start.finished
