@@ -9,13 +9,14 @@ script = ExtResource("2_iq8f3")
 stats = ExtResource("3_711aj")
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -52)
 frame = 2
 
 [node name="RangeArea" parent="." index="1"]
 monitoring = false
 
 [node name="AttackTimer" parent="." index="2"]
-wait_time = 1.0
+wait_time = 2.5
 
 [node name="ProjectilSpawnPoint" type="Marker2D" parent="." index="3"]
 position = Vector2(0, 8)
