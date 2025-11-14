@@ -74,7 +74,6 @@ func set_target(target: Enemy, damage: float) -> void:
 func hit_target() -> void:
 	if not _target:
 		return
-	print("hit " + _target.name)
 	_target.get_damage(_damage)
 
 func set_color(new_color: Color) -> void:

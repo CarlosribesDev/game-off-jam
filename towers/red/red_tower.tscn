@@ -32,6 +32,5 @@ enabled = false
 color = Color(0.6117647, 0, 0, 1)
 shadow_enabled = true
 texture = ExtResource("5_08l3r")
-texture_scale = 10.0
 
 [connection signal="timeout" from="AttackTickTimer" to="." method="_on_attack_tick_timer_timeout"]
