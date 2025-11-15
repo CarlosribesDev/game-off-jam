@@ -4,8 +4,3 @@
 
 [node name="EnemyGenerator" type="Node"]
 script = ExtResource("1_apvw3")
-
-[node name="NextWaveTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="NextWaveTimer" to="." method="_on_next_wave_timer_timeout"]

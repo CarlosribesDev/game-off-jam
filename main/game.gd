@@ -21,7 +21,6 @@ func _load_level(level_number: int) -> void:
 	level_container.add_child(_current_level)
 	tower_placer.update_nodes_from_current_level(_current_level)
 	enemy_generator.load_level_nodes(_current_level)
-	enemy_generator.init_wave()
 
 func _hide_next_level_menu() -> void:
 	next_level_menu.visible = false
@@ -33,7 +32,6 @@ func _show_next_level_menu() -> void:
 	next_level_menu.mouse_filter = Control.MOUSE_FILTER_STOP
 	next_level_menu.set_process(true)
 	
-
 func _on_enemy_generator_last_wave_done() -> void:
 	_show_next_level_menu()
 

@@ -3,17 +3,25 @@ class_name EnemyGenerator extends Node
 signal enemy_die(enemy: Enemy)
 signal group_handled()
 signal last_wave_done()
+signal wave_finished()
+signal new_level_loaded()
+signal wave_change(num: int)
 
 const ENEMY_NORMAL = preload("uid://dmqbn2q5splor")
 const ENEMY_FAST = preload("uid://xk0wj86s8ddb")
+const ENEMY_TANK = preload("uid://dvri0e4k4qwho")
+
 const ENEMIES_SCENES: Dictionary = {
 	Enemy.EnemyType.NORMAL: ENEMY_NORMAL,
-	Enemy.EnemyType.FAST: ENEMY_FAST
+	Enemy.EnemyType.FAST: ENEMY_FAST,
+	Enemy.EnemyType.TANK: ENEMY_TANK
 }
+
+@export var waves_ui: WavesUi
 
 var enemy_timer: Timer
 var _level: Level
-var waves_data: EnemyWavesData
+var level_waves: LevelWaves
 var enemy_paths: EnemyPaths
 var enemies_container: Node2D
 var time_between_waves: int
@@ -23,29 +31,25 @@ var current_wave: EnemyWave
 var total_groups: int
 var groups_handled_count: int
 
-@onready var next_wave_timer: Timer = $NextWaveTimer
-
 func _ready() -> void:
 	group_handled.connect(_on_group_handled)
+	waves_ui.next_wave.connect(init_wave)
 #
-func get_next_wave_seconds_left() -> int:
-	return int(next_wave_timer.time_left)
 # call to load level_data
 func load_level_nodes(level: Level) -> void:
 	_level = level
-	waves_data = level.get_waves_data()
+	level_waves = level.get_waves()
 	enemy_paths = level.get_enemy_paths()
 	enemies_container = level.get_enemies_container()
-	total_waves = waves_data.enemy_waves.size()
-	next_wave_timer.wait_time = waves_data.time_between_waves
+	total_waves = level_waves.enemy_waves.size()
 	current_wave_number = 1
+	new_level_loaded.emit()
+	wave_change.emit(0)
 	
 func init_wave() -> void:
-	next_wave_timer.start()
-
-func _on_next_wave_timer_timeout() -> void:
 	# get next wave
-	current_wave = waves_data.enemy_waves[current_wave_number - 1]
+	wave_change.emit(current_wave_number)
+	current_wave = level_waves.enemy_waves[current_wave_number - 1]
 	# reset groups counter
 	total_groups = current_wave.groups_data.size()
 	groups_handled_count = 0
@@ -55,7 +59,7 @@ func _on_next_wave_timer_timeout() -> void:
 			enemy_group_data.enemy_group,
 			enemy_group_data.time_to_start,
 			enemy_group_data.path
-			)
+		)
 
 func _handle_ememy_group(
 	ememy_group: EnemyGroup, 
@@ -122,7 +126,9 @@ func _init_next_wave() -> void:
 		last_wave_done.emit()
 	else:
 		current_wave_number += 1
-		init_wave() 
+		wave_finished.emit()
+		
+		#init_wave() 
 
 func _on_enemy_die(enemy: Enemy) -> void:
 	enemy_die.emit(enemy)

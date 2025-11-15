@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bko3pruxq8viw" path="res://enemies/health_bar/health_bar.tscn" id="7_puprq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epsnb"]
-size = Vector2(45, 66)
+size = Vector2(46, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_28xqf"]
 animations = [{

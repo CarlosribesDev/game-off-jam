@@ -3,7 +3,7 @@ class_name Enemy extends CharacterBody2D
 signal die(ememy: Enemy)
 signal reached_target(enemy: Enemy)
 
-enum  EnemyType { NORMAL, FAST }
+enum  EnemyType { NORMAL, FAST, TANK }
 
 const GOLD_DROPPED = preload("uid://cxs4ar5enx4mn")
 

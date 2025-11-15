@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://xk0wj86s8ddb"]
+[gd_scene load_steps=3 format=3 uid="uid://xk0wj86s8ddb"]
 
 [ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_1hf55"]
+[ext_resource type="Texture2D" uid="uid://dmar5ssgj8njo" path="res://assets/sprites/enemies/enemy_fast.png" id="2_f8iif"]
 
 [node name="EnemyFast" instance=ExtResource("1_1hf55")]
 speed = 120.0
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-2.5, 5.5)
+
 [node name="Sprite2D" parent="." index="1"]
-modulate = Color(1, 1, 0.05490196, 1)
+position = Vector2(-0.50000095, 6.000003)
+scale = Vector2(0.14600001, 0.128)
+texture = ExtResource("2_f8iif")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvri0e4k4qwho"]
+
+[ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_s7s5g"]
+[ext_resource type="Texture2D" uid="uid://dvlhurj1t8m8v" path="res://assets/sprites/enemies/enemy_tank.png" id="2_2a7ds"]
+
+[node name="EnemyTank" instance=ExtResource("1_s7s5g")]
+speed = 60.0
+max_healt = 60.0
+gold_value = 3
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 4.5)
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(1.4999993, 4.500002)
+scale = Vector2(0.174, 0.178)
+texture = ExtResource("2_2a7ds")

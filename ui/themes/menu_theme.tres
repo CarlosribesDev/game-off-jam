@@ -18,7 +18,10 @@ expand_margin_bottom = 10.0
 
 [resource]
 Button/colors/font_color = Color(0.8745098, 0.6039216, 0.5529412, 1)
+Button/colors/font_hover_pressed_color = Color(0.8745098, 0.6039216, 0.5529412, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/constants/line_spacing = 5
-Button/constants/outline_size = 0
+Button/constants/outline_size = 1
 Button/font_sizes/font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_ju23y")
 Button/styles/normal = SubResource("StyleBoxFlat_ju23y")

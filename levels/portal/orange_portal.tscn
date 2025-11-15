@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8g0wp8j02vu4"]
+
+[ext_resource type="Texture2D" uid="uid://dkwlrr7trj34m" path="res://assets/sprites/portals/orange_portal.png" id="1_wrevt"]
+[ext_resource type="Script" uid="uid://clb5nmsmw7qwo" path="res://levels/portal/portal.gd" id="2_ocubi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocubi"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrbyv"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2041"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnx83"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqkdw"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqy7d"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6g8y"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mibc"]
+atlas = ExtResource("1_wrevt")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2et5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocubi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrbyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnx83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqkdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqy7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6g8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mibc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="OrangePortal" type="AnimatedSprite2D"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_p2et5")
+script = ExtResource("2_ocubi")
