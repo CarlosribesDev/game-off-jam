@@ -10,6 +10,7 @@ var _current_level: Level
 @onready var tower_placer: TowerPlacer = $TowerPlacer
 @onready var enemy_generator: EnemyGenerator = $EnemyGenerator
 @onready var next_level_menu: NextLevelMenu = $UILayer/NextLevelMenu
+@onready var music_handler: MusicHandler = $MusicHandler
 
 func _ready():
 	_hide_next_level_menu()
@@ -21,6 +22,7 @@ func _load_level(level_number: int) -> void:
 	level_container.add_child(_current_level)
 	tower_placer.update_nodes_from_current_level(_current_level)
 	enemy_generator.load_level_nodes(_current_level)
+	music_handler.play_music()
 
 func _hide_next_level_menu() -> void:
 	next_level_menu.visible = false

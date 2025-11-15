@@ -23,24 +23,6 @@ script = ExtResource("1_wa3tw")
 
 [node name="RedPlayer8" type="AudioStreamPlayer" parent="RedPlayers"]
 
-[node name="BluePlayers" type="Node" parent="."]
-
-[node name="BluePlayer1" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer2" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer3" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer4" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer5" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer6" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer7" type="AudioStreamPlayer" parent="BluePlayers"]
-
-[node name="BluePlayer8" type="AudioStreamPlayer" parent="BluePlayers"]
-
 [node name="GreenPlayers" type="Node" parent="."]
 
 [node name="GreenPlayer1" type="AudioStreamPlayer" parent="GreenPlayers"]
@@ -58,3 +40,21 @@ script = ExtResource("1_wa3tw")
 [node name="GreenPlayer7" type="AudioStreamPlayer" parent="GreenPlayers"]
 
 [node name="GreenPlayer8" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="BluePlayers" type="Node" parent="."]
+
+[node name="BluePlayer1" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer2" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer3" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer4" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer5" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer6" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer7" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer8" type="AudioStreamPlayer" parent="BluePlayers"]
