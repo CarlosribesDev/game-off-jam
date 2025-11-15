@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmar5ssgj8njo" path="res://assets/sprites/enemies/enemy_fast.png" id="2_f8iif"]
 
 [node name="EnemyFast" instance=ExtResource("1_1hf55")]
-speed = 120.0
+speed = 150.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-2.5, 5.5)
