@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://wd57nqjd0s2f"]
+
+[ext_resource type="Script" uid="uid://dutm1g4yq1rg" path="res://main/music_handler/music_handler.gd" id="1_wa3tw"]
+
+[node name="MusicHandler" type="Node"]
+script = ExtResource("1_wa3tw")
+
+[node name="RedPlayers" type="Node" parent="."]
+
+[node name="RedPlayer1" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer2" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer3" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer4" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer5" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer6" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer7" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="RedPlayer8" type="AudioStreamPlayer" parent="RedPlayers"]
+
+[node name="BluePlayers" type="Node" parent="."]
+
+[node name="BluePlayer1" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer2" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer3" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer4" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer5" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer6" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer7" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="BluePlayer8" type="AudioStreamPlayer" parent="BluePlayers"]
+
+[node name="GreenPlayers" type="Node" parent="."]
+
+[node name="GreenPlayer1" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer2" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer3" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer4" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer5" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer6" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer7" type="AudioStreamPlayer" parent="GreenPlayers"]
+
+[node name="GreenPlayer8" type="AudioStreamPlayer" parent="GreenPlayers"]

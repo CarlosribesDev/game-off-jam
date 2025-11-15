@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6vgrx5dct8h8"]
+[gd_scene load_steps=13 format=3 uid="uid://6vgrx5dct8h8"]
 
 [ext_resource type="Script" uid="uid://cbwutvcywfhsw" path="res://main/game.gd" id="1_jc0vi"]
 [ext_resource type="Script" uid="uid://bh36qhnc06uk" path="res://main/main_camera.gd" id="2_2c7eb"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwt8mx7gh0clq" path="res://enemies/enemy_generator/enemy_generator.tscn" id="7_f7m14"]
 [ext_resource type="PackedScene" uid="uid://crastw7xnqgvl" path="res://ui/next_level_menu/NextLevelMenu.tscn" id="7_j015t"]
 [ext_resource type="AudioStream" uid="uid://dwa84a50avm4a" path="res://assets/sounds/music/loop_percusivo.wav" id="9_4u4fy"]
+[ext_resource type="PackedScene" uid="uid://wd57nqjd0s2f" path="res://main/music_handler/music_handler.tscn" id="12_v3ojx"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jc0vi")
@@ -42,6 +43,9 @@ waves_ui = NodePath("../UILayer/WavesUI")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_4u4fy")
 autoplay = true
+
+[node name="MusicHandler" parent="." node_paths=PackedStringArray("tower_placer") instance=ExtResource("12_v3ojx")]
+tower_placer = NodePath("../TowerPlacer")
 
 [connection signal="next_leve_button_pressed" from="UILayer/NextLevelMenu" to="." method="_on_next_level_menu_next_leve_button_pressed"]
 [connection signal="last_wave_done" from="EnemyGenerator" to="." method="_on_enemy_generator_last_wave_done"]
