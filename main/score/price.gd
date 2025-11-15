@@ -2,7 +2,7 @@
 extends Node
 
 enum TowerBuild {
-	RED = 15,
-	BLUE = 20,
-	GREEN = 21
+	RED = 50,
+	BLUE = 70,
+	GREEN = 90
 }
