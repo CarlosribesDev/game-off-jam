@@ -6,8 +6,10 @@ const GREEN_TOWER = preload("uid://oj5ilwusjvuo")
 
 signal tower_selected(tower_scene: PackedScene)
 
+@export var tower_placer: TowerPlacer
+
 func _ready():
-	pass
+	tower_placer.towers_placed.connect()
 	
 func _on_red_tower_button_pressed() -> void:
 	if Score.gold >= Price.TowerBuild.RED:
@@ -20,3 +22,6 @@ func _on_blue_tower_button_pressed() -> void:
 func _on_green_tower_button_pressed() -> void:
 	if Score.gold >= Price.TowerBuild.GREEN:
 		tower_selected.emit(GREEN_TOWER)
+
+func _on_tower_placed(tower_type: Tower.TowerType, amount: int) -> void:
+	pass

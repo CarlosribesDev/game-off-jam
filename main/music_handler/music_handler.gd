@@ -40,8 +40,8 @@ func _stop_players(node: Node) -> void:
 	for player: AudioStreamPlayer in node.get_children():
 		_stop_player(player)
 		
-func _on_tower_placed(tower_type: Tower.TowerType, amount: int ) -> void:
-	if amount > MAX_PLAYERS:
+func _on_tower_placed(tower_type: Tower.TowerType, amount: int) -> void:
+	if amount > MAX_PLAYERS or amount == 0:
 		return
 
 	var player_list: Array[Node] = (tower_players[tower_type] as Node).get_children()
