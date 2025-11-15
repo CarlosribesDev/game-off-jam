@@ -68,21 +68,21 @@ layout_mode = 2
 theme = SubResource("Theme_d3tgk")
 texture_normal = SubResource("AtlasTexture_d3tgk")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="BlueTowerButton" type="TextureButton" parent="BuildTowerMenu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_yrsgh")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [node name="GreenTowerButton" type="TextureButton" parent="BuildTowerMenu/HBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_0oaxy")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 5
 
 [connection signal="pressed" from="BuildTowerMenu/HBoxContainer/RedTowerButton" to="." method="_on_red_tower_button_pressed"]
 [connection signal="pressed" from="BuildTowerMenu/HBoxContainer/BlueTowerButton" to="." method="_on_blue_tower_button_pressed"]
