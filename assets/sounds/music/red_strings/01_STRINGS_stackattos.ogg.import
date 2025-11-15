@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/01_STRINGS_stackattos.ogg-1a1a665e3cb0293c8db
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

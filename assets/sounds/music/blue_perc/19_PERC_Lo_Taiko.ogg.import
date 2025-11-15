@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/19_PERC_Lo_Taiko.ogg-de1f18cef06e81082a49f915
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

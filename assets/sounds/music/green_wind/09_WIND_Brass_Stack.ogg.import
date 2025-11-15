@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/09_WIND_Brass_Stack.ogg-15f5f3bb8517446222791
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

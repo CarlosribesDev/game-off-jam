@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/21_PERC_Gong.ogg-054b22fb546bf025aabd4c4a1cb4
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

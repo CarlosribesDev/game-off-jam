@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/23_PERC_Toms.ogg-a9e9a493109ad8fe997e43138fbc
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

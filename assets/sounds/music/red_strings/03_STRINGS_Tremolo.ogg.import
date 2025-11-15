@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/03_STRINGS_Tremolo.ogg-e6c0eabc7e7511c867b7d2
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

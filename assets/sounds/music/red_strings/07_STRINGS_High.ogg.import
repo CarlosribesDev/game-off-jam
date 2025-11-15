@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/07_STRINGS_High.ogg-62ef5088ef28d0c59c0cc49fa
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

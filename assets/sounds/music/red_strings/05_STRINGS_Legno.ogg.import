@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/05_STRINGS_Legno.ogg-6efd239b44e26b84c331f92c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4

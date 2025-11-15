@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/16_WIND_Wood_Ensemble.ogg-7bf99b0cae868e55af8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
-bpm=0
+bpm=130.0
 beat_count=0
 bar_beats=4
