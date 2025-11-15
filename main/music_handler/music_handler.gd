@@ -9,12 +9,6 @@ const MAX_PLAYERS = 8
 @onready var green_players: Node = $GreenPlayers
 @onready var base_player: AudioStreamPlayer = $BasePlayer
 
-var towers_placed = {
-	Tower.TowerType.RED: 0,
-	Tower.TowerType.BLUE: 0,
-	Tower.TowerType.GREEN: 0
-}
-
 var tower_players: Dictionary
 
 func _ready() -> void:
@@ -46,13 +40,12 @@ func _stop_players(node: Node) -> void:
 	for player: AudioStreamPlayer in node.get_children():
 		_stop_player(player)
 		
-func _on_tower_placed(tower_type: Tower.TowerType) -> void:
-	if towers_placed[tower_type] == MAX_PLAYERS:
+func _on_tower_placed(tower_type: Tower.TowerType, amount: int ) -> void:
+	if amount > MAX_PLAYERS:
 		return
 
 	var player_list: Array[Node] = (tower_players[tower_type] as Node).get_children()
-	var player: AudioStreamPlayer = player_list.get(towers_placed[tower_type])
-	towers_placed[tower_type] += 1
+	var player: AudioStreamPlayer = player_list.get(amount - 1)
 	_play_player(player)
 
 func _play_player(player: AudioStreamPlayer) -> void:
