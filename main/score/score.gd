@@ -9,6 +9,11 @@ var gold: int = 100:
 		gold = value
 		gold_change.emit(value)
 
+var lives: int = 10:
+	set(value):
+		lives = value
+		
+
 func add_gold(amount: int) -> void:
 	gold += amount
 	AudioManager.play_coins()
