@@ -59,6 +59,7 @@ func _update_tower_count(tower_type: Tower.TowerType, value: int) -> void:
 	towers_placed[tower_type] = value
 	tower_placed.emit(tower_type, value)
 	Price.tower_placed(tower_type, value)
+	TowerUpgrades.on_tower_placed(tower_type, value)
 
 func _place_tower() -> void:
 	var tile_pos = level_tile_map.get_mouse_tile_pos()

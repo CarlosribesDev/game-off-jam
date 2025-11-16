@@ -5,4 +5,7 @@ class_name Relic extends RefCounted
 func apply_effect(tower_stats: TowerStats) -> void
 
 @abstract
+func get_id() -> String
+
+@abstract
 func get_description() -> String

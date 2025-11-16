@@ -22,8 +22,9 @@ var stats = TowerStats
 
 func _ready():
 	placement_mode()
-	_set_stats()
+	_set_stats(TowerUpgrades.get_stats(type))
 	attack_timer.start()
+	TowerUpgrades.tower_stats_change.connect(_on_tower_stats_change)
 
 # sets the tower's state while it is being placed
 func placement_mode() -> void:
@@ -81,8 +82,8 @@ func _on_attack_timer_timeout() -> void:
 	_fire()
 
 # read stats from tower_stats and assigns the values ​​to the corresponding nodes
-func _set_stats() -> void:
-	stats = TowerUpgrades.get_stats(type)
+func _set_stats(tower_stats: TowerStats) -> void:
+	stats = tower_stats
 	attack_timer.wait_time = stats.attack_speed
 	range_preview.radius = stats.attack_range
 	(range_collision.shape as CircleShape2D).radius = stats.attack_range
@@ -93,5 +94,10 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	range_preview.visible = false
 	
+func _on_tower_stats_change(tower_type: Tower.TowerType, new_stats: TowerStats) -> void:
+	if tower_type == type:
+		_set_stats(new_stats)
+	
+
 @abstract
 func _fire() -> void

@@ -12,13 +12,13 @@ var _damage_per_hit = 0
 func _ready():
 	super._ready()
 	target_change.connect(_on_target_change)
-	_damage_per_hit = stats.damage / TOTAL_HITS
-
+	
 func _process(_delta: float) -> void:
 	if not _current_target:	
 		return
 	
 func _fire() -> void:
+	_damage_per_hit = stats.damage / TOTAL_HITS
 	red_projectil.set_target(_current_target, _damage_per_hit)
 	attack_tick_timer.start()
 	cristal_light.turn_on()
