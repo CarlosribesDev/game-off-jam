@@ -3,6 +3,7 @@ extends Node
 
 signal tower_stats_change(tower_type: Tower.TowerType, new_stats: TowerStats)
 
+const REWARDS_UI = preload("uid://bcxsfb0ox3gmq")
 # base stats
 const RED_TOWER_BASE_STATS: TowerStatsBase = preload("uid://bndxfmba1ltf8")
 const GREEN_TOWER_BASE_STATS: TowerStatsBase = preload("uid://c1d3qqqdi2oxp")
@@ -17,6 +18,8 @@ const AMOUNT_TO_REWARD_1 = 2
 const AMOUNT_TO_REWARD_2 = 4
 const AMOUNT_TO_REWARD_3 = 6
 const AMOUNT_TO_REWARD_4 = 8
+
+var rewards: Array[Relic] = [RedRelic.new()]
 
 # current stats
 var towers_stats = {
@@ -68,8 +71,12 @@ func _handle_blue_updates(amount: int) -> void:
 		AMOUNT_TO_REWARD_4: _add_blue_relic()
 	
 func _add_red_relic() -> void:
-	RelicsManager.add_red_relic(towers_stats)
-	_emit_all_status_change()
+	var rewards_ui: RewardsUI = REWARDS_UI.instantiate()
+	var canvas = get_tree().root.get_node("Game").get_node("RewardsLayer")
+	canvas.add_child(rewards_ui)
+	rewards_ui.set_relics(rewards)
+	#RelicsManager.add_red_relic(towers_stats)
+	#_emit_all_status_change()
 
 func _add_green_relic() -> void:
 	RelicsManager.add_green_relic(towers_stats)

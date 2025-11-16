@@ -39,6 +39,8 @@ enemy_generator = NodePath("../../EnemyGenerator")
 [node name="Config" parent="UILayer" instance=ExtResource("5_v3ojx")]
 mouse_filter = 2
 
+[node name="RewardsLayer" type="CanvasLayer" parent="."]
+
 [node name="TowerPlacer" parent="." node_paths=PackedStringArray("towers_menu") instance=ExtResource("6_v3ojx")]
 towers_menu = NodePath("../UILayer/TowersMenu")
 

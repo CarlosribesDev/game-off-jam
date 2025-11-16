@@ -6,7 +6,6 @@ const REWARD_CARD = preload("uid://dgcv5fdqvfext")
 
 @onready var h_box_container: HBoxContainer = $CenterContainer/HBoxContainer
 
-
 func set_relics(relics: Array[Relic]) -> void:
 	for relic in relics:
 		var card: Rewardard = REWARD_CARD.instantiate()
