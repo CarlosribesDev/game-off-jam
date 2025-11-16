@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://diax8n45uy1cu"]
+[gd_scene load_steps=24 format=3 uid="uid://diax8n45uy1cu"]
 
 [ext_resource type="Script" uid="uid://cafqn48q104fs" path="res://enemies/enemy.gd" id="1_fenyl"]
 [ext_resource type="Texture2D" uid="uid://ck7funcss1gra" path="res://assets/sprites/enemies/espectro/sp1.png" id="2_puprq"]
@@ -13,6 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bko3pruxq8viw" path="res://enemies/health_bar/health_bar.tscn" id="7_puprq"]
 [ext_resource type="Texture2D" uid="uid://dn0hbubu2qaji" path="res://assets/sprites/enemies/espectro/sp7.png" id="7_sa3g6"]
 [ext_resource type="Texture2D" uid="uid://hyvfjgflr8oj" path="res://assets/sprites/enemies/espectro/sp8.png" id="8_54ef2"]
+[ext_resource type="Texture2D" uid="uid://dnondrwyo7ono" path="res://assets/sprites/enemies/espectro/sp_top1.png" id="9_mujyd"]
+[ext_resource type="Texture2D" uid="uid://f8p02gkhqkuy" path="res://assets/sprites/enemies/espectro/sp_top2.png" id="10_phiiv"]
+[ext_resource type="Texture2D" uid="uid://bn6xycpfwgyrn" path="res://assets/sprites/enemies/espectro/sp_top3.png" id="11_ob2df"]
+[ext_resource type="Texture2D" uid="uid://bohdrxc7cxxb8" path="res://assets/sprites/enemies/espectro/sp_top4.png" id="12_nhbql"]
+[ext_resource type="Texture2D" uid="uid://d3o6drjtqx5js" path="res://assets/sprites/enemies/espectro/sp_top5.png" id="13_7dwsf"]
+[ext_resource type="Texture2D" uid="uid://mfcpfm5mu01x" path="res://assets/sprites/enemies/espectro/sp_top6.png" id="14_vi83m"]
+[ext_resource type="Texture2D" uid="uid://jo1s7xj1apmc" path="res://assets/sprites/enemies/espectro/sp_top7.png" id="15_3oxun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epsnb"]
 size = Vector2(46, 68)
@@ -47,6 +54,32 @@ animations = [{
 "loop": true,
 "name": &"down right",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_mujyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_phiiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ob2df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nhbql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7dwsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vi83m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3oxun")
+}],
+"loop": true,
+"name": &"top right",
+"speed": 12.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_28xqf"]
@@ -84,9 +117,9 @@ shape = SubResource("RectangleShape2D_epsnb")
 position = Vector2(0, -0.9999981)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_mujyd")
-animation = &"down right"
+animation = &"top right"
 autoplay = "down right"
-frame_progress = 0.9538257
+frame_progress = 0.43861625
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -100,9 +133,9 @@ frame = 4
 
 [node name="HealthBar" parent="." instance=ExtResource("7_puprq")]
 offset_left = -20.0
-offset_top = -49.0
+offset_top = -92.0
 offset_right = -20.0
-offset_bottom = -49.0
+offset_bottom = -92.0
 
 [node name="GoldDroppedPos" type="Marker2D" parent="."]
 position = Vector2(-9, -40)
