@@ -20,8 +20,8 @@ const AMOUNT_TO_REWARD_3 = 6
 const AMOUNT_TO_REWARD_4 = 8
 
 var rewards_red: Array[Relic] = [RedRelic.new(), GreenRelic.new(), BlueRelic.new()]
-var rewards_green: Array[Relic] = [GreenRelic.new()]
-var rewards_blue: Array[Relic] = [BlueRelic.new()]
+var rewards_green: Array[Relic] = [RedRelic.new(), GreenRelic.new(), BlueRelic.new()]
+var rewards_blue: Array[Relic] = [RedRelic.new(), GreenRelic.new(), BlueRelic.new()]
 
 var rewards_ui: RewardsUI
 
