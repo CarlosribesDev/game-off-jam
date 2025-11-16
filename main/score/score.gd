@@ -2,6 +2,7 @@
 extends Node
 
 signal gold_change(amount: int)
+signal lives_change(amount: int)
 
 var gold: int = 100:
 	set(value):
