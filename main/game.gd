@@ -12,6 +12,7 @@ var _current_level: Level
 @onready var enemy_generator: EnemyGenerator = $EnemyGenerator
 @onready var next_level_menu: NextLevelMenu = $UILayer/NextLevelMenu
 @onready var music_handler: MusicHandler = $MusicHandler
+@onready var ui_layer: CanvasLayer = $UILayer
 
 func _ready():
 	_hide_next_level_menu()
@@ -21,7 +22,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
 		get_tree().paused = not get_tree().paused
 		var pause_instance = pause.instantiate()
-		add_child(pause_instance)
+		ui_layer.add_child(pause_instance)
 
 func _load_level(level_number: int) -> void:
 	music_handler.stop_music()
