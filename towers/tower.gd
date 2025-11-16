@@ -11,12 +11,15 @@ enum TowerType { RED, GREEN, BLUE }
 var _targets_in_range: Array[Enemy] = [] 
 var _current_target: Enemy
 var _enabled: bool = false
+# when true, the tower fires instantly upon detecting an enemy
+var _first_shot = true
 # global stats
 var stats = TowerStats
 # local stats
 var local_damage: float = 0
 var local_attack_range: float = 0
 var local_attack_speed: float = 0
+
 
 @onready var range_area: Area2D = $RangeArea
 @onready var range_preview: RangePreview = $RangePreview
@@ -30,7 +33,7 @@ func _ready():
 	placement_mode()
 	tower_stats_panel.visible = false
 	_set_stats(TowerUpgrades.get_stats(type))
-	attack_timer.start()
+	
 	TowerUpgrades.tower_stats_change.connect(_on_tower_stats_change)
 
 # sets the tower's state while it is being placed
@@ -55,7 +58,12 @@ func _on_range_area_body_entered(body: Node2D) -> void:
 	enemy.die.connect(_on_enemy_die)
 	
 	_targets_in_range.append(enemy)
+	# when no target
 	if _current_target == null:
+		if _first_shot:
+			_fire()
+			attack_timer.start()
+			_first_shot = false
 		_current_target = enemy
 
 func _on_range_area_body_exited(body: Node2D) -> void:
@@ -84,6 +92,7 @@ func _remove_target_and_get_next(enemy: Enemy) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	if _current_target == null or not _enabled:
+		_first_shot = true
 		return
 	
 	_fire()

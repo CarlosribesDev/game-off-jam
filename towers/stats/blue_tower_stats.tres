@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="TowerStats" load_steps=2 format=3 uid="uid://by0giydu700gy"]
+[gd_resource type="Resource" script_class="TowerStatsBase" load_steps=2 format=3 uid="uid://by0giydu700gy"]
 
 [ext_resource type="Script" uid="uid://4g7dakacaab4" path="res://towers/stats/tower_stats_base.gd" id="1_n1l4w"]
 
 [resource]
 script = ExtResource("1_n1l4w")
-damage = 2.5
-attack_range = 400.0
-attack_speed = 2.5
+base_attack_speed = 3.0
 metadata/_custom_type_script = "uid://4g7dakacaab4"
