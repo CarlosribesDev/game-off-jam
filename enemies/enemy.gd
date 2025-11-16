@@ -1,7 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
 signal die(ememy: Enemy)
-signal reached_target(enemy: Enemy)
+signal target_reached(enemy: Enemy)
 
 enum  EnemyType { NORMAL, FAST, TANK }
 
@@ -10,6 +10,7 @@ const GOLD_DROPPED = preload("uid://cxs4ar5enx4mn")
 @export var speed: float = 80.0
 @export var max_healt: float = 20
 @export var gold_value: int = 1
+@export var damage: int = 1
 
 var health: float
 var _path_follow: PathFollow2D
@@ -20,8 +21,6 @@ var hit_tween: Tween
 @onready var health_bar: HealthBar = $HealthBar
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var gold_dropped_pos: Marker2D = $GoldDroppedPos
-
-
 
 func get_damage(damage: float) -> void:
 	_set_health(health - damage)
@@ -74,7 +73,7 @@ func _show_gold_dropped() -> void:
 	gold_droped.global_position = gold_dropped_pos.global_position
 
 func _on_target_reached() -> void:
-	reached_target.emit(self)
+	target_reached.emit(self)
 	queue_free()
 	
 func _set_health(new_value: float) -> void:

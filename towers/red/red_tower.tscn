@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d36t7geqp1sh"]
+[gd_scene load_steps=7 format=3 uid="uid://d36t7geqp1sh"]
 
 [ext_resource type="PackedScene" uid="uid://4fkas61wyppq" path="res://towers/tower_base.tscn" id="1_d57o0"]
 [ext_resource type="Script" uid="uid://buj7pdefu7r4s" path="res://towers/red/red_tower.gd" id="2_hvay6"]
-[ext_resource type="Resource" uid="uid://bndxfmba1ltf8" path="res://towers/stats/red_tower_stats.tres" id="3_08l3r"]
 [ext_resource type="PackedScene" uid="uid://befy4fve56utf" path="res://towers/red/projectil/red_projectil.tscn" id="3_cxl1f"]
 [ext_resource type="Texture2D" uid="uid://bkw2d26tjvw7e" path="res://assets/textures/particles/particle_2.png" id="5_08l3r"]
 [ext_resource type="Texture2D" uid="uid://csjt080ycub8m" path="res://assets/textures/light-square-100px.png" id="6_i2402"]
@@ -10,7 +9,6 @@
 
 [node name="RedTower" instance=ExtResource("1_d57o0")]
 script = ExtResource("2_hvay6")
-stats = ExtResource("3_08l3r")
 
 [node name="CristalLight" parent="." index="0"]
 color = Color(0.6117647, 0, 0, 1)

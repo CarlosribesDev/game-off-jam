@@ -100,6 +100,7 @@ func _hand_enemy_group(
 func _generate_enemy(enemy_type: Enemy.EnemyType, path: int) -> void:
 	var enemy: Enemy = ENEMIES_SCENES[enemy_type].instantiate()
 	enemy.die.connect(_on_enemy_die)
+	enemy.target_reached.connect(_on_enemy_target_reached)
 	enemies_container.add_child(enemy)
 	enemy.set_path_follow(enemy_paths.get_new_path_follow(path))
 
@@ -129,6 +130,8 @@ func _init_next_wave() -> void:
 		wave_finished.emit()
 		
 		#init_wave() 
+func _on_enemy_target_reached(enemy: Enemy) -> void:
+	Score.substract_live(enemy.damage)
 
 func _on_enemy_die(enemy: Enemy) -> void:
 	enemy_die.emit(enemy)
