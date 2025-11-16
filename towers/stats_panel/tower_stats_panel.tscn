@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3qi4qp0ko3iq"]
+
+[ext_resource type="Script" uid="uid://mlvqjhawbttl" path="res://towers/stats_panel/tower_stats_panel.gd" id="1_vyalh"]
+[ext_resource type="Texture2D" uid="uid://cathnnb1ko5wy" path="res://assets/sprites/icons/attack_icon.png" id="2_dw57d"]
+[ext_resource type="Texture2D" uid="uid://ddy1cspred10e" path="res://assets/sprites/icons/attack_speed_icon.png" id="3_725y3"]
+[ext_resource type="Texture2D" uid="uid://w6l2l83ebvmf" path="res://assets/sprites/icons/range_icon.png" id="4_cuf0w"]
+[ext_resource type="Texture2D" uid="uid://oo8eixhckl2q" path="res://assets/sprites/icons/critic_icon.png" id="5_p40oq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gloj"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="TowerStatsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vyalh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 212.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8gloj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 1.0
+offset_right = 99.0
+offset_bottom = 213.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_dw57d")
+expand_mode = 1
+
+[node name="DamageLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_725y3")
+expand_mode = 1
+
+[node name="AttackSpeedLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "50"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_cuf0w")
+expand_mode = 1
+
+[node name="RangeLabel" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "50"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_p40oq")
+expand_mode = 1
+
+[node name="CriticLabel" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "50"

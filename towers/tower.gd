@@ -24,9 +24,11 @@ var local_attack_speed: float = 0
 @onready var mouse_detector: Control = $MouseDetector
 @onready var attack_timer: Timer = $AttackTimer
 @onready var cristal_light: CristalLight = $CristalLight
+@onready var tower_stats_panel: Control = $StatsPanel
 
 func _ready():
 	placement_mode()
+	tower_stats_panel.visible = false
 	_set_stats(TowerUpgrades.get_stats(type))
 	attack_timer.start()
 	TowerUpgrades.tower_stats_change.connect(_on_tower_stats_change)
@@ -93,12 +95,15 @@ func _set_stats(tower_stats: TowerStats) -> void:
 	attack_timer.wait_time = stats.attack_speed
 	range_preview.radius = stats.attack_range
 	(range_collision.shape as CircleShape2D).radius = stats.attack_range
+	tower_stats_panel.update_stats(stats)
 
 func _on_mouse_entered():
+	tower_stats_panel.visible = true
 	range_preview.visible = true
 
 func _on_mouse_exited():
 	range_preview.visible = false
+	tower_stats_panel.visible = false
 	
 func _on_tower_stats_change(tower_type: Tower.TowerType, new_stats: TowerStats) -> void:
 	if tower_type == type:
