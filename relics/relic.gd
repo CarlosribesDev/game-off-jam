@@ -1,6 +1,8 @@
 @abstract
 class_name Relic extends RefCounted
 
+enum RelicType { RED, BLUE, GREEN }
+
 var amount = 1
 
 @abstract
