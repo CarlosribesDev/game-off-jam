@@ -1,15 +1,14 @@
 #Reliocs Manager
 extends Node
 
-signal relics_change(relics: Dictionary)
+signal relics_change(relics_array: Array[Relic])
 
 var relics: Dictionary = {
 }
 
 func reset_relics() -> void:
 	relics = {}
-	relics_change.emit(relics)
-
+	relics_change.emit([])
 
 func add_relic(all_towers_stats: Dictionary, relic: Relic) -> void:
 	_apply_to_all(all_towers_stats, relic)
@@ -37,4 +36,4 @@ func _add_relic(relic: Relic) -> void:
 		(relics[relic.get_id()] as Relic).amount += 1
 	else:
 		relics[relic.get_id()] = relic
-	relics_change.emit(relics)
+	relics_change.emit(relics.values())
