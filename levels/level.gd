@@ -4,8 +4,13 @@ class_name Level extends Node2D
 @export var enemy_paths: EnemyPaths
 @export var ememies_container: Node2D
 
+@onready var camera_init_pos: Marker2D = $CameraInitPos
+
 func _ready():
 	Score.gold = data.initial_gold
+
+func get_camera_init_pos() -> Vector2:
+	return camera_init_pos.global_position
 
 func get_waves() -> Array[EnemyWave]:
 	if data == null:

@@ -13,6 +13,7 @@ var _current_level: Level
 @onready var next_level_menu: NextLevelMenu = $UILayer/NextLevelMenu
 @onready var music_handler: MusicHandler = $MusicHandler
 @onready var ui_layer: CanvasLayer = $UILayer
+@onready var main_camera: MainCamera = $MainCamera
 
 func _ready():
 	_hide_next_level_menu()
@@ -29,6 +30,9 @@ func _load_level(level_number: int) -> void:
 	_current_level = levels[level_number - 1].instantiate()
 	current_level_number = level_number
 	level_container.add_child(_current_level)
+	
+	# on new level init
+	_update_camera_post()
 	tower_placer.update_nodes_from_current_level(_current_level)
 	enemy_generator.load_level_nodes(_current_level)
 	music_handler.play_music()
@@ -42,7 +46,11 @@ func _show_next_level_menu() -> void:
 	next_level_menu.visible = true
 	next_level_menu.mouse_filter = Control.MOUSE_FILTER_STOP
 	next_level_menu.set_process(true)
-	
+
+func _update_camera_post() -> void:
+	var new_pos = _current_level.get_camera_init_pos()
+	main_camera.global_position = new_pos
+
 func _on_enemy_generator_last_wave_done() -> void:
 	_show_next_level_menu()
 

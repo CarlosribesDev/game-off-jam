@@ -25,3 +25,6 @@ position = Vector2(893, -378.99997)
 
 [node name="BluePortal" parent="." index="6" instance=ExtResource("3_c2jom")]
 position = Vector2(-417.00003, 288.00003)
+
+[node name="CameraInitPos" parent="." index="7"]
+position = Vector2(260, -14)
