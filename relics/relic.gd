@@ -1,9 +1,17 @@
 @abstract
 class_name Relic extends RefCounted
 
-enum RelicType { RED, BLUE, GREEN }
+enum RelicType { RED, BLUE, GREEN, COMMON }
+enum RelicRarity { COMMON, RARE, EPIC}
 
 var amount = 1
+var type: RelicType
+var rarity: RelicRarity
+
+func _init() -> void:
+	var data = get_data()
+	type = data.type
+	rarity = data.rarity
 
 func get_id() -> String:
 	return get_data().id

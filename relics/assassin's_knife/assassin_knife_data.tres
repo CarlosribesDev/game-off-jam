@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RelicData" load_steps=3 format=3 uid="uid://d3sm1lct1grwo"]
+
+[ext_resource type="Script" uid="uid://u8jtn52xm88d" path="res://relics/relic_data.gd" id="1_uxfs1"]
+[ext_resource type="Texture2D" uid="uid://bqmmthkywexq7" path="res://assets/sprites/relics/assassin's_knife.png" id="2_jfa64"]
+
+[resource]
+script = ExtResource("1_uxfs1")
+description = "affd
+"
+texture = ExtResource("2_jfa64")
+metadata/_custom_type_script = "uid://u8jtn52xm88d"
