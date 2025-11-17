@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwcijuqo5ulek"]
+
+[sub_resource type="Shader" id="Shader_ycolc"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture: repeat_enable, filter_nearest;
+uniform float density: hint_range(0.0, 1.0) = 1;
+uniform vec2 speed = vec2(0.01, 0.0005);
+
+void fragment() {
+	//move
+	vec2 uv = UV + speed * TIME;
+	// Sample the noise texture
+	float noise = texture(noise_texture, uv).r;
+	//convert values
+	float fog = clamp(noise * 2.0 - 1.0, 0.0, 1.0);
+	//Apply the fog effect
+	COLOR.a *= fog * density;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dkyn7"]
+frequency = 0.0025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fvngm"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_dkyn7")
+seamless = true
+seamless_blend_skirt = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcgcv"]
+shader = SubResource("Shader_ycolc")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_fvngm")
+shader_parameter/density = 0.25
+shader_parameter/speed = Vector2(0.01, 0.0005)
+
+[sub_resource type="Shader" id="Shader_vkk0u"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_texture: repeat_enable, filter_nearest;
+uniform float density: hint_range(0.0, 1.0) = 1;
+uniform vec2 speed = vec2(0.03, 0.002);
+
+void fragment() {
+	//move
+	vec2 uv = UV + speed * TIME;
+	// Sample the noise texture
+	float noise = texture(noise_texture, uv).r;
+	//convert values
+	float fog = clamp(noise * 2.0 - 1.0, 0.0, 1.0);
+	//Apply the fog effect
+	COLOR.a *= fog * density;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fvngm"]
+frequency = 0.0009
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gcgcv"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_fvngm")
+seamless = true
+seamless_blend_skirt = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xg2l"]
+shader = SubResource("Shader_vkk0u")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gcgcv")
+shader_parameter/density = 1.0
+shader_parameter/speed = Vector2(0.01, 0.0005)
+
+[node name="fog" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="skyColor2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19298115, 0.36531755, 0.47249955, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+material = SubResource("ShaderMaterial_gcgcv")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer2"]
+material = SubResource("ShaderMaterial_0xg2l")
+offset_right = 1920.0
+offset_bottom = 1080.0
