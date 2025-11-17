@@ -1,14 +1,14 @@
 class_name TowerStats extends RefCounted
 
-var damage: float = 5
-var attack_range: float = 200
-var attack_speed: float = 1.0
-var tower_critic_chance: float = 5
-var power_level_1: bool = false
-var power_level_2: bool = false
+var damage: float
+var attack_range: float
+var attack_speed: float
+var critic_chance: float
+var critic_damage: float
 
-func init_stats_base(stats_base: TowerStatsBase) -> void:
-	damage = stats_base.base_damage
-	attack_range = stats_base.base_attack_range
-	attack_speed = stats_base.base_attack_speed
-	tower_critic_chance = stats_base.base_critic_chance
+func _init(tower: Tower) -> void:
+	damage = tower.damage
+	attack_range = tower.attack_range
+	attack_speed = tower.attack_speed
+	critic_chance = tower.critic_change
+	critic_damage = tower.critic_damage

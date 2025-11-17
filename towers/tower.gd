@@ -7,6 +7,7 @@ signal target_change(enemy: Enemy)
 enum TowerType { RED, GREEN, BLUE }
 
 @export var type: TowerType = TowerType.RED
+@export var stats_base: TowerStatsBase
 
 var _targets_in_range: Array[Enemy] = [] 
 var _current_target: Enemy
@@ -15,11 +16,18 @@ var _enabled: bool = false
 var _first_shot = true
 # global stats
 var stats = TowerStats
+# total stats
+var damage: float = 0
+var attack_range: float = 0
+var attack_speed: float = 0
+var critic_change: float = 0
+var critic_damage: float = 0
 # local stats
 var local_damage: float = 0
 var local_attack_range: float = 0
 var local_attack_speed: float = 0
-
+var local_critic_change: float = 0
+var local_critic_damage: float = 0
 
 @onready var range_area: Area2D = $RangeArea
 @onready var range_preview: RangePreview = $RangePreview
@@ -27,15 +35,19 @@ var local_attack_speed: float = 0
 @onready var mouse_detector: Control = $MouseDetector
 @onready var attack_timer: Timer = $AttackTimer
 @onready var cristal_light: CristalLight = $CristalLight
-@onready var tower_stats_panel: Control = $StatsPanel
+@onready var tower_stats_panel: Control = $TowerStatsPanel
 
 func _ready():
-	placement_mode()
 	tower_stats_panel.visible = false
-	_set_stats(TowerUpgrades.get_stats(type))
+	placement_mode()
+	_set_base_stats()
+	_set_buffs(TowerUpgrades.get_buffs(type))
 	
-	TowerUpgrades.tower_stats_change.connect(_on_tower_stats_change)
+	TowerUpgrades.tower_buffs_change.connect(_on_tower_buffs_change)
 
+# --------------------
+# --- MODES ---
+# --------------------
 # sets the tower's state while it is being placed
 func placement_mode() -> void:
 	_enabled = false
@@ -50,7 +62,10 @@ func enable() -> void:
 	range_preview.visible = false
 	mouse_detector.mouse_entered.connect(_on_mouse_entered)
 	mouse_detector.mouse_exited.connect(_on_mouse_exited)
-	
+
+# --------------------
+# --- TARGETING ---
+# --------------------
 func _on_range_area_body_entered(body: Node2D) -> void:
 	if not _enabled:
 		return
@@ -97,14 +112,59 @@ func _on_attack_timer_timeout() -> void:
 	
 	_fire()
 
+@abstract
+func _fire() -> void
+
+# --------------------
+# --- STATS ---
+# --------------------
+
+func _set_base_stats() -> void:
+	if not stats_base:
+		push_error("[Tower] stats base not set")
+	
+	damage = stats_base.base_damage
+	attack_range = stats_base.base_attack_range
+	attack_speed = stats_base.base_attack_speed
+	critic_change = stats_base.base_critic_chance
+	critic_damage = stats_base.base_attack_range
+	#local status
+	local_damage = stats_base.base_damage
+	local_attack_range = stats_base.base_attack_range
+	local_attack_speed = stats_base.base_attack_speed
+	local_critic_change = stats_base.base_critic_chance
+	local_critic_damage = stats_base.base_attack_range
+	_apply_stats_changes()
+
 # read stats from tower_stats and assigns the values ​​to the corresponding nodes
-func _set_stats(tower_stats: TowerStats) -> void:
-	#global stats
-	stats = tower_stats
-	attack_timer.wait_time = stats.attack_speed
-	range_preview.radius = stats.attack_range
-	(range_collision.shape as CircleShape2D).radius = stats.attack_range
+func _set_buffs(tower_buff: TowerBuff) -> void:
+	# damage
+	damage = (local_damage + tower_buff.extra_damage) * tower_buff.damage_mult
+	# range
+	attack_range = (local_attack_range + tower_buff.extra_attack_range) * tower_buff.attack_range_mult
+	# attck speed
+	attack_speed = (local_attack_speed - tower_buff.extra_attack_speed) * tower_buff.attack_speed_mult
+	# critic change
+	critic_change = (local_critic_change + tower_buff.extra_tower_critic_chance) * tower_buff.critic_chance_mult
+	# critic damage
+	critic_damage = (local_critic_damage + tower_buff.extra_critic_damage) * tower_buff.critic_damage_mult
+	
+	_apply_stats_changes()
+	
+func _apply_stats_changes() -> void:
+	attack_timer.wait_time = attack_speed
+	range_preview.radius = attack_range
+	(range_collision.shape as CircleShape2D).radius = attack_range
+	stats = TowerStats.new(self)
 	tower_stats_panel.update_stats(stats)
+
+# --------------------
+# --- MOUSE INTERACTION ---
+# --------------------
+
+func _on_tower_buffs_change(tower_type: Tower.TowerType, tower_buffs: TowerBuff) -> void:
+	if tower_type == type:
+		_set_buffs(tower_buffs)
 
 func _on_mouse_entered():
 	tower_stats_panel.visible = true
@@ -114,10 +174,5 @@ func _on_mouse_exited():
 	range_preview.visible = false
 	tower_stats_panel.visible = false
 	
-func _on_tower_stats_change(tower_type: Tower.TowerType, new_stats: TowerStats) -> void:
-	if tower_type == type:
-		_set_stats(new_stats)
-	
 
-@abstract
-func _fire() -> void
+	

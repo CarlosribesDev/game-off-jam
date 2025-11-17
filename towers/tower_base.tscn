@@ -45,7 +45,7 @@ offset_top = -143.0
 offset_right = 25.0
 offset_bottom = 17.0
 
-[node name="StatsPanel" parent="." instance=ExtResource("4_b46tn")]
+[node name="TowerStatsPanel" parent="." instance=ExtResource("4_b46tn")]
 z_index = 3
 offset_left = -72.0
 offset_top = -210.0

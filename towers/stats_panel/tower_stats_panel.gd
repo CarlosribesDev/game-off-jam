@@ -9,4 +9,4 @@ func update_stats(tower_stats: TowerStats) -> void:
 	damage_label.text = str(tower_stats.damage)
 	attack_speed_label.text = str(tower_stats.attack_speed)
 	range_label.text = str(tower_stats.attack_range)
-	critic_label.text = str(tower_stats.tower_critic_chance)
+	critic_label.text = str(tower_stats.critic_chance)

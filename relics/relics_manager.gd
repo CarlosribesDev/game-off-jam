@@ -13,18 +13,6 @@ func reset_relics() -> void:
 func add_relic(all_towers_stats: Dictionary, relic: Relic) -> void:
 	_apply_to_all(all_towers_stats, relic)
 
-func add_red_relic(all_towers_stats: Dictionary) -> void:
-	var relic = RedRelic.new()
-	_apply_to_all(all_towers_stats, relic)
-
-func add_green_relic(all_towers_stats: Dictionary) -> void:
-	var relic = GreenRelic.new()
-	_apply_to_all(all_towers_stats, relic)
-
-func add_blue_relic(all_towers_stats: Dictionary) -> void:
-	var relic = BlueRelic.new()
-	_apply_to_all(all_towers_stats, relic)
-
 func _apply_to_all(all_towers_stats: Dictionary, relic: Relic) -> void:
 	for tower_type in Tower.TowerType.values():
 		var tower_stats = all_towers_stats[tower_type]

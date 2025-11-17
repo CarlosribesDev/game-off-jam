@@ -15,7 +15,7 @@ func get_texture() -> Texture2D:
 	return get_data().texture
 
 @abstract
-func apply_effect(tower_stats: TowerStats) -> void
+func apply_effect(tower_buff: TowerBuff) -> void
 
 @abstract
 func get_data() -> RelicData

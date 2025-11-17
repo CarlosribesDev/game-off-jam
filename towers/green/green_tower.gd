@@ -3,7 +3,8 @@ class_name GreenTower extends Tower
 
 const GREEN_PROJECTILE = preload("uid://ck6mf6m73ergh")
 
-var num_waves = 0
+var num_waves = 3
+var local_num_waves = 3
 
 @onready var projectil_spawn_position: Marker2D = $ProjectilSpawnPosition
 
@@ -13,11 +14,11 @@ func _ready():
 func _process(_delta: float) -> void:
 	pass
 
-func _set_stats(tower_stats: TowerStats) -> void:
-	super._set_stats(tower_stats)
+func _set_buffs(tower_buffs: TowerBuff) -> void:
+	super._set_buffs(tower_buffs)
 	#green tower stats
-	var green_tower_stats = tower_stats as GreenTowerStats
-	num_waves = green_tower_stats.num_waves
+	var green_tower_buffs = tower_buffs as GreenTowerBuff
+	num_waves = local_num_waves + green_tower_buffs.extra_waves
 	
 func _fire() -> void:
 	for i in range(num_waves):

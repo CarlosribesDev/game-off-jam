@@ -1,18 +1,9 @@
 #TowerUpgrades
 extends Node
 
-signal tower_stats_change(tower_type: Tower.TowerType, new_stats: TowerStats)
+signal tower_buffs_change(tower_type: Tower.TowerType, new_stats: TowerBuff)
 
 const REWARDS_UI = preload("uid://bcxsfb0ox3gmq")
-# base stats
-const RED_TOWER_BASE_STATS: TowerStatsBase = preload("uid://bndxfmba1ltf8")
-const GREEN_TOWER_BASE_STATS: TowerStatsBase = preload("uid://c1d3qqqdi2oxp")
-const BLUE_TOWER_BASE_STATS: TowerStatsBase = preload("uid://by0giydu700gy")
-const TOWER_BASE_STATS = {
-	Tower.TowerType.RED: RED_TOWER_BASE_STATS,
-	Tower.TowerType.GREEN: GREEN_TOWER_BASE_STATS,
-	Tower.TowerType.BLUE: BLUE_TOWER_BASE_STATS,
-}
 
 const AMOUNT_TO_REWARD_1 = 2
 const AMOUNT_TO_REWARD_2 = 4
@@ -26,17 +17,18 @@ var rewards_blue: Array[Relic] = [RedRelic.new(), GreenRelic.new(), BlueRelic.ne
 var rewards_ui: RewardsUI
 
 # current stats
-var towers_stats = {
-	Tower.TowerType.RED: RedTowerStats.new(),
-	Tower.TowerType.GREEN: GreenTowerStats.new(),
-	Tower.TowerType.BLUE: BlueTowerStats.new(),
+var towers_buffs = {
+	Tower.TowerType.RED: RedTowerBuff.new(),
+	Tower.TowerType.GREEN: GreenTowerBuff.new(),
+	Tower.TowerType.BLUE: BlueTowerBuff.new(),
 }
 
-func _ready() -> void:
-	_init_stats()	
-
-func reset_stats() -> void:
-	_init_stats()
+func reset_buffs() -> void:
+	towers_buffs = {
+		Tower.TowerType.RED: RedTowerBuff.new(),
+		Tower.TowerType.GREEN: GreenTowerBuff.new(),
+		Tower.TowerType.BLUE: BlueTowerBuff.new(),
+	}
 
 func on_tower_placed(tower_type: Tower.TowerType, amount: int) -> void:
 	match tower_type:
@@ -44,15 +36,10 @@ func on_tower_placed(tower_type: Tower.TowerType, amount: int) -> void:
 		Tower.TowerType.GREEN: _handle_green_updates(amount)
 		Tower.TowerType.BLUE: _handle_blue_updates(amount)
 
-func get_stats(tower_type: Tower.TowerType) -> TowerStats:
-	return towers_stats[tower_type]
+func get_buffs(tower_type: Tower.TowerType) -> TowerBuff:
+	return towers_buffs[tower_type]
 
-func _init_stats() -> void:
-	for tower_type in Tower.TowerType.values():
-		var base_stats = TOWER_BASE_STATS[tower_type]
-		get_stats(tower_type).init_stats_base(base_stats)
-		tower_stats_change.emit(tower_type, get_stats(tower_type))
-		
+
 func _handle_red_updates(amount: int) -> void:
 	match amount:
 		AMOUNT_TO_REWARD_1: _shdow_rewards_ui(rewards_red)
@@ -87,20 +74,10 @@ func _on_relidc_selected(relic: Relic) -> void:
 	if rewards_ui:
 		rewards_ui.queue_free()
 		rewards_ui = null
-	RelicsManager.add_relic(towers_stats, relic)
-	_emit_all_status_change()
-
-func _add_green_relic() -> void:
-	RelicsManager.add_green_relic(towers_stats)
-	_emit_all_status_change()
-
-func _add_blue_relic() -> void:
-	
-	RelicsManager.add_blue_relic(towers_stats)
-	
+	RelicsManager.add_relic(towers_buffs, relic)
 	_emit_all_status_change()
 
 func _emit_all_status_change() -> void:
 	for tower_type in Tower.TowerType.values():
-		tower_stats_change.emit(tower_type, get_stats(tower_type))
+		tower_buffs_change.emit(tower_type, get_buffs(tower_type))
 	
