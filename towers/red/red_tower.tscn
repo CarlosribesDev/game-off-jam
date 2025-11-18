@@ -23,12 +23,11 @@ region_rect = Rect2(-1, 0, 65, 97)
 monitoring = false
 
 [node name="RedProjectil" parent="." index="3" instance=ExtResource("3_cxl1f")]
-visible = false
 z_index = 2
 position = Vector2(0, -133)
 
-[node name="RangePreview" parent="." index="5"]
-radius = 250.0
+[node name="AttackTimer" parent="." index="4"]
+wait_time = 1.0
 
 [node name="AttackTickTimer" type="Timer" parent="." index="6"]
 wait_time = 0.1

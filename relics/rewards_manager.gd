@@ -9,9 +9,10 @@ const AMOUNT_TO_REWARD_1 = 2
 const AMOUNT_TO_REWARD_2 = 4
 const AMOUNT_TO_REWARD_3 = 6
 const AMOUNT_TO_REWARD_4 = 8
-
+#, 
 var all_rewards: Array[Relic] = [
-	RedRelic.new(), GreenRelic.new(), BlueRelic.new(), ArticCube.new(), EchoOfVoid.new()
+	RedRelic.new(), GreenRelic.new(), BlueRelic.new(),
+	ArticCube.new(), EchoOfVoid.new(), PerseusFury.new()
 ]
 
 var rewards_ui: RewardsUI

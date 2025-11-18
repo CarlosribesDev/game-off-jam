@@ -59,6 +59,9 @@ func stop() -> void:
 	_target = null
 	_set_is_casting(false)
 
+func set_damage(damage: float) -> void:
+	_damage = damage
+
 #set the target to follow
 func set_target(target: Enemy, damage: float) -> void:
 	if target == _target:
@@ -90,6 +93,7 @@ func _set_is_casting(new_value: bool) -> void:
 
 	if is_casting == false:
 		_dissapear()
+		return
 	else:
 		current_laser_length = 0.0
 		_appear()

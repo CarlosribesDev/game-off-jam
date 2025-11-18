@@ -26,6 +26,15 @@ var _speed = base_speed
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gold_dropped_pos: Marker2D = $GoldDroppedPos
 
+# percentage of remaining heal
+func get_remaining_heal() -> float:
+	if max_healt <= 0:
+		return 0.0
+	var health_ratio: float = health / max_healt
+	var percentage: float = health_ratio * 100.0
+	
+	return min(100.0, percentage)
+
 func get_damage(damage_recived: float, debuffs: Array[EnemyDebuff] = []) -> void:
 	_handle_debuffs(debuffs)
 	_set_health(health - damage_recived)

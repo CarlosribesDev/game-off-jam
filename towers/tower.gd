@@ -75,12 +75,12 @@ func _on_range_area_body_entered(body: Node2D) -> void:
 	_targets_in_range.append(enemy)
 	# when no target
 	if _current_target == null:
+		_current_target = enemy
 		if _first_shot:
 			_fire()
 			attack_timer.start()
 			_first_shot = false
-		_current_target = enemy
-
+		
 func _on_range_area_body_exited(body: Node2D) -> void:
 	var enemy = body as Enemy
 	_remove_target_and_get_next(enemy)
