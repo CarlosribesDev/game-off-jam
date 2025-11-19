@@ -6,6 +6,7 @@ signal target_reached(enemy: Enemy)
 enum  EnemyType { NORMAL, FAST, TANK }
 
 const GOLD_DROPPED = preload("uid://cxs4ar5enx4mn")
+const DAMAGE_NUMBERS = preload("uid://bkiu4qgh3ug1m")
 
 @export var base_speed: float = 80.0
 @export var max_healt: float = 20
@@ -24,6 +25,7 @@ var _speed = base_speed
 @onready var explosion: AnimatedSprite2D = $Explosion
 @onready var health_bar: HealthBar = $HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var numbers_displayed_pos: Marker2D = $NumbersDisplayedPos
 @onready var gold_dropped_pos: Marker2D = $GoldDroppedPos
 
 # percentage of remaining heal
@@ -39,6 +41,7 @@ func get_damage(attack: Attack) -> void:
 	_handle_debuffs(attack.debuffs)
 	_set_health(health - attack.damage)
 	_play_hit_animation()
+	_show_damage(attack)
 
 	if health <= 0:
 		_die()
@@ -95,6 +98,12 @@ func _die() -> void:
 	Score.add_gold(gold_value)
 	_path_follow.queue_free()
 	queue_free()
+
+func _show_damage(attack: Attack) -> void:
+	var damage_numbers: DamageNumbers = DAMAGE_NUMBERS.instantiate()
+	get_tree().root.add_child(damage_numbers)
+	damage_numbers.set_attack(attack)
+	damage_numbers.global_position = numbers_displayed_pos.global_position
 
 func _show_gold_dropped() -> void:
 	var gold_droped: GoldDropped = GOLD_DROPPED.instantiate()
