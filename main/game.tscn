@@ -29,10 +29,10 @@ script = ExtResource("2_2c7eb")
 size_flags_horizontal = 4
 tower_placer = NodePath("../../TowerPlacer")
 
-[node name="ScoreUI" parent="UILayer" instance=ExtResource("4_j015t")]
-
 [node name="WavesUI" parent="UILayer" node_paths=PackedStringArray("enemy_generator") instance=ExtResource("5_hlcqn")]
 enemy_generator = NodePath("../../EnemyGenerator")
+
+[node name="ScoreUI" parent="UILayer" instance=ExtResource("4_j015t")]
 
 [node name="NextLevelMenu" parent="UILayer" instance=ExtResource("7_j015t")]
 
