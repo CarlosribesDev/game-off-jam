@@ -35,7 +35,7 @@ var local_critic_damage: float = 0
 @onready var mouse_detector: Control = $MouseDetector
 @onready var attack_timer: Timer = $AttackTimer
 @onready var cristal_light: CristalLight = $CristalLight
-@onready var tower_stats_panel: Control = $TowerStatsPanel
+@onready var tower_stats_panel: CanvasLayer = $TowerStatsPanel
 
 func _ready():
 	tower_stats_panel.visible = false
@@ -167,7 +167,9 @@ func _on_tower_buffs_change(tower_type: Tower.TowerType, tower_buffs: TowerBuff)
 		_set_buffs(tower_buffs)
 
 func _on_mouse_entered():
+	var mouse_pos = get_viewport().get_mouse_position()
 	tower_stats_panel.visible = true
+	tower_stats_panel.offset = mouse_pos
 	range_preview.visible = true
 
 func _on_mouse_exited():
