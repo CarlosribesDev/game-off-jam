@@ -14,6 +14,8 @@ func get_amount():
 	return amount
 
 func _on_mouse_entered() -> void:
+	var mouse_pos = get_viewport().get_mouse_position()
+	relic_description.offset = mouse_pos
 	relic_description.visible = true
 
 func _on_mouse_exited() -> void:
