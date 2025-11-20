@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7ttkk4pasgin"]
 
-[ext_resource type="Script" uid="uid://b5fdnmk8kjh0g" path="res://ui/top_bar_ui/waves_ui/waves_ui.gd" id="1_dktk2"]
+[ext_resource type="Script" uid="uid://dgdumc3sps2gj" path="res://ui/top_bar_ui/waves_ui/waves_ui.gd" id="1_dktk2"]
 [ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="2_5unyv"]
 [ext_resource type="LabelSettings" uid="uid://bqa8xh2lpphdf" path="res://ui/styles/label_settings/label_settings_24.tres" id="3_6lelp"]
 
