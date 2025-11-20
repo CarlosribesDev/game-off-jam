@@ -13,11 +13,30 @@ enum TowerBuild {
 var red_tower_price: int = TowerBuild.RED
 var green_tower_price: int = TowerBuild.GREEN
 var blue_tower_price: int = TowerBuild.BLUE
+var _last_red_tower_price: int = TowerBuild.RED
+var _last_green_tower_price: int = TowerBuild.GREEN
+var _last_blue_tower_price: int = TowerBuild.BLUE
+var _free_towers_available = 0
 
 func _ready() -> void:
 	TowerPlacementManager.tower_placed.connect(_on_tower_placed)
 
+func add_free_tower(amount: int = 1) -> void:
+	if _free_towers_available == 0:
+		_last_red_tower_price = red_tower_price
+		_last_green_tower_price = green_tower_price
+		_last_blue_tower_price = blue_tower_price
+		red_tower_price = 0
+		green_tower_price = 0
+		blue_tower_price = 0
+		_emit_all_towers_change()
+	
+	_free_towers_available += amount
+
 func _on_tower_placed(tower_type: Tower.TowerType, amount: int) -> void:
+	if _are_free_towers_avaible():
+		return
+	
 	var base_price: int
 
 	match tower_type:
@@ -54,3 +73,23 @@ func get_price(tower_type: Tower.TowerType) -> int:
 	
 	push_error("[Price.gd] Invalid tower type")
 	return 0
+
+# handle free towers counter and indicates if prices must be increased
+func _are_free_towers_avaible() -> bool:
+	if _free_towers_available == 0:
+		return false
+	
+	_free_towers_available -= 1
+	
+	# if no free towers avaible set last values again
+	if _free_towers_available == 0:
+		red_tower_price = _last_red_tower_price
+		green_tower_price = _last_green_tower_price
+		blue_tower_price = _last_blue_tower_price
+		_emit_all_towers_change()
+	return true
+	
+func _emit_all_towers_change() -> void:
+	tower_price_change.emit(Tower.TowerType.RED, red_tower_price)
+	tower_price_change.emit(Tower.TowerType.GREEN, green_tower_price)
+	tower_price_change.emit(Tower.TowerType.BLUE, blue_tower_price)
