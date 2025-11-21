@@ -131,7 +131,7 @@ func _init_next_wave() -> void:
 		
 		#init_wave() 
 func _on_enemy_target_reached(enemy: Enemy) -> void:
-	Score.substract_live(enemy.damage)
+	LiveManager.lives -= enemy.damage
 
 func _on_enemy_die(enemy: Enemy) -> void:
 	enemy_die.emit(enemy)

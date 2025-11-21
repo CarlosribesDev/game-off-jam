@@ -15,6 +15,11 @@ var _current_level: Level
 @onready var ui_layer: CanvasLayer = $UILayer
 @onready var main_camera: MainCamera = $MainCamera
 
+func reset_current_level() -> void:
+	if _current_level:
+		_current_level.queue_free()
+	_load_level(current_level_number)
+
 func _ready():
 	_hide_next_level_menu()
 	_load_level(current_level_number)

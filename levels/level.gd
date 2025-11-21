@@ -8,7 +8,7 @@ class_name Level extends Node2D
 
 func _ready():
 	Score.gold = data.initial_gold
-	Score.lives = data.lives
+	LiveManager.lives = data.lives
 
 func get_camera_init_pos() -> Vector2:
 	return camera_init_pos.global_position
