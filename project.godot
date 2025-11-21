@@ -25,6 +25,7 @@ RelicsManager="*res://relics/relics_manager.gd"
 EnemyDebuffManager="*res://enemies/enemy_debuff/enemy_debuff_manager.gd"
 RewardsManager="*res://relics/rewards_manager.gd"
 TowerPlacementManager="*res://towers/tower_placement_manager.gd"
+LiveManager="*res://main/live_manager.gd"
 
 [display]
 

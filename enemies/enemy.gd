@@ -8,7 +8,7 @@ enum  EnemyType { NORMAL, FAST, TANK }
 const GOLD_DROPPED = preload("uid://cxs4ar5enx4mn")
 const DAMAGE_NUMBERS = preload("uid://bkiu4qgh3ug1m")
 
-@export var base_speed: float = 80.0
+@export var base_speed: float = 80
 @export var max_healt: float = 20
 @export var base_gold_value: int = 1
 @export var damage: int = 1
