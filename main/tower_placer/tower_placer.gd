@@ -49,8 +49,7 @@ func _place_tower() -> void:
 	Score.substract_gold(tower_price)
 	_is_placing = false
 	
-	var tower_type = _current_tower_instance.type
-	TowerPlacementManager.tower_added(tower_type)
+	TowerPlacementManager.tower_added(_current_tower_instance)
 	
 	_current_tower_instance.enable()
 	_current_tower_instance = null
@@ -61,4 +60,5 @@ func _on_tower_selected(tower_scene: PackedScene) -> void:
 	
 	_current_tower_instance = tower_scene.instantiate()
 	towers_container.add_child(_current_tower_instance)
+	TowerPlacementManager.clear_tower_selected()
 	_is_placing = true

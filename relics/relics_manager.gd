@@ -15,7 +15,7 @@ func add_relic(relic: Relic) -> void:
 	relic.apply_effect()
 	# increase priece in 20%
 	Score.gold -= relic.price
-	relic.price = relic.price + (relic.price * 0.2)
+	relic.price = round(relic.price + (relic.price * 0.2))
 	_add_relic(relic)
 
 func _add_relic(relic: Relic) -> void:

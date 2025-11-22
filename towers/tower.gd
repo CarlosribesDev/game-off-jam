@@ -3,6 +3,8 @@
 class_name Tower extends Node2D
 
 signal target_change(enemy: Enemy)
+signal stats_change(tower: Tower)
+signal selected(tower: Tower)
 signal fire()
 
 enum TowerType { RED, GREEN, BLUE }
@@ -15,9 +17,11 @@ var _current_target: Enemy
 var _enabled: bool = false
 # when true, the tower fires instantly upon detecting an enemy
 var _first_shot = true
-var _is_panel_show = false
 # global stats
-var stats = TowerStats
+var stats = TowerStats:
+	set(value):
+		stats = value
+		stats_change.emit(self)
 var last_buffs: TowerBuff
 # total stats
 var damage: float = 0
@@ -32,7 +36,10 @@ var local_attack_speed: float = 0
 var local_critic_chance: float = 0
 var local_critic_damage: float = 0
 # level
-var exp_data: TowerExpData
+var exp_data: TowerExpData:
+	set(value):
+		exp_data = value
+		stats_change.emit(self)
 
 @onready var range_area: Area2D = $RangeArea
 @onready var range_preview: RangePreview = $RangePreview
@@ -40,20 +47,17 @@ var exp_data: TowerExpData
 @onready var mouse_detector: Control = $MouseDetector
 @onready var attack_timer: Timer = $AttackTimer
 @onready var cristal_light: CristalLight = $CristalLight
-@onready var tower_stats_panel: CanvasLayer = $TowerStatsPanel
 @onready var experience_handler: ExprienceHandler = $ExperienceHandler
 
 func _ready():
-	tower_stats_panel.visible = false
 	exp_data = experience_handler.exp_data
 	experience_handler.exp_data_change.connect(_on_exp_data_change)
 	experience_handler.level_up.connect(_on_level_up)
 	placement_mode()
 	_set_base_stats()
 	_set_buffs(TowerUpgrades.get_buffs(type))
-	
 	TowerUpgrades.tower_buffs_change.connect(_on_tower_buffs_change)
-
+	
 # --------------------
 # --- MODES ---
 # --------------------
@@ -69,8 +73,8 @@ func enable() -> void:
 	_enabled = true
 	range_area.monitoring = true
 	range_preview.visible = false
-	mouse_detector.mouse_entered.connect(_on_mouse_entered)
-	mouse_detector.mouse_exited.connect(_on_mouse_exited)
+	mouse_detector.gui_input.connect(_on_gui_input)
+	TowerPlacementManager.tower_selected.connect(_on_tower_selected)
 
 # --------------------
 # --- ATTACK ---
@@ -184,7 +188,7 @@ func _apply_stats_changes() -> void:
 	range_preview.radius = attack_range
 	(range_collision.shape as CircleShape2D).radius = attack_range
 	stats = TowerStats.new(self)
-	tower_stats_panel.update_stats(stats, exp_data)
+	#tower_stats_panel.update_stats(stats, exp_data)
 	
 func _on_tower_buffs_change(tower_type: Tower.TowerType, tower_buffs: TowerBuff) -> void:
 	if tower_type == type:
@@ -192,7 +196,6 @@ func _on_tower_buffs_change(tower_type: Tower.TowerType, tower_buffs: TowerBuff)
 		
 func _on_exp_data_change(new_exp_data: TowerExpData) -> void:
 	exp_data = new_exp_data
-	tower_stats_panel.update_stats(stats, exp_data)
 	
 func _on_level_up(_new_level: int) -> void:
 	local_damage += stats_base.damage_per_level
@@ -205,27 +208,12 @@ func _on_level_up(_new_level: int) -> void:
 # --------------------
 # --- MOUSE INTERACTION ---
 # --------------------
+func _on_tower_selected(tower: Tower) -> void:
+	if tower != self:
+		range_preview.visible = false
 
-# ESTAMOS TESTING
-func _show_stats_panel():
-	var nodo_posicion_global = global_position
-	var viewport_transform = get_viewport().get_canvas_transform()
-	var viewport_pos = viewport_transform * nodo_posicion_global
-	tower_stats_panel.visible = true
-	tower_stats_panel.set_panel_position(viewport_pos)
-	
-	range_preview.visible = true
-	_is_panel_show = true
-
-func _on_mouse_entered():
-	var mouse_pos = get_viewport().get_mouse_position()
-	tower_stats_panel.visible = true
-	tower_stats_panel.offset = mouse_pos
-	range_preview.visible = true
-
-func _on_mouse_exited():
-	range_preview.visible = false
-	tower_stats_panel.visible = false
-	
-
-	
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed():
+			selected.emit(self)
+			range_preview.visible = true

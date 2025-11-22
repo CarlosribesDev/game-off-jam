@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://6vgrx5dct8h8"]
+[gd_scene load_steps=18 format=3 uid="uid://6vgrx5dct8h8"]
 
 [ext_resource type="Script" uid="uid://cbwutvcywfhsw" path="res://main/game.gd" id="1_jc0vi"]
 [ext_resource type="Script" uid="uid://bh36qhnc06uk" path="res://main/main_camera.gd" id="2_2c7eb"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c46d7j3yoj5p7" path="res://ui/top_bar_ui/lives_counter/LivesCounter.tscn" id="11_yyuar"]
 [ext_resource type="PackedScene" uid="uid://bsbslu7gvbl5b" path="res://ui/top_bar_ui/waves_ui/waves_counter_ui.tscn" id="12_0coyo"]
 [ext_resource type="PackedScene" uid="uid://wd57nqjd0s2f" path="res://main/music_handler/music_handler.tscn" id="12_v3ojx"]
+[ext_resource type="PackedScene" uid="uid://c3qi4qp0ko3iq" path="res://ui/tower_stats_panel/tower_stats_panel.tscn" id="14_514y6"]
 [ext_resource type="PackedScene" uid="uid://dcpjh37iqj67m" path="res://ui/towers_menu/towers_counters.tscn" id="14_bc3cr"]
 
 [node name="Game" type="Node2D"]
@@ -85,6 +86,11 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+
+[node name="TowerStatsPanel" parent="UILayer/MarginContainer" instance=ExtResource("14_514y6")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 
 [node name="WavesUI" parent="UILayer" instance=ExtResource("5_hlcqn")]
 visible = false
