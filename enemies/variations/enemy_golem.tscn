@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdb5n1d4ubx72"]
+[gd_scene load_steps=47 format=3 uid="uid://cdb5n1d4ubx72"]
 
 [ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_umep0"]
 [ext_resource type="Texture2D" uid="uid://b3ty7gregrde4" path="res://assets/sprites/enemies/golem/golem1.png" id="2_pqh0f"]
@@ -23,6 +23,26 @@
 [ext_resource type="Texture2D" uid="uid://bsgscct15e8i" path="res://assets/sprites/enemies/golem/golem21.png" id="21_jhpo0"]
 [ext_resource type="Texture2D" uid="uid://cbrma62xqetvh" path="res://assets/sprites/enemies/golem/golem22.png" id="22_pdcow"]
 [ext_resource type="Texture2D" uid="uid://d0vnyp2ipp52q" path="res://assets/sprites/enemies/golem/golem.png" id="23_g2jog"]
+[ext_resource type="Texture2D" uid="uid://ctrggue5wn4a2" path="res://assets/sprites/enemies/golem/golem_back0.png" id="24_g2jog"]
+[ext_resource type="Texture2D" uid="uid://rrahwwixs5do" path="res://assets/sprites/enemies/golem/golem_back1.png" id="25_cwph5"]
+[ext_resource type="Texture2D" uid="uid://jp54m8st5q38" path="res://assets/sprites/enemies/golem/golem_back2.png" id="26_hwas0"]
+[ext_resource type="Texture2D" uid="uid://dvwjbk2ien4pl" path="res://assets/sprites/enemies/golem/golem_back3.png" id="27_5jtta"]
+[ext_resource type="Texture2D" uid="uid://bpe3ou1rmbplw" path="res://assets/sprites/enemies/golem/golem_back4.png" id="28_vas7v"]
+[ext_resource type="Texture2D" uid="uid://b2aha5xt85cpl" path="res://assets/sprites/enemies/golem/golem_back5.png" id="29_wib3s"]
+[ext_resource type="Texture2D" uid="uid://bdwnt7jigg5cl" path="res://assets/sprites/enemies/golem/golem_back6.png" id="30_13t2i"]
+[ext_resource type="Texture2D" uid="uid://ddugds1qkls6d" path="res://assets/sprites/enemies/golem/golem_back7.png" id="31_xx4tt"]
+[ext_resource type="Texture2D" uid="uid://d2m7r35xlo7nb" path="res://assets/sprites/enemies/golem/golem_back8.png" id="32_0joh8"]
+[ext_resource type="Texture2D" uid="uid://b4842myq66vq8" path="res://assets/sprites/enemies/golem/golem_back9.png" id="33_5wbq5"]
+[ext_resource type="Texture2D" uid="uid://bwttjilvra2s7" path="res://assets/sprites/enemies/golem/golem_back10.png" id="34_6mf0x"]
+[ext_resource type="Texture2D" uid="uid://drgxgv7ktyc3v" path="res://assets/sprites/enemies/golem/golem_back11.png" id="35_rvb5n"]
+[ext_resource type="Texture2D" uid="uid://c37httrqaw07c" path="res://assets/sprites/enemies/golem/golem_back12.png" id="36_xmgsu"]
+[ext_resource type="Texture2D" uid="uid://bxq31lkwmgdxg" path="res://assets/sprites/enemies/golem/golem_back13.png" id="37_8k6wi"]
+[ext_resource type="Texture2D" uid="uid://b7bc2rfd7cvyd" path="res://assets/sprites/enemies/golem/golem_back14.png" id="38_wyphg"]
+[ext_resource type="Texture2D" uid="uid://3c58x35ridue" path="res://assets/sprites/enemies/golem/golem_back15.png" id="39_pn85b"]
+[ext_resource type="Texture2D" uid="uid://bhicykv7ey5yn" path="res://assets/sprites/enemies/golem/golem_back16.png" id="40_rve8t"]
+[ext_resource type="Texture2D" uid="uid://d3rl4ewmc6a8l" path="res://assets/sprites/enemies/golem/golem_back17.png" id="41_o2wxw"]
+[ext_resource type="Texture2D" uid="uid://c8m0gcpjasik1" path="res://assets/sprites/enemies/golem/golem_back18.png" id="42_nvvnx"]
+[ext_resource type="Texture2D" uid="uid://dxgj3sj224nka" path="res://assets/sprites/enemies/golem/golem_back19.png" id="43_upxv5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cwph5"]
 animations = [{
@@ -99,70 +119,64 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pqh0f")
+"texture": ExtResource("24_g2jog")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_6dubi")
+"texture": ExtResource("43_upxv5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_oye5v")
+"texture": ExtResource("42_nvvnx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_56aeb")
+"texture": ExtResource("41_o2wxw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_isq2f")
+"texture": ExtResource("40_rve8t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ntwep")
+"texture": ExtResource("39_pn85b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_u8w2b")
+"texture": ExtResource("38_wyphg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_eqkj0")
+"texture": ExtResource("37_8k6wi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_8i6aa")
+"texture": ExtResource("36_xmgsu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_k1js5")
+"texture": ExtResource("35_rvb5n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_vfba5")
+"texture": ExtResource("34_6mf0x")
+}, {
+"duration": 0.91,
+"texture": ExtResource("33_5wbq5")
+}, {
+"duration": 0.71,
+"texture": ExtResource("32_0joh8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_voydc")
+"texture": ExtResource("31_xx4tt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_uifg3")
+"texture": ExtResource("30_13t2i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_wrml7")
+"texture": ExtResource("29_wib3s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_jh56b")
+"texture": ExtResource("28_vas7v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_l67wi")
+"texture": ExtResource("27_5jtta")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_ptxae")
+"texture": ExtResource("26_hwas0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_chpdp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_hvij1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_jhpo0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_pdcow")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_g2jog")
+"texture": ExtResource("25_cwph5")
 }],
 "loop": true,
 "name": &"top right",
@@ -188,7 +202,7 @@ position = Vector2(0, -4)
 [node name="AnimatedSprite2D" parent="." index="1"]
 light_mask = 0
 sprite_frames = SubResource("SpriteFrames_cwph5")
-frame_progress = 0.0
+frame_progress = 0.27539167
 flip_h = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." index="2"]
