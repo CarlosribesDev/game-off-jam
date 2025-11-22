@@ -14,6 +14,7 @@ var _current_target: Enemy
 var _enabled: bool = false
 # when true, the tower fires instantly upon detecting an enemy
 var _first_shot = true
+var _is_panel_show = false
 # global stats
 var stats = TowerStats
 # total stats
@@ -177,6 +178,17 @@ func _on_tower_buffs_change(tower_type: Tower.TowerType, tower_buffs: TowerBuff)
 # --------------------
 # --- MOUSE INTERACTION ---
 # --------------------
+
+# ESTAMOS TESTING
+func _show_stats_panel():
+	var nodo_posicion_global = global_position
+	var viewport_transform = get_viewport().get_canvas_transform()
+	var viewport_pos = viewport_transform * nodo_posicion_global
+	tower_stats_panel.visible = true
+	tower_stats_panel.set_panel_position(viewport_pos)
+	
+	range_preview.visible = true
+	_is_panel_show = true
 
 func _on_mouse_entered():
 	var mouse_pos = get_viewport().get_mouse_position()

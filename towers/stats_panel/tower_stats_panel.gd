@@ -4,6 +4,10 @@ class_name TowerStatsPanel extends CanvasLayer
 @onready var attack_speed_label: Label = $PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer/AttackSpeedLabel
 @onready var range_label: Label = $PanelContainer/VBoxContainer/HBoxContainer3/VBoxContainer/RangeLabel
 @onready var critic_label: Label = $PanelContainer/VBoxContainer/HBoxContainer4/VBoxContainer2/CriticLabel
+@onready var panel_container: PanelContainer = $PanelContainer
+
+func set_panel_position(new_position: Vector2) -> void:
+	panel_container.position = new_position
 
 func update_stats(tower_stats: TowerStats) -> void:
 	damage_label.text = str(tower_stats.damage)

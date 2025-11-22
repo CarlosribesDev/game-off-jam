@@ -20,8 +20,8 @@ expand_margin_bottom = 10.0
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_pressed_color = Color(0.1561397, 0.060993627, 0.044769622, 1)
-Button/colors/font_pressed_color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+Button/colors/font_hover_pressed_color = Color(0.15614, 0.0609936, 0.0447696, 1)
+Button/colors/font_pressed_color = Color(0.442911, 0.442911, 0.442911, 1)
 Button/constants/line_spacing = 5
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 30
