@@ -22,6 +22,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="TowerStatsPanel" type="Control"]
+texture_filter = 4
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vyalh")
