@@ -13,6 +13,7 @@ var _current_level: Level
 @onready var music_handler: MusicHandler = $MusicHandler
 @onready var ui_layer: CanvasLayer = $UILayer
 @onready var main_camera: MainCamera = $MainCamera
+@onready var config_layer: CanvasLayer = $ConfigLayer
 
 func reset_current_level() -> void:
 	if _current_level:
@@ -73,4 +74,4 @@ func _on_config_config_pressed() -> void:
 func _open_config_menu() -> void:
 	get_tree().paused = not get_tree().paused
 	var pause_instance = pause.instantiate()
-	ui_layer.add_child(pause_instance)
+	config_layer.add_child(pause_instance)

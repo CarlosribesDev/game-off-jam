@@ -106,6 +106,8 @@ grow_horizontal = 2
 
 [node name="RewardsLayer" type="CanvasLayer" parent="."]
 
+[node name="ConfigLayer" type="CanvasLayer" parent="."]
+
 [node name="TowerPlacer" parent="." node_paths=PackedStringArray("towers_menu") instance=ExtResource("6_v3ojx")]
 towers_menu = NodePath("../UILayer/MarginContainer/TowersMenu")
 
