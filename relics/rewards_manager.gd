@@ -5,7 +5,7 @@ signal tower_buffs_change(towers_buffs: Dictionary[Tower.TowerType, TowerBuff])
 
 const REWARDS_UI = preload("uid://bcxsfb0ox3gmq")
 
-const AMOUNT_TO_REWARD_1 = 2
+const AMOUNT_TO_REWARD_1 = 2 
 const AMOUNT_TO_REWARD_2 = 4
 const AMOUNT_TO_REWARD_3 = 6
 const AMOUNT_TO_REWARD_4 = 8
