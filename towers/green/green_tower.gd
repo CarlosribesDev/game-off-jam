@@ -45,5 +45,3 @@ func _fire_projectil(projectil: GreenProjectile) -> void:
 	var poison_debuff = EnemyDebuff.new(EnemyDebuff.DebuffType.POISON, poison_damage, 5)
 	var attack = _get_attack([poison_debuff])
 	projectil.set_direction(dir, attack)
-	
-	
