@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c0seek6x1jue3"]
+
+[ext_resource type="FontFile" uid="uid://teqiajjnkdyx" path="res://assets/fonts/RobotoMono-Bold.ttf" id="1_cfgay"]
+
+[resource]
+font = ExtResource("1_cfgay")
+font_size = 24
+font_color = Color(0.87734634, 3.8745256e-06, 1.2513996e-06, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)

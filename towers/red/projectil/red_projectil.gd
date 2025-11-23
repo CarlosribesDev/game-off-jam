@@ -130,6 +130,7 @@ func _appear() -> void:
 	tween = create_tween()
 	tween.tween_property(line_2d, "width", line_width, growth_time * 2.0).from(0.0)
 	await red_attack_start.finished
-	red_attack_loop.play()
+	if is_casting:
+		red_attack_loop.play()
 	
 	

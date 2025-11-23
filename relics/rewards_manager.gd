@@ -1,11 +1,12 @@
 #Rewarsmanager
 extends Node
 
-signal tower_buffs_change(towers_buffs: Dictionary[Tower.TowerType, TowerBuff])
+signal reroll_priece_change(price: int)
+signal show_rewards_price_change(price: int)
 
 const REWARDS_UI = preload("uid://bcxsfb0ox3gmq")
 
-const AMOUNT_TO_REWARD_1 = 2
+const AMOUNT_TO_REWARD_1 = 2 
 const AMOUNT_TO_REWARD_2 = 4
 const AMOUNT_TO_REWARD_3 = 6
 const AMOUNT_TO_REWARD_4 = 8
@@ -21,15 +22,32 @@ var relics_list: Array[Relic] = [
 var all_rewards: Array[Relic] = relics_list.duplicate()
 var rewards_ui: RewardsUI
 var towers_buffs: Dictionary[Tower.TowerType, TowerBuff]
-
+var reroll_price: int = 50:
+	set(value):
+		reroll_price = value
+		reroll_priece_change.emit(value)
+var show_rewards_price: int = 50:
+	set(value):
+		show_rewards_price = value
+		show_rewards_price_change.emit(value)
+	
 func _ready() -> void:
 	RelicsManager.relics_change.connect(_on_relics_change)
+	EnemyGenerator.wave_finished.connect(
+		func (): show_rewards_ui()
+	)
 
 func reset_rewards() -> void:
 	all_rewards = relics_list.duplicate()
+	reroll_price = 50
+	
+func reroll() -> void:
+	Score.gold -= reroll_price
+	reroll_price += 50
+	var rewards = _get_rewards()
+	rewards_ui.set_relics(rewards)
 
-func show_rewards_ui(new_towers_buffs: Dictionary[Tower.TowerType, TowerBuff]) -> void:
-	towers_buffs = new_towers_buffs
+func show_rewards_ui() -> void:
 	rewards_ui = REWARDS_UI.instantiate()
 	var rewards = _get_rewards()
 	var canvas = get_tree().root.get_node("Game").get_node("RewardsLayer")
@@ -52,7 +70,6 @@ func _on_relidc_selected(relic: Relic) -> void:
 		rewards_ui.queue_free()
 		rewards_ui = null
 	RelicsManager.add_relic(relic)
-	tower_buffs_change.emit(towers_buffs)
 
 func _on_relics_change(relics: Array[Relic]) -> void:
 	for relic in relics:

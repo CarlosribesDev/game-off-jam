@@ -12,6 +12,7 @@ func get_new_path_follow(path_num: int) -> PathFollow2D:
 	#generate offset value
 	var random_v_offset: float = randf_range(-MIN_OFFSERT, MAX_OFFSET)
 	path_follow.v_offset = random_v_offset
+	path_follow.rotates = false
 	
 	var path = get_child(path_num)
 	
