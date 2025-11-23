@@ -14,12 +14,14 @@ const ENEMY_NORMAL = preload("uid://dmqbn2q5splor")
 const ENEMY_FAST = preload("uid://xk0wj86s8ddb")
 const ENEMY_TANK = preload("uid://dvri0e4k4qwho")
 const ENEMY_GOLEM = preload("uid://cdb5n1d4ubx72")
+const ENEMY_SKELETON = preload("uid://bnpwdbi54cn00")
 
 const ENEMIES_SCENES: Dictionary = {
 	Enemy.EnemyType.NORMAL: ENEMY_NORMAL,
 	Enemy.EnemyType.FAST: ENEMY_FAST,
 	Enemy.EnemyType.TANK: ENEMY_TANK,
-	Enemy.EnemyType.GOLEM: ENEMY_GOLEM
+	Enemy.EnemyType.GOLEM: ENEMY_GOLEM,
+	Enemy.EnemyType.SKELETON: ENEMY_SKELETON
 }
 
 @export var waves_ui: WavesUi
