@@ -83,7 +83,6 @@ func _process(delta):
 	var is_right_direction = global_position.x > previous_global_x
 	if is_right_direction != _last_is_right_direction:
 		animated_sprite_2d.flip_h = !animated_sprite_2d.flip_h
-		_path_follow.v_offset = _path_follow.v_offset if is_right_direction else -_path_follow.v_offset
 		_last_is_right_direction = is_right_direction
 	
 	# handle animation
