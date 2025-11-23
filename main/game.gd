@@ -22,7 +22,7 @@ func reset_current_level() -> void:
 func _ready():
 	_hide_next_level_menu()
 	_load_level(current_level_number)
-	EnemyGenerator.last_wave_finished.connect(_show_next_level_menu)
+	EnemyManager.last_wave_finished.connect(_show_next_level_menu)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
@@ -42,8 +42,6 @@ func _load_level(level_number: int) -> void:
 	RelicsManager.reset_relics()
 	TowerUpgrades.reset_buffs()
 	RewardsManager.reset_rewards()
-	EnemyGenerator.reset()
-	EnemyGenerator.load_level_nodes(_current_level)
 	music_handler.play_music()
 
 func _hide_next_level_menu() -> void:

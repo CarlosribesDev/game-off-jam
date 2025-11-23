@@ -33,7 +33,7 @@ var show_rewards_price: int = 50:
 	
 func _ready() -> void:
 	RelicsManager.relics_change.connect(_on_relics_change)
-	EnemyGenerator.wave_finished.connect(
+	EnemyManager.wave_finished.connect(
 		func (): show_rewards_ui()
 	)
 

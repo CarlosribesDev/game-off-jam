@@ -22,7 +22,6 @@ metadata/_custom_type_script = "uid://bgcq2ktq3w7dq"
 [sub_resource type="Resource" id="Resource_6sn5p"]
 script = ExtResource("1_r8ddr")
 enemy_group = SubResource("Resource_fydck")
-path = 2
 metadata/_custom_type_script = "uid://dcpnbeke2jpe"
 
 [resource]
