@@ -6,6 +6,7 @@ signal target_change(enemy: Enemy)
 signal stats_change(tower: Tower)
 signal selected(tower: Tower)
 signal fire()
+signal sold(tower: Tower)
 
 enum TowerType { RED, GREEN, BLUE }
 
@@ -77,6 +78,11 @@ func enable() -> void:
 	await get_tree().create_timer(0.1).timeout
 	TowerPlacementManager.tower_selected.connect(_on_tower_selected)
 	mouse_detector.gui_input.connect(_on_gui_input)
+# --------------------
+# --- SELL ---
+# --------------------
+func sell() -> void:
+	sold.emit(self)
 
 # --------------------
 # --- ATTACK ---
