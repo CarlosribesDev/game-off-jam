@@ -3,16 +3,18 @@ class_name BlueTower extends Tower
 
 const BLUE_PROJECTIL = preload("uid://csif0nju31dcs")
 
-var freezing_power = 0
+var freezing_power = 0.5
 var local_freezing_power = 0
 var double_hit_chance = 0
+var freezing_duration = 0
 
 @onready var projectil_spawn_point: Marker2D = $ProjectilSpawnPoint
 
 func _set_buffs(tower_buff: TowerBuff) -> void:
 	super._set_buffs(tower_buff)
 	var blue_tower_buff = tower_buff as BlueTowerBuff
-	freezing_power = local_freezing_power + blue_tower_buff.freezing_power
+	#freezing_power = local_freezing_power + blue_tower_buff.freezing_power
+	freezing_duration = blue_tower_buff.freezing_duration
 	double_hit_chance = blue_tower_buff.double_hit_chance
 
 func _fire() -> void:
@@ -21,7 +23,7 @@ func _fire() -> void:
 	
 	var is_double_hit = _is_doble_hit()
 	
-	var frost_debuff = EnemyDebuff.new(EnemyDebuff.DebuffType.FROST, freezing_power, 5)
+	var frost_debuff = EnemyDebuff.new(EnemyDebuff.DebuffType.FROST, freezing_power, freezing_duration)
 	var attack = _get_attack([frost_debuff])
 	projectil.set_stats(attack, attack_range)
 	call_deferred("_add_projectil", projectil)
@@ -30,7 +32,7 @@ func _fire() -> void:
 		await get_tree().create_timer(0.5).timeout
 		cristal_light.play()
 		projectil = BLUE_PROJECTIL.instantiate()
-		frost_debuff = EnemyDebuff.new(EnemyDebuff.DebuffType.FROST, freezing_power, 5)
+		frost_debuff = EnemyDebuff.new(EnemyDebuff.DebuffType.FROST, freezing_power, freezing_duration)
 		attack = _get_attack([frost_debuff])
 		projectil.set_stats(attack, attack_range)
 		call_deferred("_add_projectil", projectil)

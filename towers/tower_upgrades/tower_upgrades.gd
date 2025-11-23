@@ -30,6 +30,7 @@ func reset_buffs() -> void:
 		Tower.TowerType.GREEN: GreenTowerBuff.new(),
 		Tower.TowerType.BLUE: BlueTowerBuff.new(),
 	}
+	emit_all_buffs_change()
 
 func get_buffs(tower_type: Tower.TowerType) -> TowerBuff:
 	return towers_buffs[tower_type]

@@ -11,15 +11,15 @@ const AMOUNT_TO_REWARD_2 = 4
 const AMOUNT_TO_REWARD_3 = 6
 const AMOUNT_TO_REWARD_4 = 8
 
-var relics_list: Array[Relic] = [
-	RedRelic.new(), GreenRelic.new(), BlueRelic.new(),
-	ArticCube.new(), EchoOfVoid.new(), PerseusFury.new(),
-	FirstAid.new(), MagicRing.new(), Boniato.new(),
-	SalmonNigiri.new(), FlowerPot.new(), HeadPhones.new(),
-	IgnitionVoltage.new(), FoundationBreaker.new()
+var relics_list: Array[Object] = [
+	RedRelic, GreenRelic, BlueRelic,
+	ArticCube, EchoOfVoid, PerseusFury,
+	FirstAid, MagicRing, Boniato,
+	SalmonNigiri, FlowerPot, HeadPhones,
+	IgnitionVoltage, FoundationBreaker
 ]
 
-var all_rewards: Array[Relic] = relics_list.duplicate()
+var all_rewards: Array[Relic] = []
 var rewards_ui: RewardsUI
 var towers_buffs: Dictionary[Tower.TowerType, TowerBuff]
 var reroll_price: int = 50:
@@ -38,8 +38,11 @@ func _ready() -> void:
 	)
 
 func reset_rewards() -> void:
-	all_rewards = relics_list.duplicate()
+	all_rewards.clear()
+	for relic_object in relics_list:
+		all_rewards.append(relic_object.new())
 	reroll_price = 50
+	show_rewards_price = 50
 	
 func reroll() -> void:
 	Score.gold -= reroll_price

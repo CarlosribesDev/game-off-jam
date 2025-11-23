@@ -137,7 +137,7 @@ func _set_health(new_value: float) -> void:
 func _handle_debuffs(debuffs: Array[EnemyDebuff]) -> void:
 	for debuff in debuffs:
 		# ignore debuffs with out value
-		if debuff.value == 0:
+		if debuff.value == 0 or debuff.duration == 0:
 			continue
 		
 		# if exist refreshing the debuff
