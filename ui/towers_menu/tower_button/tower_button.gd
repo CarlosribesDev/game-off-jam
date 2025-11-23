@@ -14,14 +14,13 @@ signal pressed(tower_scene: PackedScene)
 		_update_texture_hover()
 
 var price: int = 0:
-	set = set_price
+	set(value):
+		price = value
+		gold_price.price = value
 
 @onready var tower_button: TextureButton = $VBoxContainer/CenterContainer/TowerButton
 @onready var gold_price: GoldPrice = $VBoxContainer/GoldPrice
 
-func set_price(new_value: int) -> void:
-	gold_price.price = new_value
-	
 func _ready() -> void:
 	_update_texture()
 
