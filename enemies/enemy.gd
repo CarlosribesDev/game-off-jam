@@ -55,6 +55,7 @@ func set_path_follow(path_follow: PathFollow2D) -> void:
 	_path_follow = path_follow
 
 func _ready() -> void:
+	_speed = base_speed
 	health_bar.set_max_health(max_healt)
 	_set_health(max_healt)
 	gold_value = base_gold_value + Score.extra_gold_dropped

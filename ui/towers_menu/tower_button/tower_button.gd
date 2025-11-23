@@ -17,11 +17,10 @@ var price: int = 0:
 	set = set_price
 
 @onready var tower_button: TextureButton = $VBoxContainer/CenterContainer/TowerButton
-@onready var price_label: Label = $VBoxContainer/HBoxContainer/PriceLabel
+@onready var gold_price: GoldPrice = $VBoxContainer/GoldPrice
 
 func set_price(new_value: int) -> void:
-	price = new_value
-	price_label.text = str(price)
+	gold_price.price = new_value
 	
 func _ready() -> void:
 	_update_texture()
