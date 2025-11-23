@@ -37,12 +37,18 @@ var total_waves: int
 var current_wave: EnemyWave
 var total_groups: int
 var groups_handled_count: int
+var loading: bool = false
 
 func _ready() -> void:
 	group_handled.connect(_on_group_handled)
-#
+
+func reset() -> void:
+	enemies_container = null
+	level_waves = []
+
 # call to load level_data
 func load_level_nodes(level: Level) -> void:
+	loading = true
 	_level = level
 	level_waves = level.get_waves()
 	enemy_paths = level.get_enemy_paths()
@@ -53,6 +59,7 @@ func load_level_nodes(level: Level) -> void:
 	wave_init.emit(0)
 	
 func init_next_wave() -> void:
+	loading = false
 	# get next wave
 	wave_init.emit(current_wave_number)
 	current_wave = level_waves[current_wave_number - 1]
@@ -100,10 +107,14 @@ func _hand_enemy_group(
 ) -> void:
 	for _i in range(amount):
 		await get_tree().create_timer(interval_spawn).timeout
+		if enemies_container == null or loading:
+			return
 		_generate_enemy(enemy_type, path)
 	group_handled.emit()
 		
 func _generate_enemy(enemy_type: Enemy.EnemyType, path: int) -> void:
+	if enemies_container == null or loading:
+			return
 	var enemy: Enemy = ENEMIES_SCENES[enemy_type].instantiate()
 	enemy.die.connect(_on_enemy_die)
 	enemy.target_reached.connect(_on_enemy_target_reached)
@@ -121,6 +132,9 @@ func _on_enemy_left(_node: Node) -> void:
 	call_deferred("_check_enemies_left")
 
 func _check_enemies_left() -> void:
+	if loading:
+		return
+	
 	if enemies_container.get_child_count() == 0:
 		_init_next_wave()
 		if enemies_container.child_exiting_tree.is_connected(_on_enemy_left):

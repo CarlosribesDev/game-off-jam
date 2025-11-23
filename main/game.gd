@@ -42,7 +42,7 @@ func _load_level(level_number: int) -> void:
 	RelicsManager.reset_relics()
 	TowerUpgrades.reset_buffs()
 	RewardsManager.reset_rewards()
-	
+	EnemyGenerator.reset()
 	EnemyGenerator.load_level_nodes(_current_level)
 	music_handler.play_music()
 
