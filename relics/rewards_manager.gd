@@ -36,6 +36,7 @@ func _ready() -> void:
 	EnemyManager.wave_finished.connect(
 		func (): show_rewards_ui()
 	)
+	reset_rewards()
 
 func reset_rewards() -> void:
 	all_rewards.clear()
