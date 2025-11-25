@@ -5,8 +5,9 @@ class_name Tower extends Node2D
 signal target_change(enemy: Enemy)
 signal stats_change(tower: Tower)
 signal selected(tower: Tower)
-signal fire()
+signal attack_fired()
 signal sold(tower: Tower)
+signal attack_speed_change(value: float)
 
 enum TowerType { RED, GREEN, BLUE }
 
@@ -27,7 +28,11 @@ var last_buffs: TowerBuff
 # total stats
 var damage: float = 0
 var attack_range: float = 0
-var attack_speed: float = 0
+var attack_speed: float = 0:
+	set(value):
+		attack_speed = value
+		attack_speed_change.emit(value)
+		
 var critic_chance: float = 0
 var critic_damage: float = 0
 # local stats
@@ -115,7 +120,7 @@ func _on_range_area_body_entered(body: Node2D) -> void:
 		_current_target = enemy
 		if _first_shot:
 			_fire()
-			fire.emit()
+			attack_fired.emit()
 			attack_timer.start()
 			_first_shot = false
 		
@@ -149,7 +154,7 @@ func _on_attack_timer_timeout() -> void:
 		return
 	
 	_fire()
-	fire.emit()
+	attack_fired.emit()
 
 @abstract
 func _fire() -> void
