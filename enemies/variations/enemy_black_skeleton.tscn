@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d1p6gdwregh7v"]
+[gd_scene load_steps=40 format=3 uid="uid://d1p6gdwregh7v"]
 
 [ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_nuipo"]
 [ext_resource type="Texture2D" uid="uid://pm1x4qqkbop2" path="res://assets/sprites/enemies/black_skeleton/esqueleto1.png" id="2_nuipo"]
@@ -35,6 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://cw8ktdukwovrx" path="res://assets/sprites/enemies/black_skeleton/esqueletoback4.png" id="33_yw5id"]
 [ext_resource type="Texture2D" uid="uid://bvq03xdq6c8n7" path="res://assets/sprites/enemies/black_skeleton/esqueletoback3.png" id="34_bi1ij"]
 [ext_resource type="Texture2D" uid="uid://gyat1etvjduv" path="res://assets/sprites/enemies/black_skeleton/esqueletoback2.png" id="35_w5t2a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_emn2o"]
+radius = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yw5id"]
 animations = [{
@@ -166,8 +169,12 @@ fill_from = Vector2(0.5071225, 0.48433048)
 base_speed = 120.0
 max_healt = 100.0
 
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_emn2o")
+
 [node name="AnimatedSprite2D" parent="." index="1"]
 light_mask = 0
+position = Vector2(0, -18)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_yw5id")
 frame_progress = 0.38220045

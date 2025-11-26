@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bnpwdbi54cn00"]
+[gd_scene load_steps=39 format=3 uid="uid://bnpwdbi54cn00"]
 
 [ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_s0nc2"]
 [ext_resource type="Texture2D" uid="uid://b65g7ydmjtvi2" path="res://assets/sprites/enemies/esqueleton/esqueleto16.png" id="2_m1jw1"]
@@ -34,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://2ksd48hg016y" path="res://assets/sprites/enemies/esqueleton/esqueletoback4.png" id="32_xifwh"]
 [ext_resource type="Texture2D" uid="uid://ct4vt44jvu6c0" path="res://assets/sprites/enemies/esqueleton/esqueletoback3.png" id="33_ys86s"]
 [ext_resource type="Texture2D" uid="uid://bu7g7iw0uw64g" path="res://assets/sprites/enemies/esqueleton/esqueletoback2.png" id="34_0rn8j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3u0i"]
+radius = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cbli0"]
 animations = [{
@@ -161,8 +164,12 @@ fill_from = Vector2(0.5071225, 0.48433048)
 [node name="Skeleton" instance=ExtResource("1_s0nc2")]
 base_speed = 120.0
 
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_r3u0i")
+
 [node name="AnimatedSprite2D" parent="." index="1"]
 light_mask = 0
+position = Vector2(0, -12)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_cbli0")
 animation = &"down right"

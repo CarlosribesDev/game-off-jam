@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmqbn2q5splor"]
+[gd_scene load_steps=3 format=3 uid="uid://dmqbn2q5splor"]
 
 [ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_skkk3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_skkk3"]
+radius = 20.0
 
 [node name="EnemySpectre" instance=ExtResource("1_skkk3")]
 base_speed = 120.0
@@ -8,10 +11,10 @@ max_healt = 120.0
 base_gold_value = 5
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-2, 1)
+shape = SubResource("CircleShape2D_skkk3")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(12, -1)
+position = Vector2(12, -12.999999)
 scale = Vector2(0.1, 0.1)
 
 [node name="HealthBar" parent="." index="4"]

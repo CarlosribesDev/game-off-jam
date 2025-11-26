@@ -21,8 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://mfcpfm5mu01x" path="res://assets/sprites/enemies/espectro/sp_top6.png" id="14_vi83m"]
 [ext_resource type="Texture2D" uid="uid://jo1s7xj1apmc" path="res://assets/sprites/enemies/espectro/sp_top7.png" id="15_3oxun"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epsnb"]
-size = Vector2(83, 107)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mujyd"]
+radius = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mujyd"]
 animations = [{
@@ -110,8 +110,7 @@ collision_mask = 2
 script = ExtResource("1_fenyl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 1)
-shape = SubResource("RectangleShape2D_epsnb")
+shape = SubResource("CircleShape2D_mujyd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -0.9999981)

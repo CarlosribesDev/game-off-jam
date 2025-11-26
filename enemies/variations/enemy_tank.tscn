@@ -10,8 +10,9 @@ base_gold_value = 10
 position = Vector2(-0.5, 4.5)
 
 [node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(12.999999, -19.000002)
 scale = Vector2(0.18, 0.18)
 
 [node name="HealthBar" parent="." index="4"]
-offset_top = -74.0
-offset_bottom = -74.0
+offset_top = -99.0
+offset_bottom = -99.0
