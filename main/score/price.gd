@@ -5,9 +5,9 @@ signal tower_price_change(tower_type: Tower.TowerType, price: int)
 const price_increase_percent: float = 0.20
 
 enum TowerBuild {
-	RED = 80,
-	GREEN = 90,
-	BLUE = 100,
+	RED = 50,
+	GREEN = 60,
+	BLUE = 70,
 }
 
 var base_prices: Dictionary[Tower.TowerType, int] = {
