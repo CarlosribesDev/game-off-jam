@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://jo1s7xj1apmc" path="res://assets/sprites/enemies/espectro/sp_top7.png" id="15_3oxun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mujyd"]
-radius = 20.0
+radius = 23.086792
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mujyd"]
 animations = [{
