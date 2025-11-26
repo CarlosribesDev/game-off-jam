@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cdb5n1d4ubx72"]
+[gd_scene load_steps=48 format=3 uid="uid://cdb5n1d4ubx72"]
 
 [ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_umep0"]
 [ext_resource type="Texture2D" uid="uid://b3ty7gregrde4" path="res://assets/sprites/enemies/golem/golem1.png" id="2_pqh0f"]
@@ -43,6 +43,9 @@
 [ext_resource type="Texture2D" uid="uid://d3rl4ewmc6a8l" path="res://assets/sprites/enemies/golem/golem_back17.png" id="41_o2wxw"]
 [ext_resource type="Texture2D" uid="uid://c8m0gcpjasik1" path="res://assets/sprites/enemies/golem/golem_back18.png" id="42_nvvnx"]
 [ext_resource type="Texture2D" uid="uid://dxgj3sj224nka" path="res://assets/sprites/enemies/golem/golem_back19.png" id="43_upxv5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdcow"]
+radius = 31.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cwph5"]
 animations = [{
@@ -201,9 +204,11 @@ base_gold_value = 20
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_pdcow")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 light_mask = 0
+position = Vector2(0, -25)
 scale = Vector2(0.14, 0.14)
 sprite_frames = SubResource("SpriteFrames_cwph5")
 frame_progress = 0.27539167
