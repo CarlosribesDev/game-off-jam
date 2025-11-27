@@ -33,6 +33,7 @@ func reset_current_level() -> void:
 		_current_level.queue_free()
 	RelicsManager.reset_relics()
 	RewardsManager.reset_rewards()
+	TowerPlacementManager.reset_towers()
 	_load_level(current_level_number)
 
 func _load_level(level_number: int) -> void:
@@ -45,7 +46,7 @@ func _load_level(level_number: int) -> void:
 	_update_camera_post()
 	tower_placer.update_nodes_from_current_level(_current_level)
 	# RESET DATA
-	TowerPlacementManager.reset_towers_count()
+	TowerPlacementManager.reset_towers()
 	TowerUpgrades.reset_buffs()
 	music_handler.play_music()
 

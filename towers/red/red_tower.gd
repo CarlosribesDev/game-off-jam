@@ -34,7 +34,7 @@ func _fire() -> void:
 	cristal_light.turn_on()
 	_hits_count = 0
 
-func _on_target_change(target: Enemy) -> void:
+func _on_target_change(_target: Enemy) -> void:
 	_stop_attack()
 	#if not attack_tick_timer.is_stopped():
 		#if target == null:

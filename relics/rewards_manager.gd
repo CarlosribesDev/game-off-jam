@@ -30,7 +30,9 @@ var show_rewards_price: int = 50:
 	set(value):
 		show_rewards_price = value
 		show_rewards_price_change.emit(value)
-	
+
+var open_another_ui: bool = false
+
 func _ready() -> void:
 	RelicsManager.relics_change.connect(_on_relics_change)
 	EnemyManager.wave_finished.connect(
@@ -52,6 +54,10 @@ func reset_rewards() -> void:
 		all_rewards.append(relic_object.new())
 	reroll_price = 50
 	show_rewards_price = 50
+	open_another_ui = false
+	if rewards_ui:
+		rewards_ui.queue_free()
+	
 	
 func reroll() -> void:
 	Score.gold -= reroll_price
@@ -62,7 +68,11 @@ func reroll() -> void:
 
 func show_rewards_ui() -> void:
 	if rewards_ui:
+		open_another_ui = true
 		await rewards_ui.tree_exited
+		# for prevent open again when closed by reset
+		if not open_another_ui:
+			return
 	
 	rewards_ui = REWARDS_UI.instantiate()
 	var rewards = _get_rewards()

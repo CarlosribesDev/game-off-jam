@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3qi4qp0ko3iq"]
+[gd_scene load_steps=14 format=3 uid="uid://c3qi4qp0ko3iq"]
 
 [ext_resource type="Script" uid="uid://mlvqjhawbttl" path="res://ui/tower_stats_panel/tower_stats_panel.gd" id="1_vyalh"]
 [ext_resource type="Texture2D" uid="uid://dv68a541qeosv" path="res://assets/sprites/icons/icons_sword.png" id="2_vyalh"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bme2x52a33nre" path="res://assets/sprites/icons/icons_explosion.png" id="5_cuf0w"]
 [ext_resource type="FontFile" uid="uid://teqiajjnkdyx" path="res://assets/fonts/RobotoMono-Bold.ttf" id="6_7nqn3"]
 [ext_resource type="StyleBox" uid="uid://dcjn1y7ofuii7" path="res://ui/styles/box_style/button_box.tres" id="7_876xl"]
+[ext_resource type="LabelSettings" uid="uid://bqa8xh2lpphdf" path="res://ui/styles/label_settings/label_settings_24.tres" id="8_gs8y8"]
+[ext_resource type="Texture2D" uid="uid://b2f6c4qd0c0s2" path="res://assets/sprites/buttons/wavecoinv2_30px.png" id="9_8m5ds"]
 
 [sub_resource type="Theme" id="Theme_vyalh"]
 default_font_size = 16
@@ -52,8 +54,7 @@ Button/styles/hover_pressed = SubResource("StyleBoxFlat_oqjw5")
 Button/styles/normal = ExtResource("7_876xl")
 Button/styles/pressed = SubResource("StyleBoxFlat_oqjw5")
 
-[node name="TowerStatsPanel" type="Control" node_paths=PackedStringArray("damage_label", "attack_speed_label", "range_label", "critic_label", "level_label", "current_exp_label", "required_exp_label")]
-visible = false
+[node name="TowerStatsPanel" type="Control" node_paths=PackedStringArray("damage_label", "attack_speed_label", "range_label", "critic_label", "level_label", "current_exp_label", "required_exp_label", "price_label")]
 texture_filter = 4
 layout_mode = 3
 anchors_preset = 0
@@ -65,13 +66,14 @@ critic_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/HBoxContaine
 level_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExpDataContainer/LevelContainer/LevelLabel")
 current_exp_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExpDataContainer/ExpContainer/CurrentExpLabel")
 required_exp_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExpDataContainer/ExpContainer/RequiredExpLabel")
+price_label = NodePath("VBoxContainer/HBoxContainer/PriceLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = -174.0
 offset_right = -12.0
 offset_bottom = 327.0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -240,5 +242,20 @@ layout_mode = 2
 layout_mode = 2
 theme = SubResource("Theme_gs8y8")
 text = "Sell"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PriceLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("8_gs8y8")
+horizontal_alignment = 1
+
+[node name="wavecoin" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_8m5ds")
+stretch_mode = 3
 
 [connection signal="pressed" from="VBoxContainer/ButtonsContainer/SellButton" to="." method="_on_sell_button_pressed"]

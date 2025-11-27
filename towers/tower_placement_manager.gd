@@ -27,10 +27,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			clear_tower_selected()
 			get_viewport().set_input_as_handled()
 		
-func reset_towers_count() -> void:
+func reset_towers() -> void:
 	_update_tower_count(Tower.TowerType.RED, 0,TowerEvent.RESET)
 	_update_tower_count(Tower.TowerType.GREEN, 0,TowerEvent.RESET)
 	_update_tower_count(Tower.TowerType.BLUE, 0,TowerEvent.RESET)
+	tower_selected.emit(null)
 
 func clear_tower_selected() -> void:
 	current_tower_selected = null
@@ -58,6 +59,7 @@ func _on_tower_sold(tower: Tower) -> void:
 	_update_tower_count(tower.type, towers_placed[tower.type] - 1, TowerEvent.SOLD)
 	tower_sold.emit(tower)
 	tower.queue_free()
+	tower.selected.emit(null)
 
 func _on_tower_stats_change(tower: Tower) -> void:
 	if tower == current_tower_selected:

@@ -45,7 +45,7 @@ func get_price(tower_type: Tower.TowerType) -> int:
 	return build_prices[tower_type]
 
 func get_sell_price(tower_type: Tower.TowerType) -> int:
-	return sell_prices[tower_type]
+	return int(round(sell_prices[tower_type] / 2.0))
 
 func get_base_price(tower_type: Tower.TowerType) -> int:
 	return base_prices[tower_type]

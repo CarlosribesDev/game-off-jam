@@ -12,6 +12,9 @@ class_name TowerStatsPanel extends Control
 @export var current_exp_label: Label
 @export var required_exp_label: Label
 
+# sell price
+@export var price_label: Label
+
 var curre_tower: Tower
 
 func _ready() -> void:
@@ -29,6 +32,7 @@ func _on_tower_selected(tower: Tower) -> void:
 	var exp_data = tower.exp_data	
 	update_stats(stats)
 	update_exp_data(exp_data)
+	_update_sell_price(tower.type)
 
 func update_stats(tower_stats: TowerStats) -> void:
 	damage_label.text = str(tower_stats.damage)
@@ -43,3 +47,6 @@ func update_exp_data(exp_data: TowerExpData) -> void:
 
 func _on_sell_button_pressed() -> void:
 	curre_tower.sell()
+	
+func _update_sell_price(tower_type: Tower.TowerType) -> void:
+	price_label.text = str(Price.get_sell_price(tower_type))
