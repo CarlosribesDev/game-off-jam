@@ -8,14 +8,14 @@ const EXP_BY_HIT = 1
 
 var dic_exp_required: Dictionary[int, int] = {
 	1: 50,
-	2: 100,
-	3: 150,
-	4: 225,
-	5: 400,
-	6: 500,
-	7: 650,
-	8: 850,
-	9: 1200,
+	2: 70,
+	3: 90,
+	4: 110,
+	5: 130,
+	6: 150,
+	7: 170,
+	8: 190,
+	9: 210,
 }
 var tower: Tower
 var level: int = 1:

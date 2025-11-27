@@ -35,13 +35,14 @@ func _fire() -> void:
 	_hits_count = 0
 
 func _on_target_change(target: Enemy) -> void:
-	if not attack_tick_timer.is_stopped():
-		if target == null:
-			_stop_attack()
-		else:
-			cristal_light.turn_on()
-			red_projectil.set_attack(_get_attack_per_hit())
-			red_projectil.set_target(target)
+	_stop_attack()
+	#if not attack_tick_timer.is_stopped():
+		#if target == null:
+			#_stop_attack()
+		#else:
+			#cristal_light.turn_on()
+			#red_projectil.set_attack(_get_attack_per_hit())
+			#red_projectil.set_target(target)
 
 func _on_attack_tick_timer_timeout() -> void:
 	var next_attack = _get_attack_per_hit() if _current_target.get_remaining_heal() > execute_threshold else _get_letal_attack()

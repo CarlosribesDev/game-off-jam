@@ -2,7 +2,7 @@
 extends Node
 
 signal tower_price_change(tower_type: Tower.TowerType, price: int)
-const price_increase_percent: float = 0.20
+const price_increase_percent: float = 0.25
 
 enum TowerBuild {
 	RED = 50,

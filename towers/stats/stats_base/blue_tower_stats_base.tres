@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_n1l4w")
-base_damage = 20.0
+base_damage = 15.0
 base_attack_range = 300.0
-base_attack_speed = 5.0
+base_attack_speed = 6.0
 base_critic_chance = 0.0
 damage_per_level = 6.0
 attack_speed_per_level = -0.12
