@@ -7,15 +7,15 @@ const MAX_LEVEL = 10
 const EXP_BY_HIT = 1
 
 var dic_exp_required: Dictionary[int, int] = {
-	1: 50,
-	2: 70,
-	3: 90,
-	4: 110,
-	5: 130,
-	6: 150,
-	7: 170,
-	8: 190,
-	9: 210,
+	1: 40,
+	2: 50,
+	3: 60,
+	4: 70,
+	5: 80,
+	6: 90,
+	7: 100,
+	8: 110,
+	9: 120,
 }
 var tower: Tower
 var level: int = 1:
