@@ -12,7 +12,7 @@ _data = {
 }
 point_count = 13
 
-[node name="LevelBase" instance=ExtResource("1_nybdg")]
+[node name="Level1" instance=ExtResource("1_nybdg")]
 data = ExtResource("2_omon5")
 
 [node name="LevelTileMap" parent="." index="0"]
@@ -37,3 +37,5 @@ flip_h = true
 [node name="OrangePortal" parent="." index="8" instance=ExtResource("4_se7l8")]
 position = Vector2(2043.9999, 178.99983)
 frame_progress = 0.0
+
+[node name="Decoration" type="Node2D" parent="." index="9"]
