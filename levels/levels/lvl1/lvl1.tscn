@@ -30,10 +30,10 @@ tile_set = ExtResource("3_se7l8")
 curve = SubResource("Curve2D_vy21w")
 
 [node name="BluePortal" parent="." index="7" instance=ExtResource("3_vy21w")]
-position = Vector2(192.99998, -240)
+position = Vector2(207, -315.00003)
 frame_progress = 0.48736614
 flip_h = true
 
 [node name="OrangePortal" parent="." index="8" instance=ExtResource("4_se7l8")]
-position = Vector2(2056, 240.00006)
+position = Vector2(2043.9999, 178.99983)
 frame_progress = 0.0
