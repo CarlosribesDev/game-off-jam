@@ -15,7 +15,8 @@ metadata/_custom_type_script = "uid://dxrvobswk6in5"
 script = ExtResource("1_cstit")
 enemy_type = 6
 amount = 4
-interval_spawn = 6.0
+interval_spawn = 2.0
+time_to_start = 32.0
 double_path = true
 metadata/_custom_type_script = "uid://dxrvobswk6in5"
 

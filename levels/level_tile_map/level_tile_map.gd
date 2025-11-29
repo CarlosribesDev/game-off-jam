@@ -56,10 +56,13 @@ func set_tile_free(map_coords: Vector2i):
 func unblock_tile() -> void:
 	# remove first
 	var blocked_tiles_array = _blocked_tiles.keys()
-	if blocked_tiles_array.size() > 0:
-		var coords: Vector2i = blocked_tiles_array[0]
-		_blocked_tiles.erase(coords)
-		set_cell(coords, ATLAS_ID, unlocked_tiles[level])
+	if blocked_tiles_array.is_empty():
+		return
+	var array_size = blocked_tiles_array.size()
+	var random_index = randi() % array_size
+	var coords: Vector2i = blocked_tiles_array[random_index]
+	_blocked_tiles.erase(coords)
+	set_cell(coords, ATLAS_ID, unlocked_tiles[level])
 		
 func _fill_blocked_dic() -> void:
 	var used_cells: Array[Vector2i] = get_used_cells()

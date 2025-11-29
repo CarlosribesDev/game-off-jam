@@ -19,6 +19,7 @@ var relics_list: Array[Object] = [
 	IgnitionVoltage, FoundationBreaker, SafetyHelmet
 ]
 
+
 var all_rewards: Array[Relic] = []
 var rewards_ui: RewardsUI
 var towers_buffs: Dictionary[Tower.TowerType, TowerBuff]
@@ -46,6 +47,8 @@ func add_random_relics(amount: int) -> void:
 	
 	for i in range(amount):
 		var relic = _get_random_relic()
+		if relic is Boniato or relic is MagicRing or relic is FoundationBreaker:
+			continue
 		RelicsManager.add_relic(relic, true)
 
 func reset_rewards() -> void:

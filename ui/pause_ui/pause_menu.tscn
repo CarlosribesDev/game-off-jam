@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b2qbndgwbh6n5" path="res://ui/pause_ui/pause_menu.gd" id="1_bgnto"]
 [ext_resource type="PackedScene" uid="uid://dj1vromg52jei" path="res://ui/pause_ui/volume_control/volume.tscn" id="2_s7qyn"]
-[ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="3_s7qyn"]
+[ext_resource type="Theme" uid="uid://br31q0n6y25o7" path="res://ui/styles/themes/menu_buttons_theme.tres" id="3_s7qyn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgnto"]
-bg_color = Color(0.48945212, 0.0037195445, 0.16859153, 1)
+bg_color = Color(0.09803922, 0.1254902, 0.09411765, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16

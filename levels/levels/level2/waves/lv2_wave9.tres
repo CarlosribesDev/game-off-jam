@@ -7,7 +7,6 @@
 script = ExtResource("1_hgfnp")
 enemy_type = 6
 amount = 50
-interval_spawn = 0.8
 double_path = true
 metadata/_custom_type_script = "uid://dxrvobswk6in5"
 

@@ -1,9 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://5y24o0w47m16"]
 
-[ext_resource type="FontFile" uid="uid://teqiajjnkdyx" path="res://assets/fonts/RobotoMono-Bold.ttf" id="1_g8mjb"]
+[ext_resource type="FontFile" uid="uid://bflrptlda1ab2" path="res://assets/fonts/YujiSyuku-Regular.ttf" id="1_5x15s"]
 
 [resource]
-font = ExtResource("1_g8mjb")
+font = ExtResource("1_5x15s")
 font_size = 30
-outline_size = 5
 outline_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
