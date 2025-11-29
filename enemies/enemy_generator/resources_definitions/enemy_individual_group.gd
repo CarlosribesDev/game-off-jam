@@ -1,4 +1,4 @@
-class_name EnemyIndividualGroup extends EnemyGroup
+class_name EnemyIndividualGroup
 
 @export var enemy_type: Enemy.EnemyType =  Enemy.EnemyType.NORMAL
 @export var amount: int = 5

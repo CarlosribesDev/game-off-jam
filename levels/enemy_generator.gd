@@ -25,19 +25,17 @@ func init_next_wave() -> void:
 	EnemyManager.wave_init.emit(current_wave_number)
 	current_wave = level_waves[current_wave_number - 1]
 	# reset groups counter
-	total_groups = current_wave.groups_data.size()
+	total_groups = current_wave.groups.size()
 	groups_handled_count = 0
 	groups_init_count = 0
 	# handle groups
-	for enemy_group_data: EnemyGroupData in current_wave.groups_data:
-		if not enemy_group_data or not enemy_group_data.enemy_group:
+	for enemy_group: EnemyGroup in current_wave.groups:
+		if not enemy_group:
 			push_error("[EnemyGenerator]: enemy group data is null")
 			continue
 		groups_init_count += 1
 		_handle_ememy_group(
-			enemy_group_data.enemy_group,
-			enemy_group_data.time_to_start,
-			enemy_group_data.double_path
+			enemy_group		
 		)
 	
 	if groups_init_count == 0:
@@ -55,32 +53,30 @@ func _load_level_data(level: Level) -> void:
 	EnemyManager.wave_init.emit(0)
 	
 func _handle_ememy_group(
-	ememy_group: EnemyGroup, 
-	time_to_start: float, 
-	is_double_path: bool) -> void:
+	ememy_group: EnemyGroup) -> void:
 	# wait time
-	await get_tree().create_timer(time_to_start).timeout
+	await get_tree().create_timer(ememy_group.time_to_start).timeout
 	# individual group
-	var paths = [0, 1] if is_double_path else [0]
-	if ememy_group is EnemyIndividualGroup:
-		for path in paths:
-			_hand_enemy_group(
-				ememy_group.enemy_type,
-				ememy_group.amount,
-				ememy_group.interval_spawn,
-				path
-			)
-	# multi group
-	else :
-		var multi_group = ememy_group as EnemyMultiGroups
-		for next_group: EnemyIndividualGroup in multi_group.groups:
-			for path in paths:
-				_hand_enemy_group(
-					next_group.enemy_type,
-					next_group.amount,
-					next_group.interval_spawn,
-					path
-				)
+	var paths = [0, 1] if ememy_group.double_path else [0]
+	
+	for path in paths:
+		_hand_enemy_group(
+			ememy_group.enemy_type,
+			ememy_group.amount,
+			ememy_group.interval_spawn,
+			path
+		)
+	## multi group
+	#else :
+		#var multi_group = ememy_group as EnemyMultiGroups
+		#for next_group: EnemyIndividualGroup in multi_group.groups:
+			#for path in paths:
+				#_hand_enemy_group(
+					#next_group.enemy_type,
+					#next_group.amount,
+					#next_group.interval_spawn,
+					#path
+				#)
 			
 func _hand_enemy_group(
 	enemy_type: Enemy.EnemyType,
