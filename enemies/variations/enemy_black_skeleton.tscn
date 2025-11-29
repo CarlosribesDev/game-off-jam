@@ -178,7 +178,8 @@ light_mask = 0
 position = Vector2(0, -18)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_yw5id")
-frame_progress = 0.38220045
+animation = &"down right"
+frame_progress = 0.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." index="2"]
 position = Vector2(5, 16)
@@ -186,3 +187,7 @@ scale = Vector2(0.08, 0.04)
 energy = 0.5
 blend_mode = 1
 texture = SubResource("GradientTexture2D_r3u0i")
+
+[node name="HealthBar" parent="." index="5"]
+offset_top = -70.0
+offset_bottom = -70.0
