@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="EnemyWave" load_steps=3 format=3 uid="uid://4n4r0h8hnj5p"]
-
-[ext_resource type="Script" uid="uid://dcpnbeke2jpe" path="res://enemies/enemy_generator/resources_definitions/enemy_group_data.gd" id="1_bal4l"]
-[ext_resource type="Script" uid="uid://civj4pbtbhl5o" path="res://enemies/enemy_generator/resources_definitions/enemy_wave.gd" id="2_klv2t"]
-
-[resource]
-script = ExtResource("2_klv2t")
-metadata/_custom_type_script = "uid://civj4pbtbhl5o"
