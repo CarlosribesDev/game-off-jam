@@ -57,8 +57,12 @@ func _handle_ememy_group(
 	# wait time
 	await get_tree().create_timer(ememy_group.time_to_start).timeout
 	# individual group
-	var paths = [0, 1] if ememy_group.double_path else [0]
-	
+	var paths = []
+	match ememy_group.path:
+		EnemyGroup.PATH.PATH1: paths = [0]
+		EnemyGroup.PATH.PATH2: paths = [1]
+		EnemyGroup.PATH.BOTH: paths = [0,1]
+			
 	for path in paths:
 		_hand_enemy_group(
 			ememy_group.enemy_type,
