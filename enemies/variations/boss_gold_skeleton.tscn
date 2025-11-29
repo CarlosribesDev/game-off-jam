@@ -1,0 +1,189 @@
+[gd_scene load_steps=39 format=3 uid="uid://qsxiwo0d27dq"]
+
+[ext_resource type="PackedScene" uid="uid://diax8n45uy1cu" path="res://enemies/enemy_base.tscn" id="1_wsiet"]
+[ext_resource type="Texture2D" uid="uid://dwpjsh6o8631m" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton34.png" id="2_28t7e"]
+[ext_resource type="Texture2D" uid="uid://bjsxdypnpe68y" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton33.png" id="3_trixi"]
+[ext_resource type="Texture2D" uid="uid://dl6anrf2ihys0" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton32.png" id="4_tek3l"]
+[ext_resource type="Texture2D" uid="uid://g8e6bp0ar4n6" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton31.png" id="5_fl451"]
+[ext_resource type="Texture2D" uid="uid://4rkw0a5ltifx" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton30.png" id="6_4filp"]
+[ext_resource type="Texture2D" uid="uid://crahnaadabrpt" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton29.png" id="7_3vb82"]
+[ext_resource type="Texture2D" uid="uid://c5wm17pu43f3m" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton28.png" id="8_3mjlu"]
+[ext_resource type="Texture2D" uid="uid://n83j2a58w25e" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton27.png" id="9_6325d"]
+[ext_resource type="Texture2D" uid="uid://cg81rvlapmge4" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton26.png" id="10_aro2q"]
+[ext_resource type="Texture2D" uid="uid://dxd2jf3hekeb1" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton25.png" id="11_wsiet"]
+[ext_resource type="Texture2D" uid="uid://duvm2jt1qwdqw" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton24.png" id="12_5h2v5"]
+[ext_resource type="Texture2D" uid="uid://cy8kvujhnk61l" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton23.png" id="13_tca1l"]
+[ext_resource type="Texture2D" uid="uid://dmbrvk7f8820b" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton22.png" id="14_cxl13"]
+[ext_resource type="Texture2D" uid="uid://de3p65dy361vv" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton21.png" id="15_x1218"]
+[ext_resource type="Texture2D" uid="uid://dfbccncm6kx5m" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton20.png" id="16_cjutc"]
+[ext_resource type="Texture2D" uid="uid://dy22wc20k7d3q" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton19.png" id="17_k6e4s"]
+[ext_resource type="Texture2D" uid="uid://kgrton81b3on" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton18.png" id="18_ldar5"]
+[ext_resource type="Texture2D" uid="uid://xof3411jcrfv" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton16.png" id="19_cj1ox"]
+[ext_resource type="Texture2D" uid="uid://b3oo3v4cwglms" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton15.png" id="20_sfvfw"]
+[ext_resource type="Texture2D" uid="uid://fys1d0jm5gy2" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton14.png" id="21_7dqa8"]
+[ext_resource type="Texture2D" uid="uid://cu3beltvcvmkr" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton13.png" id="22_x7p6h"]
+[ext_resource type="Texture2D" uid="uid://cw8u323c2b1bo" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton12.png" id="23_122tr"]
+[ext_resource type="Texture2D" uid="uid://bdfnr6lf0njpv" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton11.png" id="24_qlmxx"]
+[ext_resource type="Texture2D" uid="uid://dvfyvfiwdj8y4" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton10.png" id="25_bk2e8"]
+[ext_resource type="Texture2D" uid="uid://dv0k1bur8sjhj" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton9.png" id="26_gq0p5"]
+[ext_resource type="Texture2D" uid="uid://7ateg31sl8mh" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton1.png" id="27_54egg"]
+[ext_resource type="Texture2D" uid="uid://i4m7geeqos1v" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton8.png" id="28_80u25"]
+[ext_resource type="Texture2D" uid="uid://bcyst8g4qgc7s" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton7.png" id="29_nddan"]
+[ext_resource type="Texture2D" uid="uid://dlbdetcjpv3vy" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton6.png" id="30_peu34"]
+[ext_resource type="Texture2D" uid="uid://cl01qgjla3ule" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton5.png" id="31_rs05r"]
+[ext_resource type="Texture2D" uid="uid://bq0rdfludt1bk" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton4.png" id="32_xu028"]
+[ext_resource type="Texture2D" uid="uid://blrowtk8edh7v" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton3.png" id="33_8wmqu"]
+[ext_resource type="Texture2D" uid="uid://ncbhmfyjnhgi" path="res://assets/sprites/enemies/gold_skeleton/gold_skeleton2.png" id="34_obaym"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ongo"]
+radius = 36.013885
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cemo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_28t7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_trixi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tek3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fl451")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4filp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3vb82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3mjlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6325d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aro2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wsiet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5h2v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tca1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cxl13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_x1218")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cjutc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_k6e4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ldar5")
+}],
+"loop": true,
+"name": &"bottom right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_cj1ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_sfvfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_7dqa8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_x7p6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_122tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_qlmxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bk2e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gq0p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_54egg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_80u25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nddan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_peu34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_rs05r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xu028")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_8wmqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_obaym")
+}],
+"loop": true,
+"name": &"top right",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_pqh0f"]
+offsets = PackedFloat32Array(0, 0.62062615)
+colors = PackedColorArray(0.55828667, 0.55828655, 0.55828655, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6dubi"]
+gradient = SubResource("Gradient_pqh0f")
+width = 600
+height = 400
+fill = 1
+fill_from = Vector2(0.5071225, 0.48433048)
+
+[node name="BlackGolem" instance=ExtResource("1_wsiet")]
+base_speed = 30.0
+max_healt = 2000.0
+base_gold_value = 100
+damage = 999
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_5ongo")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+light_mask = 0
+position = Vector2(0, -58)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_3cemo")
+animation = &"bottom right"
+autoplay = "top right"
+frame_progress = 0.0
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="2"]
+position = Vector2(-1.0000001, 59)
+scale = Vector2(0.26, 0.2)
+energy = 1.2
+blend_mode = 1
+texture = SubResource("GradientTexture2D_6dubi")
