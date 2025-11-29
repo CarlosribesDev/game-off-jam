@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://g71rdl455gfw" path="res://assets/fonts/RobotoMono-Medium.ttf" id="1_560gi"]
 [ext_resource type="Script" uid="uid://dxhoravxnebf" path="res://ui/main_menu/credits.gd" id="1_h5co8"]
-[ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="2_g65cv"]
+[ext_resource type="Theme" uid="uid://br31q0n6y25o7" path="res://ui/styles/themes/menu_buttons_theme.tres" id="3_h5co8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5co8"]
 bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.9019608)
@@ -50,17 +50,16 @@ horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = -1
-anchor_left = 0.92100006
+anchor_left = 0.884
 anchor_right = 1.0
 anchor_bottom = 0.075
-offset_left = 0.67993164
-grow_horizontal = 0
+grow_horizontal = 2
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 
 [node name="ExitButton" type="Button" parent="MarginContainer"]
 layout_mode = 2
-theme = ExtResource("2_g65cv")
+theme = ExtResource("3_h5co8")
 text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]
