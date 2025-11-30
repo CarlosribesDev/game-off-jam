@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcxsfb0ox3gmq"]
 
 [ext_resource type="Script" uid="uid://h554m5slo5ti" path="res://ui/rewards_ui/rewards_ui.gd" id="1_003n2"]
-[ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="2_hcxtq"]
+[ext_resource type="Theme" uid="uid://bfml0mq4yid2" path="res://ui/styles/themes/menu_buttons_icon_theme.tres" id="2_aheq8"]
 [ext_resource type="PackedScene" uid="uid://edi2t1ojyywt" path="res://ui/shared/gold_price/gold_price.tscn" id="3_aheq8"]
 
 [node name="RewardsUi" type="Control" node_paths=PackedStringArray("cards_container", "reroll_priece")]
@@ -52,7 +52,7 @@ theme_override_constants/separation = 100
 [node name="ExitButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("2_hcxtq")
+theme = ExtResource("2_aheq8")
 text = "Exit
 "
 
@@ -62,7 +62,7 @@ theme_override_constants/separation = 15
 
 [node name="RerollButton" type="Button" parent="VBoxContainer/ButtonsContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_hcxtq")
+theme = ExtResource("2_aheq8")
 text = "Reroll"
 
 [node name="RerollPrice" parent="VBoxContainer/ButtonsContainer/VBoxContainer" instance=ExtResource("3_aheq8")]
