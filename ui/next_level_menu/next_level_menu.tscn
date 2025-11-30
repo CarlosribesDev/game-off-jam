@@ -45,6 +45,6 @@ label_settings = ExtResource("2_ak2q7")
 layout_mode = 2
 theme = ExtResource("3_ak2q7")
 theme_type_variation = &"icon button"
-text = "GO NEXT LEVEL"
+text = "Go Next Level"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NextLevelButton" to="." method="_on_button_pressed"]
