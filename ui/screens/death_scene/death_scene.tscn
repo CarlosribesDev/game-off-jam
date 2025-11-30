@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcq16u6g6ahsp"]
+[gd_scene load_steps=5 format=3 uid="uid://dcq16u6g6ahsp"]
 
 [ext_resource type="Script" uid="uid://emvdt530upjb" path="res://ui/screens/death_scene/death_scene.gd" id="1_4klge"]
-[ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="1_6cgjv"]
+[ext_resource type="FontFile" uid="uid://bflrptlda1ab2" path="res://assets/fonts/YujiSyuku-Regular.ttf" id="2_iyktl"]
+[ext_resource type="Theme" uid="uid://bfml0mq4yid2" path="res://ui/styles/themes/menu_buttons_icon_theme.tres" id="2_yjtth"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_6cgjv"]
+[sub_resource type="LabelSettings" id="LabelSettings_lg0me"]
+font = ExtResource("2_iyktl")
 font_size = 50
+outline_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
 
 [node name="DeathScene" type="CanvasLayer"]
 process_mode = 3
@@ -27,11 +30,11 @@ theme_override_constants/separation = 60
 [node name="Label" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "YOU DIE :("
-label_settings = SubResource("LabelSettings_6cgjv")
+label_settings = SubResource("LabelSettings_lg0me")
 
 [node name="TryAgainButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_6cgjv")
-text = "TRY AGAIN"
+theme = ExtResource("2_yjtth")
+text = "Try Again"
 
 [connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/TryAgainButton" to="." method="_on_try_again_button_pressed"]
