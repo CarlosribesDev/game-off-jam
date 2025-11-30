@@ -7,7 +7,7 @@
 script = ExtResource("1_s7cxe")
 enemy_type = 3
 amount = 3
-interval_spawn = 2.0
+interval_spawn = 3.0
 path = 1
 metadata/_custom_type_script = "uid://dxrvobswk6in5"
 
