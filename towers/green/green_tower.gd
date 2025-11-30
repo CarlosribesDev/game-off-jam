@@ -8,6 +8,7 @@ var poison_damage = 0
 var local_num_waves = 3
 
 @onready var projectil_spawn_position: Marker2D = $ProjectilSpawnPosition
+@onready var attack_player: AudioStreamPlayer2D = $AttackPlayer
 
 func _ready():
 	super._ready()
@@ -23,6 +24,7 @@ func _set_buffs(tower_buffs: TowerBuff) -> void:
 	poison_damage = green_tower_buffs.poison_damage
 	
 func _fire() -> void:
+	attack_player.play()
 	for i in range(num_waves):
 		if not _current_target:
 			await get_tree().create_timer(0.1).timeout
