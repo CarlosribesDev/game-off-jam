@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://buy1ngpem0c3b"]
+
+[ext_resource type="FontFile" uid="uid://bflrptlda1ab2" path="res://assets/fonts/YujiSyuku-Regular.ttf" id="1_iav3f"]
+
+[resource]
+font = ExtResource("1_iav3f")
+font_size = 48
+font_color = Color(0.7137255, 0.77254903, 0.64705884, 1)
