@@ -4,6 +4,7 @@ extends Node
 signal tower_count_change(tower_type: Tower.TowerType, amount: int, event: TowerEvent)
 signal tower_sold(tower: Tower)
 signal tower_selected(tower: Tower)
+signal tower_placing(value: bool)
 
 enum TowerEvent { PLACEMENT, SOLD, RESET }
 

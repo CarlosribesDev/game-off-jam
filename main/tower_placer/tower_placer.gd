@@ -7,6 +7,7 @@ var _is_placing = false:
 	set(value):
 		_is_placing = value
 		TowerPlacementManager.is_placing = value
+		TowerPlacementManager.tower_placing.emit(value)
 var _current_tower_instance: Tower = null
 var _is_valid_placement = false
 
