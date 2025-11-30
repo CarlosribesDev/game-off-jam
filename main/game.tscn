@@ -89,6 +89,7 @@ size_flags_vertical = 8
 visible = false
 
 [node name="TowerStatsPanel" parent="UILayer" instance=ExtResource("14_514y6")]
+visible = false
 
 [node name="RewardsLayer" type="CanvasLayer" parent="."]
 

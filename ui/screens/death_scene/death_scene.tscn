@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcq16u6g6ahsp"]
 
-[ext_resource type="Script" uid="uid://emvdt530upjb" path="res://ui/death_scene/death_scene.gd" id="1_4klge"]
+[ext_resource type="Script" uid="uid://emvdt530upjb" path="res://ui/screens/death_scene/death_scene.gd" id="1_4klge"]
 [ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="1_6cgjv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6cgjv"]

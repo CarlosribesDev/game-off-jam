@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bapepoqni3ebq" path="res://ui/next_level_menu/next_level_menu.gd" id="1_bqcem"]
 [ext_resource type="LabelSettings" uid="uid://5y24o0w47m16" path="res://ui/styles/label_settings/label_settings_30.tres" id="2_ak2q7"]
-[ext_resource type="Theme" uid="uid://dswsb3nw14dn7" path="res://ui/styles/themes/menu_theme.tres" id="2_rufx6"]
+[ext_resource type="Theme" uid="uid://bfml0mq4yid2" path="res://ui/styles/themes/menu_buttons_icon_theme.tres" id="3_ak2q7"]
 
 [node name="NextLevelMenu" type="Control"]
 texture_filter = 2
@@ -43,7 +43,7 @@ label_settings = ExtResource("2_ak2q7")
 
 [node name="NextLevelButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_rufx6")
+theme = ExtResource("3_ak2q7")
 theme_type_variation = &"icon button"
 text = "GO NEXT LEVEL"
 

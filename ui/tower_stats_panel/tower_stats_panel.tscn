@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3qi4qp0ko3iq"]
+[gd_scene load_steps=11 format=3 uid="uid://c3qi4qp0ko3iq"]
 
 [ext_resource type="Script" uid="uid://mlvqjhawbttl" path="res://ui/tower_stats_panel/tower_stats_panel.gd" id="1_vyalh"]
 [ext_resource type="Texture2D" uid="uid://dv68a541qeosv" path="res://assets/sprites/icons/icons_sword.png" id="2_vyalh"]
 [ext_resource type="Texture2D" uid="uid://bvev5rktov31p" path="res://assets/sprites/icons/icons_timer.png" id="3_dw57d"]
 [ext_resource type="Texture2D" uid="uid://dio1imbeyg458" path="res://assets/sprites/icons/icons_tower_range.png" id="4_725y3"]
 [ext_resource type="Texture2D" uid="uid://bme2x52a33nre" path="res://assets/sprites/icons/icons_explosion.png" id="5_cuf0w"]
-[ext_resource type="FontFile" uid="uid://teqiajjnkdyx" path="res://assets/fonts/RobotoMono-Bold.ttf" id="6_7nqn3"]
-[ext_resource type="StyleBox" uid="uid://dcjn1y7ofuii7" path="res://ui/styles/box_style/button_box.tres" id="7_876xl"]
+[ext_resource type="Theme" uid="uid://bfml0mq4yid2" path="res://ui/styles/themes/menu_buttons_icon_theme.tres" id="6_876xl"]
 [ext_resource type="LabelSettings" uid="uid://bqa8xh2lpphdf" path="res://ui/styles/label_settings/label_settings_24.tres" id="8_gs8y8"]
 [ext_resource type="Texture2D" uid="uid://b2f6c4qd0c0s2" path="res://assets/sprites/buttons/wavecoinv2_30px.png" id="9_8m5ds"]
 
@@ -25,43 +24,15 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqjw5"]
-bg_color = Color(0.87, 0.56956, 0.5481, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-expand_margin_left = 20.0
-expand_margin_top = 10.0
-expand_margin_right = 20.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="Theme" id="Theme_gs8y8"]
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_hover_pressed_color = Color(0.15614, 0.0609936, 0.0447696, 1)
-Button/colors/font_pressed_color = Color(0.442911, 0.442911, 0.442911, 1)
-Button/constants/line_spacing = 5
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 30
-Button/fonts/font = ExtResource("6_7nqn3")
-Button/styles/focus = SubResource("StyleBoxFlat_oqjw5")
-Button/styles/hover = SubResource("StyleBoxFlat_oqjw5")
-Button/styles/hover_pressed = SubResource("StyleBoxFlat_oqjw5")
-Button/styles/normal = ExtResource("7_876xl")
-Button/styles/pressed = SubResource("StyleBoxFlat_oqjw5")
-
 [node name="TowerStatsPanel" type="Control" node_paths=PackedStringArray("damage_label", "attack_speed_label", "range_label", "critic_label", "level_label", "current_exp_label", "required_exp_label", "price_label")]
 texture_filter = 4
 layout_mode = 3
-anchors_preset = 6
-anchor_left = 1.0
+anchor_left = 0.88100004
 anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 0.82600003
+offset_left = 203.16016
+offset_bottom = -352.08002
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_vyalh")
@@ -73,6 +44,11 @@ level_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExpDataContai
 current_exp_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExpDataContainer/ExpContainer/CurrentExpLabel")
 required_exp_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ExpDataContainer/ExpContainer/RequiredExpLabel")
 price_label = NodePath("VBoxContainer/HBoxContainer/PriceLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -246,7 +222,7 @@ layout_mode = 2
 
 [node name="SellButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
 layout_mode = 2
-theme = SubResource("Theme_gs8y8")
+theme = ExtResource("6_876xl")
 text = "Sell"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
