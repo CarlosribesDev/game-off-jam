@@ -6,10 +6,10 @@ class_name DamageNumbers extends Control
 
 func _ready():
 	var tween1 = create_tween()
-	
-	tween1.tween_property(damage_label, "position", Vector2(0, -10), time_to_vanish)
+	var random_number: int = randi_range(-100, 100)
+	tween1.tween_property(damage_label, "position", Vector2(random_number, -30), time_to_vanish / 2)
 	var tween2 = create_tween()
-	tween2.tween_property(damage_label, "modulate:a", 0.0, time_to_vanish)
+	tween2.tween_property(damage_label, "modulate:a", 0.0, time_to_vanish / 2)
 	await  tween2.finished
 	queue_free()
 	
