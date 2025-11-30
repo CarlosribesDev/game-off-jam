@@ -1,6 +1,6 @@
 class_name HintLabel extends Label
 
-const INITIAL_HINT = "[AWSD] Move Camera"
+const INITIAL_HINT = "[WASD] Move Camera"
 
 
 var is_first_value: bool = true
