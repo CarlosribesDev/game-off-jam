@@ -9,11 +9,11 @@ func _ready():
 	)
 	EnemyManager.new_level_loaded.connect(_show_next_wave_button)
 
-func _on_next_wave_button_pressed() -> void:
-	EnemyManager.next_wave_pressed.emit()
-	visible = false
-	next_wave_button.disabled = true
-	
 func _show_next_wave_button(_total_waves: int) -> void:
 	visible = true
 	next_wave_button.disabled = false
+
+func _on_next_wave_button_xarreta_pressed() -> void:
+	EnemyManager.next_wave_pressed.emit()
+	visible = false
+	next_wave_button.disabled = true

@@ -32,9 +32,9 @@ func _on_card_pressed(relic: Relic) -> void:
 	
 	reliq_selected.emit(relic)
 	
-func _on_exit_button_pressed() -> void:
-	queue_free()
-
-func _on_reroll_button_pressed() -> void:
+func _on_reroll_button_xarreta_pressed() -> void:
 	if _reroll_priece <= Score.gold:
 		RewardsManager.reroll()
+
+func _on_exit_button_xarreta_pressed() -> void:
+	queue_free()

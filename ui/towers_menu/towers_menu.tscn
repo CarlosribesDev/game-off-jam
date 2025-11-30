@@ -9,10 +9,10 @@
 [ext_resource type="Resource" uid="uid://bndxfmba1ltf8" path="res://towers/stats/stats_base/red_tower_stats_base.tres" id="5_whndq"]
 [ext_resource type="Texture2D" uid="uid://dheamk0vu60q6" path="res://assets/sprites/towers/torreticas_hover.png" id="6_7564t"]
 [ext_resource type="Resource" uid="uid://c1d3qqqdi2oxp" path="res://towers/stats/stats_base/green_tower_stats_base.tres" id="7_ffkn8"]
-[ext_resource type="Theme" uid="uid://bfml0mq4yid2" path="res://ui/styles/themes/menu_buttons_icon_theme.tres" id="8_m2keh"]
 [ext_resource type="PackedScene" uid="uid://edi2t1ojyywt" path="res://ui/shared/gold_price/gold_price.tscn" id="8_s4otn"]
 [ext_resource type="Texture2D" uid="uid://dlix83276rvep" path="res://assets/sprites/icons/relic_icon_40px.png" id="9_m2keh"]
 [ext_resource type="Resource" uid="uid://by0giydu700gy" path="res://towers/stats/stats_base/blue_tower_stats_base.tres" id="10_1p1l7"]
+[ext_resource type="PackedScene" uid="uid://d0qrluaokqdpj" path="res://ui/components/xarreta_action_button/xarrete_action_button.tscn" id="14_ffkn8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7564t"]
 load_path = "res://.godot/imported/torreticas.png-17515f9f954911ae56e1723a7291f4d2.ctex"
@@ -109,11 +109,10 @@ mouse_filter = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="RewardsUIButon" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="RelicButton" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("14_ffkn8")]
 layout_mode = 2
-theme = ExtResource("8_m2keh")
-theme_override_icons/icon = ExtResource("9_m2keh")
 text = "Relic"
+icon = ExtResource("9_m2keh")
 
 [node name="GoldPrice" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("8_s4otn")]
 layout_mode = 2
@@ -140,6 +139,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="RedTowerButton" to="." method="_on_red_tower_button_pressed"]
 [connection signal="pressed" from="GreenTowerButton" to="." method="_on_green_tower_button_pressed"]
 [connection signal="pressed" from="BlueTowerButton" to="." method="_on_blue_tower_button_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/RewardsUIButon" to="." method="_on_rewards_ui_buton_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/RewardsUIButon" to="." method="_on_rewards_ui_buton_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/RewardsUIButon" to="." method="_on_rewards_ui_buton_pressed"]
+[connection signal="xarreta_mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/RelicButton" to="." method="_on_relic_button_xarreta_mouse_entered"]
+[connection signal="xarreta_mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/RelicButton" to="." method="_on_relic_button_xarreta_mouse_exited"]
+[connection signal="xarreta_pressed" from="MarginContainer/HBoxContainer/VBoxContainer/RelicButton" to="." method="_on_relic_button_pressed"]

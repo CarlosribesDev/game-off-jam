@@ -26,4 +26,5 @@ texture_normal = ExtResource("2_w0s13")
 texture_hover = ExtResource("3_cv0sx")
 stretch_mode = 0
 
+[connection signal="mouse_entered" from="ConfigButton" to="." method="_on_config_button_mouse_entered"]
 [connection signal="pressed" from="ConfigButton" to="." method="_on_config_button_pressed"]

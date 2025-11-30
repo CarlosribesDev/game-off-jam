@@ -4,7 +4,6 @@ const RED_TOWER = preload("uid://d36t7geqp1sh")
 const BLUE_TOWER = preload("uid://cwyyp2r266blt")
 const GREEN_TOWER = preload("uid://oj5ilwusjvuo")
 
-
 signal tower_selected(tower_scene: PackedScene)
 
 #BUTTONS
@@ -39,15 +38,15 @@ func _on_tower_price_change(tower_type: Tower.TowerType, price: int) -> void:
 		Tower.TowerType.GREEN: green_tower_button.price = price
 		Tower.TowerType.BLUE: blue_tower_button.price = price
 
-func _on_rewards_ui_buton_pressed() -> void:
+func _on_relic_button_pressed() -> void:
 	if RewardsManager.show_rewards_price <= Score.gold:
 		Score.gold -= RewardsManager.show_rewards_price
 		var next_price = roundi(RewardsManager.show_rewards_price * 1.10)
 		RewardsManager.show_rewards_price = next_price
 		RewardsManager.show_rewards_ui()
 
-func _on_rewards_ui_buton_mouse_entered() -> void:
+func _on_relic_button_xarreta_mouse_entered() -> void:
 	relic_hint.visible = true
-	
-func _on_rewards_ui_buton_mouse_exited() -> void:
+
+func _on_relic_button_xarreta_mouse_exited() -> void:
 	relic_hint.visible = false
