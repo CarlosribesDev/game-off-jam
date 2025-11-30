@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D noise_texture: repeat_enable, filter_nearest;
 uniform float density: hint_range(0.0, 1.0) = 1;
-uniform vec2 speed = vec2(0.03, 0.002);
+uniform vec2 speed = vec2(0.05, -0.03);
 
 void fragment() {
 	//move

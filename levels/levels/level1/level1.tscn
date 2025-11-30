@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://c7mje6qnw3kos"]
+[gd_scene load_steps=16 format=4 uid="uid://c7mje6qnw3kos"]
 
 [ext_resource type="PackedScene" uid="uid://b3rjk0365pn1t" path="res://levels/level_base.tscn" id="1_vfbd4"]
 [ext_resource type="Resource" uid="uid://c3gtvqdnqatph" path="res://levels/levels/level1/lv1_waves.tres" id="2_hvvdv"]
 [ext_resource type="TileSet" uid="uid://o7pvkiagionv" path="res://assets/sprites/tilesheet/base_tile_set.tres" id="3_ejamm"]
 [ext_resource type="PackedScene" uid="uid://gb8anbp5v7hc" path="res://levels/portal/blue_portal.tscn" id="4_6ydyq"]
+[ext_resource type="PackedScene" uid="uid://k6124g2ra8s5" path="res://main/fog/fog_sky.tscn" id="4_hvvdv"]
 [ext_resource type="PackedScene" uid="uid://b8g0wp8j02vu4" path="res://levels/portal/orange_portal.tscn" id="5_hljxm"]
 [ext_resource type="Texture2D" uid="uid://c22o1eieco5r3" path="res://assets/sprites/decoration/Plant1.png" id="6_84jsr"]
 [ext_resource type="Texture2D" uid="uid://cqmucrgq3oiq7" path="res://assets/sprites/decoration/Plant2.png" id="7_gfa01"]
@@ -40,16 +41,18 @@ curve = SubResource("Curve2D_vy21w")
 [node name="CameraInitPos" parent="." index="5"]
 position = Vector2(847, 222)
 
-[node name="BluePortal" parent="." index="7" instance=ExtResource("4_6ydyq")]
+[node name="fog" parent="." index="7" instance=ExtResource("4_hvvdv")]
+
+[node name="BluePortal" parent="." index="8" instance=ExtResource("4_6ydyq")]
 position = Vector2(207, -315.00003)
 frame_progress = 0.48736614
 flip_h = true
 
-[node name="OrangePortal" parent="." index="8" instance=ExtResource("5_hljxm")]
+[node name="OrangePortal" parent="." index="9" instance=ExtResource("5_hljxm")]
 position = Vector2(2043.9999, 178.99983)
 frame_progress = 0.0
 
-[node name="Node2D" type="Node2D" parent="." index="9"]
+[node name="Node2D" type="Node2D" parent="." index="10"]
 position = Vector2(2043.9999, 178.99983)
 rotation = -1.0471976
 scale = Vector2(0.5, 0.5)

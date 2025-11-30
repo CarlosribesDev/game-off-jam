@@ -1,45 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://cehei4f2fjq5d"]
+[gd_scene load_steps=9 format=3 uid="uid://qpnuwoqcmihr"]
 
-[ext_resource type="Shader" uid="uid://b2s2a4a344wye" path="res://assets/shaders/fog.gdshader" id="1_vdjh0"]
-[ext_resource type="Shader" uid="uid://budm157inow2h" path="res://assets/shaders/fog2.gdshader" id="2_v5swj"]
+[ext_resource type="Shader" uid="uid://b2s2a4a344wye" path="res://assets/shaders/fog.gdshader" id="1_abs70"]
+[ext_resource type="Shader" uid="uid://budm157inow2h" path="res://assets/shaders/fog2.gdshader" id="2_wngqf"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0hbgn"]
-frequency = 0.0019
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dkyn7"]
+frequency = 0.0025
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fvngm"]
 width = 1920
 height = 1080
-noise = SubResource("FastNoiseLite_0hbgn")
+noise = SubResource("FastNoiseLite_dkyn7")
 seamless = true
 seamless_blend_skirt = 0.75
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gcgcv"]
-shader = ExtResource("1_vdjh0")
+shader = ExtResource("1_abs70")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_fvngm")
 shader_parameter/density = 0.25
 shader_parameter/speed = Vector2(0.01, 0.0005)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cjoj4"]
-frequency = 0.0007
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fvngm"]
+frequency = 0.0006
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gcgcv"]
 width = 1920
 height = 1080
-noise = SubResource("FastNoiseLite_cjoj4")
+noise = SubResource("FastNoiseLite_fvngm")
 seamless = true
 seamless_blend_skirt = 0.75
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xg2l"]
-shader = ExtResource("2_v5swj")
+shader = ExtResource("2_wngqf")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_gcgcv")
 shader_parameter/density = 1.0
-shader_parameter/speed = Vector2(0.09, -0.06)
+shader_parameter/speed = Vector2(0.01, 0.0005)
 
 [node name="fog" type="ParallaxBackground"]
 scroll_ignore_camera_zoom = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5516461, 0.31803885, 0.44273406, 1)
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-visible = false
 motion_mirroring = Vector2(1920, 1080)
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
