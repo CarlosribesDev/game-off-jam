@@ -16,7 +16,6 @@ script = ExtResource("1_dktk2")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_bottom = 400
 
 [node name="NextWaveButton" type="Button" parent="MarginContainer"]
 layout_mode = 2
