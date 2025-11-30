@@ -125,10 +125,17 @@ func _die() -> void:
 	queue_free()
 
 func _show_damage(attack: Attack) -> void:
+	const MAX_OFFSET: int = 30
 	var damage_numbers: DamageNumbers = DAMAGE_NUMBERS.instantiate()
+	var base_position: Vector2 = numbers_displayed_pos.global_position
+	
+	var random_offset_x: int = randi_range(-MAX_OFFSET, MAX_OFFSET)
+	var random_offset_y: int = randi_range(-MAX_OFFSET, MAX_OFFSET)
+	
+	damage_numbers.global_position = base_position + Vector2(random_offset_x, random_offset_y)
+	
 	get_tree().root.add_child(damage_numbers)
 	damage_numbers.set_attack(attack)
-	damage_numbers.global_position = numbers_displayed_pos.global_position
 
 func _show_gold_dropped() -> void:
 	var gold_droped: GoldDropped = GOLD_DROPPED.instantiate()

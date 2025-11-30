@@ -172,6 +172,7 @@ theme_override_styles/panel = ExtResource("2_u1kcm")
 [node name="TowerButton" type="TextureButton" parent="VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 mouse_filter = 1
 theme = SubResource("Theme_bxa3v")
 texture_normal = SubResource("AtlasTexture_c656n")
