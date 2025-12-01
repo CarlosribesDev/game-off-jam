@@ -17,6 +17,7 @@ func set_direction(dir: Vector2, attack: Attack) -> void:
 	look_at(global_position + _direction)
 
 func _ready():
+	green_attack.play()
 	ring_animation_timer.wait_time = animation_time
 	ring_animation_timer.start()
 	speed = speed * Settings.time_speed
