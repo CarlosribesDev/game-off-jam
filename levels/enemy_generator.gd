@@ -26,6 +26,11 @@ func init_next_wave() -> void:
 	current_wave = level_waves[current_wave_number - 1]
 	# reset groups counter
 	total_groups = current_wave.groups.size()
+	for group in current_wave.groups:
+		# add extra group for double path
+		if group.path == EnemyGroup.PATH.BOTH:
+			total_groups += 1
+			
 	groups_handled_count = 0
 	groups_init_count = 0
 	# handle groups
@@ -123,7 +128,6 @@ func _report_finished() -> void:
 		return
 		
 	if current_wave_number == total_waves:
-		print("LEVEL DONE")
 		EnemyManager.last_wave_finished.emit(current_wave)
 	else:
 		current_wave_number += 1
