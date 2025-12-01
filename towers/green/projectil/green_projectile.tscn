@@ -27,6 +27,7 @@ shape = SubResource("RectangleShape2D_qvvkj")
 
 [node name="GreenAttack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_eg2fn")
+volume_db = -12.0
 bus = &"SFX"
 
 [node name="Duration" type="Timer" parent="."]
