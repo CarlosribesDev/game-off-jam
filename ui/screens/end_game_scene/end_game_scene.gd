@@ -8,6 +8,7 @@ var ready_to_exit: bool = false
 @onready var label_3: Label = $PanelContainer/CenterContainer/VBoxContainer2/Label3
 
 func _ready() -> void:
+	AudioManager.play_main_piano()
 	label_3.visible = false
 	panel.modulate = Color.WHITE
 	panel.modulate.a = 1.0 

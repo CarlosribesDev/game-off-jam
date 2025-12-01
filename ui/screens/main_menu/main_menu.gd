@@ -6,10 +6,12 @@ const CREDITS = preload("uid://bayb10jsajj4a")
 @export var direct_init: bool = true
 
 func _ready() -> void:
+	AudioManager.play_main_piano()
 	if direct_init:
 		_on_new_run_button_xarreta_pressed()
 
 func _on_new_run_button_xarreta_pressed() -> void:
+	AudioManager.stop_main_piano()
 	get_tree().change_scene_to_packed(GAME)
 
 func _on_credits_button_xarreta_pressed() -> void:
