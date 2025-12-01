@@ -137,3 +137,4 @@ bus = &"Percu"
 
 [node name="BasePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_q4bav")
+bus = &"Music"
