@@ -58,6 +58,7 @@ func _hide_next_level_menu() -> void:
 	
 func _show_next_level_menu() -> void:
 	if current_level_number == levels.size():
+		await  get_tree().create_timer(5).timeout
 		get_tree().change_scene_to_packed(END_GAME_SCENE)
 	else:
 		next_level_menu.visible = true

@@ -3,6 +3,10 @@ class_name ExprienceHandler extends Node
 signal exp_data_change(new_exp_data: TowerExpData)
 signal level_up(new_level: int)
 
+@export var level_up_postion: Vector2
+
+const LEVEL_UP_ALERT = preload("uid://v3kg1gg10gnc")
+
 const MAX_LEVEL = 10
 const EXP_BY_HIT = 1
 
@@ -60,6 +64,9 @@ func _update_requited_exp() -> void:
 	
 func _level_up() -> void:
 	level += 1
+	var level_up_alert = LEVEL_UP_ALERT.instantiate()
+	get_parent().add_child(level_up_alert)
+	level_up_alert.position = level_up_postion
 	_update_requited_exp()
 
 # SINCRONICE DATA WITH TOWER

@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bayb10jsajj4a"]
+[gd_scene load_steps=8 format=3 uid="uid://bayb10jsajj4a"]
 
 [ext_resource type="Script" uid="uid://dxhoravxnebf" path="res://ui/screens/main_menu/credits.gd" id="1_h5co8"]
 [ext_resource type="Texture2D" uid="uid://bq6lt7tlxw0te" path="res://assets/sprites/ui/main_menu_background.png" id="2_5h68c"]
 [ext_resource type="LabelSettings" uid="uid://buy1ngpem0c3b" path="res://ui/styles/label_settings/credits_label.tres" id="2_dcci6"]
+[ext_resource type="FontFile" uid="uid://bflrptlda1ab2" path="res://assets/fonts/YujiSyuku-Regular.ttf" id="3_gfe4y"]
 [ext_resource type="PackedScene" uid="uid://huthfefiu18l" path="res://ui/components/xarreta_menu_button/xarreta_menu_button.tscn" id="5_gfe4y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfe4y"]
 texture = ExtResource("2_5h68c")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pfuvh"]
+font = ExtResource("3_gfe4y")
+font_size = 58
+font_color = Color(0.7137255, 0.77254903, 0.64705884, 1)
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_h5co8")
@@ -24,21 +30,31 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game by Xarreta Games"
+label_settings = SubResource("LabelSettings_pfuvh")
+horizontal_alignment = 1
+
+[node name="WorkersContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="RibiLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="RibiLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/WorkersContainer"]
 layout_mode = 2
 text = "Capitan Xarreta - Programming / Design"
 label_settings = ExtResource("2_dcci6")
 horizontal_alignment = 1
 
-[node name="AngelLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="AngelLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/WorkersContainer"]
 layout_mode = 2
 text = "Cerbatana - Audio / Design"
 label_settings = ExtResource("2_dcci6")
 horizontal_alignment = 1
 
-[node name="SaraLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="SaraLabel" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer/WorkersContainer"]
 layout_mode = 2
 text = "BabuLine - 2D Artist"
 label_settings = ExtResource("2_dcci6")
